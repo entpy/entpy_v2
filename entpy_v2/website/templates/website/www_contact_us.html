@@ -1,0 +1,148 @@
+{% extends "website/inc/base2.html" %}
+{% load staticfiles static %}
+
+{# extra css #}
+{% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
+
+{# menu active element #}
+{% block contact_us_navigation_active %}active{% endblock %}
+
+{# section title #}
+{% block section_title %}Contattaci{% endblock %}
+
+{# breadcrumbs item #}
+{% block breadcrumbs_item %}<li>Contattaci</li>{% endblock %}
+
+{# section content #}
+{% block page_content %}
+	<!-- Contact Area Start -->
+	<section class="contact-area">
+		<div class="container text-center">
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Contattaci adesso!</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">&quot; Richiedi le informazioni che preferisci, ti risponderemo nel più breve tempo possibile. Il preventivo è completamente <b>GRATUITO</b>, cosa aspetti, entra anche tu nel futuro e cambia in meglio il modo di lavorare.&quot;</div>
+			<!-- Start: Contact Form Area -->
+			<div class="contact-form-main clearfix">
+				<form name="contact" method="post">
+					<div id="contact-form">
+						<input type="text" id="contact-name" class="first-field animated" data-animation="fadeInUp" data-animation-delay="200" name="" placeholder="Il Tuo Nome *">
+						<input type="text" id="contact-email" class="second-field animated" data-animation="fadeInUp" data-animation-delay="400" name="" placeholder="La Tua Email *">
+						<input type="text" id="contact-phone" class="third-field animated" data-animation="fadeInUp" data-animation-delay="600" name="" placeholder="Il Tuo Telefono">
+						<textarea id="contact-msg" class="forth-field animated" data-animation="fadeInUp" data-animation-delay="800" name="" placeholder="Scrivi Qui La Tua Richiesta *"></textarea>
+						<button type="submit" id="contact-submit" class="input-submit animated" data-animation="fadeInUp" data-animation-delay="1000">Invia</button>
+					</div>
+					<div id="contact-loading">
+						Invio in corso...
+					</div>
+					<div id="contact-success">
+						Il tuo messaggio è stato inviato con successo, una risposta ti arriverà nel più breve tempo possibile. Grazie!
+					</div>
+					<div id="contact-failed">
+						Ops...invio non riuscito, riprova più tardi.
+					</div>
+				</form>
+			</div>
+			<!-- End: Contact Form Area -->
+			<!-- Start: Contact Address Area -->
+			<div class="contact-address clearfix">
+				<div class="col-md-6 animated" data-animation="fadeInLeft" data-animation-delay="200">
+					<i class="fa fa-building-o"></i>
+					<h5>Posizione</h5>
+					<p>Torino, Italia</p>
+				</div>
+				<div class="col-md-6 animated" data-animation="fadeInRight" data-animation-delay="600">
+					<i class="fa fa-envelope"></i>
+					<h5>Email</h5>
+					<p><strong>Progetti :</strong> <a href="#">info@company.com</a><br><strong>Supporto :</strong> <a href="#">support@company.com</a></p>
+				</div>
+			</div>
+			<!-- End: Contact Address Area -->
+			<!-- Start: Social Icons Area -->
+			<div class="social-main">
+				<ul class="social">
+					<li class="animated" data-animation="fadeInRight" data-animation-delay="100"><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li class="animated" data-animation="fadeInRight" data-animation-delay="200"><a href="#"><i class="fa fa-twitter"></i></a></li>
+				</ul>
+			</div>
+			<!-- End: Social Icons Area -->
+		</div>
+	</section>
+	<!-- Contact Area End -->
+	<!-- Map Area Start -->
+	<section class="map-main" id="contact">
+		<!-- Start: Address and Logo -->
+		<div class="address-on-map">
+			<div class="container">
+				<span class="logo-address animated" data-animation="fadeInRight" data-animation-delay="200"><a href="#"><img src="{% static "website/img/logo.png" %}" alt=""></a></span>
+				<ul class="address">
+					<li class="animated" data-animation="fadeInRight" data-animation-delay="400"><i class="fa fa-building"></i> Torino, Italia</li>
+					{# <li class="animated" data-animation="fadeInRight" data-animation-delay="600"><i class="fa fa-phone"></i> Phone : +39 1234</li> #}
+					<li class="animated" data-animation="fadeInRight" data-animation-delay="800"><i class="fa fa-envelope"></i> Email : <a href="#">info@company.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- End: Address and Logo -->
+	</section>
+	<!-- Map Area End -->
+	<!-- Client Logos Area Start -->
+	<section class="client-logos-main">
+		<div class="container carousel-main-cont clearfix">
+			<!-- Start: Carousel Area -->
+			<div class="clients-carousel crsl-items" data-navigation="skill_nav">
+				<ul class="logo-carousel crsl-wrap">
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-01.png" %}" alt=""></a></li>
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-02.png" %}" alt=""></a></li>
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""></a></li>
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-04.png" %}" alt=""></a></li>
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-05.png" %}" alt=""></a></li>
+					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""></a></li>
+				</ul>
+			</div>
+			<!-- End: Carousel Area -->
+			<!-- Start: Carousel Navigation -->
+			<ul id="skill_nav" class="crsl-nav">
+				<li><a class="previous" href="#"><i class="fa fa-chevron-left"></i></a></li>
+				<li><a class="next" href="#"><i class="fa fa-chevron-right"></i></a></li>
+			</ul>
+			<!-- End: Carousel Navigation -->
+		</div>
+	</section>
+	<!-- Client Logos Area End -->
+{% endblock %}
+{% block extra_js %}
+	<script>
+	    function c(c) {
+		var t = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		return t.test(c)
+	    }
+
+	    function t() {
+		$("#contact-error").hide();
+		var t = "yes", a = $("#contact-name").val();
+		"" == a && ("yes" == t && $("#contact-name").focus(), $("#contact-name").addClass("error"), t = "no");
+		var e = $("#contact-email").val();
+		"" == e && ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no"), c(e) || ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no");
+		var n = $("#contact-msg").val();
+		("" == n || "Your Message *" == n) && ("yes" == t && $("#contact-msg").focus(), $("#contact-msg").addClass("error"), t = "no"), "yes" != t ? $("#contact-error").show().html("Please review the above details filled") : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").show(), $.ajax({
+		    url: "reachus.php",
+		    type: "post",
+		    cache: !1,
+		    data: {
+			name: a,
+			email: e,
+			phone: o,
+			msg: n
+		    },
+		    success: function(c) {
+			"ok" == c ? ($("#contact-error").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-success").show(), $("#contact-name").val(""), $("#contact-email").val(""), $("#contact-phone").val(""), $("#contact-msg").val(""), setTimeout("$('#contact-success').hide();$('#contact-form').show();", 5e3)) : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-failed").show(), setTimeout("$('#contact-failed').hide();$('#contact-form').show();", 5e3))
+		    }
+		}))
+	    }
+	    $(document).ready(function() {
+		$("#contact-submit").click(function(c) {
+		    c.preventDefault(), t()
+		}), $("input:text, textarea").keyup(function() {
+		    $(this).removeClass("error")
+		}), $("#contact-error").hide(), $("#contact-loading").hide(), $("#contact-success").hide(), $("#contact-failed").hide(), $("#rsvp-error").hide(), $("#rsvp-loading").hide(), $("#rsvp-success").hide(), $("#rsvp-failed").hide()
+	    });
+	</script>
+{% endblock extra_js %}

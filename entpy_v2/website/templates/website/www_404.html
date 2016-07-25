@@ -1,0 +1,25 @@
+{% extends "website/inc/base1.html" %}
+{% load staticfiles static %}
+
+{# page top #}
+{% block page_top %}
+	<!-- Banner Area -->
+	<section id="pg-sin-main">
+		<div id="particles" class="for-sin-page">
+			<div class="pg-sin-cont">
+				<div class="container">
+					<div class="big-txt-cont">404</div>
+					<h5>Oopss..! Questo è un problema...!</h5>
+					<a class="button-large" href="/">Torna in Home Page</a>
+				</div>
+			</div>
+			<div class="pg-sin-img-cont">
+				<div class="pg-sin-bldimg"><img src="{% static "website/img/buildings.png" %}" alt=""></div>
+				<div class="pg-sin-rocketimg"><img src="{% static "website/img/rocket.png" %}" alt=""></div>
+			</div>
+		</div>
+	</section>
+	<!-- Banner Area End -->
+{% endblock %}
+{# content page section #}
+{% block page_content %}{% endblock %}

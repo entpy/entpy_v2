@@ -1,0 +1,203 @@
+{% load staticfiles static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	{% block head %}
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Entpy - Realizziamo siti che portano risultati</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link rel="shortcut icon" href="{% static "website/img/favicon.ico" %}">
+	<!-- Custom css style -->
+	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
+	{# TODO: da eliminare se funziona tutto lo stile #}
+	<!-- Bootstrap -->
+	{# <link rel="stylesheet" href="{% static "website/css/bootstrap.css" %}"> #}
+	<!-- font-awesome -->
+	{# <link rel="stylesheet" href="{% static "website/css/font-awesome.min.css" %}"> #}
+	<!-- Image Popup -->
+	{# <link rel="stylesheet" href="{% static "website/css/magnific-popup.css" %}"> #}
+	<!-- Animation -->
+	{# <link rel="stylesheet" href="{% static "website/css/animate.css" %}"> #}
+	<!-- Light Theme Core CSS -->
+	{# <link rel="stylesheet" href="{% static "website/css/style.css" %}"> #}
+	<!-- Google Fonts here -->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
+	{% block extra_css %}{% endblock %}
+	{% endblock head %}
+</head>
+<body>
+	<!-- Header Area Start -->
+	<header class="header-area">
+		<div class="container clearfix">
+			<!-- Start: Logo Area -->
+			<div class="logo-area">
+				<a href="/" class="logo"><img src="{% static "website/img/logo.png" %}" alt="Entpy Software"></a></div>
+			<!-- End: Logo Area -->
+			<!-- Start: Navigation Area -->
+			<nav class="nav-main">
+				<ul class="menu-cont">
+					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
+					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
+					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Cosa ti offriamo</a></li>
+					<li class="{% block portfolio_navigation_active %}{% endblock %}"><a href="/portfolio">Portfolio</a></li>
+					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
+				</ul>
+			</nav>
+			<!-- End: Navigation Area -->
+		</div>
+	</header>
+	<!-- Header Area End -->
+	{# top page section #}
+	{% block page_top %}{% endblock %}
+	{# content page section #}
+	{% block page_content %}{% endblock %}
+	<!-- Footer Area Start -->
+	<footer class="footer-area">
+		<!-- Start: Footer Top -->
+		<div class="footer-top">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Footer Menu -->
+					<div class="col-md-2 footer-menu animated" data-animation="fadeInLeft" data-animation-delay="200">
+						<nav class="footer-nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/chi-siamo">Chi siamo</a></li>
+								<li><a href="/servizi">Cosa ti offriamo</a></li>
+								<li><a href="/portfolio">Portfolio</a></li>
+								<li><a href="/contatti">Contattaci</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- End: Footer Menu -->
+					<!-- Start: Footer About -->
+					<div class="col-md-4 footer-about animated" data-animation="fadeInUp" data-animation-delay="400"> <img class="footer-logo" src="{% static "website/img/logo-footer.png" %}" alt="">
+						<p>Ci occupiamo di realizzare e mettere in rilievo la tua immagine digitale creando siti e applicazioni che abbiano un obiettivo e non siano fini a se stessi. Abbiamo le idee e gli strumenti giusti per te!</p>
+					</div>
+
+					<!-- End: Footer About -->
+					<!-- Start: Footer Address -->
+					<div class="col-md-3 footer-address animated" data-animation="fadeInUp" data-animation-delay="600">
+						<ul>
+							<li class="email"><a href="#">info@entpy.com</a> </li>
+							{# <li class="phone"><a href="#">123</a> </li> #}
+							<li class="address"><b>Entpy Software</b><br>Torino, Italia</li>
+						</ul>
+					</div>
+					<!-- End: Footer Address -->
+					<!-- Start: Footer Map -->
+					<div class="col-md-3 footer-map animated" data-animation="fadeInRight" data-animation-delay="800"> <img class="map" src="{% static "website/img/map-footer.png" %}" alt="">
+						<ul class="social-footer">
+							<li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+						</ul>
+					</div>
+					<!-- End: Footer Map -->
+				</div>
+			</div>
+		</div>
+		<!-- End: Footer Top -->
+		<!-- Start: Footer Bottom -->
+		<div class="footer-bottom">
+			<div class="container">
+				<p>{% now "Y" %} Entpy Software | Made With <i class="fa fa-heart"></i> ...!</p>
+			</div>
+		</div>
+		<!-- End: Footer Bottom -->
+	</footer>
+	<!-- Footer Area End -->
+	<!-- js libraries -->
+	<script src="{% static "website/js/custom.js" %}"></script> // ok
+	<!-- Bootstrap Js -->
+	<script src="{% static "website/js/bootstrap.js" %}"></script>
+	<script>
+		$(document).ready(function(){
+			// 02. Scroll To Top
+			$('.menu-cont li a[href*=#]:not([href=#])').click(function() {
+				$('.menu-cont li a').parent().removeClass('active');
+				$(this).parent().addClass('active');
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html,body').animate({scrollTop: target.offset().top}, 1000);
+						return false;
+					}
+				}
+			});
+
+			// 03. Adding fixed position to header 
+			$(document).scroll(function() {
+				if ($(document).scrollTop() >= 1) {
+				  $('.header-area').addClass('navbar-fixed-top');
+				} else {
+				  $('.header-area').removeClass('navbar-fixed-top');
+				}
+			});
+
+			// 04. Menu Toggle
+			$( ".toggle-btn" ).click(function() {
+				$( ".nav-main" ).toggle();
+			});
+
+			// 05. Animations
+			$('.animated').appear(function() {
+				var elem = $(this);
+				var animation = elem.data('animation');
+				if ( !elem.hasClass('visible') ) {
+					var animationDelay = elem.data('animation-delay');
+					if ( animationDelay ) {
+						setTimeout(function(){
+							elem.addClass( animation + " visible" );
+						}, animationDelay);
+					} else {
+						elem.addClass( animation + " visible" );
+					}
+				}
+			});
+
+			// Testimonial Carousel
+			$(".crsl-items").carousel({
+				visible: 5,
+				itemMinWidth: 171,
+				itemMargin: 50
+			});
+
+			// flexslider init
+			$(".banner-area").flexslider();
+
+			// easytab init
+			$("#tab-container").easytabs({updateHash:!1})
+
+			// particle js init
+			$("#particles").particleground({dotColor:"#424756",lineColor:"#363a49"}),$(".intro").css({"margin-top":-($(".intro").height()/2)});
+
+			// testimonial carousel init
+			$(".carousel").carousel({interval:5e3});
+		});
+
+		// --------------------  Image Popup --------------------
+		// --------------------------------------------------------
+		$('.portfolio-items').magnificPopup({
+			delegate: 'a.zoom', // child items selector, by clicking on it popup will open
+			type: 'image'
+			// other options
+		});
+
+		// --------------- Testimonial Carousel -------------------
+		// --------------------------------------------------------
+		$('.carousel').carousel({
+			interval: 5000
+		})
+	</script>
+	<!-- Appear Js -->
+	<script type="text/javascript" src="{% static "website/js/jquery.appear.js" %}"></script>
+	{% block extra_js %}{% endblock %}
+</body>
+</html>

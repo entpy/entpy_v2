@@ -1,0 +1,243 @@
+{% extends "website/inc/base1.html" %}
+{% load staticfiles static %}
+
+{# menu active element #}
+{% block home_navigation_active %}active{% endblock %}
+
+{# section content #}
+{% block page_content %}
+	<!-- About Area Start -->
+	<section class="about-area" id="about">
+		<!-- Start: About Top -->
+		<div class="about-top-area">
+			<div class="container">
+				<!-- Start Top Image -->
+				<div class="top-float-img">
+					<div class="image-container"><img src="{% static "website/img/rocket.png" %}" alt=""> </div>
+				</div>
+				<!-- End Top Image -->
+				<h1 class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="100">Questa è Entpy</h1>
+				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="200">Design creativi, App e siti web a prezzi competitivi.</h5>
+				<hr class="special">
+				<div class="row colum-contents clearfix">
+					<div class="col-md-4 col-conts animated" data-animation="fadeInLeft" data-animation-delay="200">
+						<div class="icon-container"><img src="{% static "website/img/icon-01.png" %}" alt=""> </div>
+						<h4>Design Stupendi</h4>
+						<p>Realizziamo siti web ad alto impatto grafico, curando pixel per pixel il vostro prodotto. Dobbiamo essere certi che i nostri prodotti abbiamo un elevato livello di usabilità.</p>
+					</div>
+					<div class="col-md-4 col-conts animated" data-animation="fadeInUp" data-animation-delay="400">
+						<div class="icon-container"><img src="{% static "website/img/icon-02.png" %}" alt=""> </div>
+						<h4>100% Responsive</h4>
+						<p>Siamo nell'era degli smartphone, la nostra idea è che i siti e da noi sviluppate si adattino a qualunque device, avvicinando il più possibile il sito ad un App.</p>
+					</div>
+					<div class="col-md-4 col-conts animated" data-animation="fadeInRight" data-animation-delay="600">
+						<div class="icon-container"><img src="{% static "website/img/icon-03.png" %}" alt=""> </div>
+						<h4>Tecnologie All'Avanguardia</h4>
+						<p>Utilizziamo le più moderne tecnologie che il mondo dell'informatica mette a disposizione per realizzare i nostri siti. Questo si traduce in strumenti particolarmente all'avanguardia.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End: About Top -->
+	</section>
+	<!-- About Area End -->
+	<!-- Statistics Area Start -->
+	<section class="statistics-main">
+		<div class="solid-bg">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Statstics 01 -->
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="200"> <span class="icon-cont"><i class="fa fa-heart"></i></span> <span class="count-txt">1024</span>
+						<hr> <span class="count-btm">Hearts</span> </div>
+					<!-- End: Statstics 01 -->
+					<!-- Start: Statstics 02 -->
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="400"> <span class="icon-cont"><i class="fa fa-star"></i></span> <span class="count-txt">102</span>
+						<hr> <span class="count-btm">Ideas</span> </div>
+					<!-- End: Statstics 02 -->
+					<!-- Start: Statstics 03 -->
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="600"> <span class="icon-cont"><i class="fa fa-map-marker"></i></span> <span class="count-txt">108</span>
+						<hr> <span class="count-btm">Countries</span> </div>
+					<!-- End: Statstics 03 -->
+					<!-- Start: Statstics 04 -->
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="800"> <span class="icon-cont"><i class="fa fa-user-secret"></i></span> <span class="count-txt">1890</span>
+						<hr> <span class="count-btm">Clients</span> </div>
+					<!-- End: Statstics 04 -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Statistics Area End -->
+	<!-- About Area Start -->
+	<section class="about-main">
+		<div class="container">
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
+				<p>&quot; Realizziamo il tuo sito web secondo le più moderne tecniche, ponendo in primo piano l'obiettivo da raggiungere più adatto a te. Affidati ad Entpy per avere finalmente quel passo in più che ti farà distinguere dalla concorrenza. &quot;</p>
+			</div>
+			<div class="row col-content clearfix">
+				<!-- Start: Story Area -->
+				<div class="col-md-4 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+					<h4>The Story</h4>
+					<hr>
+					<p>Ecco come il software dovrebbe essere: bello, semplice e utile. Questi sono i tre piloni portanti sui quali sorge Entpy.</p>
+					<p>I nostri prodotti sono indicati per i privati ma anche per le piccole e medie imprese.</p>
+				</div>
+				<!-- Start: Story Area -->
+				<!-- Start: Tab Area -->
+				<div class="col-md-8 about-tab animated" data-animation="fadeInUp" data-animation-delay="400">
+					<div id="tab-container">
+						<ul class="etabs clearfix">
+							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-angellist"></i> Our Vision</a> </li>
+							<li class="tab"><a href="#tab-02"><i class="fa fa-trophy"></i> Our Mission</a> </li>
+							<li class="tab"><a href="#tab-03"><i class="fa fa-question-circle"></i> Chi siamo</a> </li>
+						</ul>
+						<div class="panel-container">
+							<!-- Start: Tab 01 -->
+							<div id="tab-01" class="tab-cont clearfix active">
+								<div class="tab-cont-right"> <img src="{% static "website/img/icon-04.png" %}" alt=""> </div>
+								<div class="tab-cont-left">
+									<h6>Our Vision</h6>
+									<p>L'informatica si è radicata pian piano nella nostra cultura, divenendo parte integrante della nostra vita. Alcuni la sottovalutano, altri la sfruttano, altri la vedono come un'arte da modellare per realizzare le cose più incredibili. La vision di Entpy è questo: arte modellata al di sopra del resto.</p>
+								</div>
+							</div>
+							<!-- End: Tab 01 -->
+							<!-- Start: Tab 02 -->
+							<div id="tab-02" class="tab-cont clearfix">
+								<div class="tab-cont-right"> <img src="{% static "website/img/icon-01.png" %}" alt=""> </div>
+								<div class="tab-cont-left">
+									<h6>Our Mission</h6>
+									<p>Il nostro obiettivo è quello di realizzare strumenti informatici che siano utili ed abbiano davvero un potenziale, i classici siti di presentazione (o statici) sono ormai obsoleti e non hanno utilità se non sono sorretti da un sistema che converta le visite in qualcosa di concreto, come possono essere dei nuovi clienti. Per questo sappiamo come creare il tuo ecosistema digitale.</p>
+								</div>
+							</div>
+							<!-- End: Tab 02 -->
+							<!-- Start: Tab 03 -->
+							<div id="tab-03" class="tab-cont clearfix">
+								<div class="tab-cont-right"> <img src="{% static "website/img/icon-02.png" %}" alt=""> </div>
+								<div class="tab-cont-left">
+									<h6>Chi siamo</h6>
+									<p>Prima di tutto siamo appassionati di informatica, adoriamo tenerci informati sulle nuove tecnologie. Ci piace applicare dei semplici concetti nella vita reale, cercando di renderla migliore per tutti. Le nostre idee prependono per l'open source, anche tutti gli strumenti utilizzati per realizzare il tuo sito hanno questa natura. Questo ti offre la garanzia che i nostri prodotti sono frutto del panorama informatico più attivo, aggiornato e sicuro.</p>
+								</div>
+							</div>
+							<!-- End: Tab 03 -->
+						</div>
+					</div>
+				</div>
+				<!-- End: Tab Area -->
+			</div>
+		</div>
+	</section>
+	<!-- About Area End -->
+	<!-- Portfolio Area Start -->
+	<section class="portfolio-main for-home-page" id="portfolio">
+		<!-- Start: portfolio Area -->
+		<div class="portfolio-items">
+			<ul class="portfolio-content clearfix">
+				<li class="portfolio-items web-design animated" data-animation="fadeIn" data-animation-delay="100">
+					<div class="port-image"> <span class="mask">
+							<a href="{% static "website/img/portfolio-01.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-01.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items logo-design animated" data-animation="fadeIn" data-animation-delay="200">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-02.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-02.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items web-design animated" data-animation="fadeIn" data-animation-delay="300">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-03.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-03.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items wordpress animated" data-animation="fadeIn" data-animation-delay="400">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-04.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-04.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items web-design animated" data-animation="fadeIn" data-animation-delay="500">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-05.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-05.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items wordpress animated" data-animation="fadeIn" data-animation-delay="600">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-06.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-06.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items web-design animated" data-animation="fadeIn" data-animation-delay="700">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-07.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-07.jpg" %}" alt=""> </div>
+				</li>
+				<li class="portfolio-items logo-design animated" data-animation="fadeIn" data-animation-delay="800">
+					<div class="port-image"> <span class="mask">
+                        	<a href="{% static "website/img/portfolio-08.jpg" %}" class="zoom"><i class="fa fa-search-plus"></i></a>
+                        	<a href="#"><i class="fa fa-link"></i></a>
+                        </span> <img src="{% static "website/img/portfolio-08.jpg" %}" alt=""> </div>
+				</li>
+			</ul>
+		</div>
+		<!-- End: portfolio Area -->
+	</section>
+	<!-- Portfolio Area End -->
+	<!-- Team Area Start -->
+	<section class="team-area-top text-center">
+		<div class="container">
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Ti Aiutiamo Ad Avere Successo</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">" Il nostro obiettivo non è quello di fare un sito, il nostro obiettivo è quello di realizzare uno strumento plasmato ad-hoc su di te che sia funzionante e porti a casa i risultati richiesti. Contattaci per un preventivo gratuito, siamo sicuri che troverai le nostre idee utili ed efficaci."</div> <a href="#" class="button-large animated" data-animation="fadeInUp" data-animation-delay="400">Contattaci adesso</a> </div>
+		<div class="team-image-big"><img src="{% static "website/img/team-big.jpg" %}" alt=""> </div>
+	</section>
+	<!-- Team Area End -->
+	<!-- Call To Action Area Start -->
+	<section class="call-to-action">
+		<div class="container clearfix">
+			<div class="col-md-9 call-to-left">
+				<div class="ico-container animated" data-animation="fadeInLeft" data-animation-delay="200"><i class="fa fa-heart"></i> </div>
+				<h3 class="animated" data-animation="fadeInRight" data-animation-delay="300">Il tuo successo è il nostro punto di forza</h3>
+				<p class="animated" data-animation="fadeInRight" data-animation-delay="500">La chiave del successo è la qualità, la stessa che ti offriamo noi per te.</p>
+			</div>
+			<div class="call-to-right animated" data-animation="fadeInRight" data-animation-delay="400"><a href="#" class="button-large">Contattaci adesso</a> </div>
+		</div>
+	</section>
+	<!-- Call To Action Area End -->
+	<!-- Client Logos Area Start -->
+	<section class="client-logos-main">
+		<div class="container carousel-main-cont clearfix">
+			<!-- Start: Carousel Area -->
+			<div style="width: 100%; overflow: hidden;" class="clients-carousel crsl-items" data-navigation="skill_nav">
+				<ul style="width: 1428px; margin-left: -238px;" class="logo-carousel crsl-wrap">
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item">
+						<a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""> </a>
+					</li>
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item crsl-active">
+						<a href="#"><img src="{% static "website/img/client-logo-01.png" %}" alt=""> </a>
+					</li>
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item">
+						<a href="#"><img src="{% static "website/img/client-logo-02.png" %}" alt=""> </a>
+					</li>
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item">
+						<a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""> </a>
+					</li>
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item">
+						<a href="#"><img src="{% static "website/img/client-logo-04.png" %}" alt=""> </a>
+					</li>
+					<li style="position: relative; float: left; overflow: hidden; height: auto; width: 188px; margin-right: 50px;" class="crsl-item">
+						<a href="#"><img src="{% static "website/img/client-logo-05.png" %}" alt=""> </a>
+					</li>
+				</ul>
+			</div>
+			<!-- End: Carousel Area -->
+			<!-- Start: Carousel Navigation -->
+			<ul id="skill_nav" class="crsl-nav">
+				<li><a class="previous" href="#"><i class="fa fa-chevron-left"></i></a> </li>
+				<li><a class="next" href="#"><i class="fa fa-chevron-right"></i></a> </li>
+			</ul>
+			<!-- End: Carousel Navigation -->
+		</div>
+	</section>
+	<!-- Client Logos Area End -->
+{% endblock %}

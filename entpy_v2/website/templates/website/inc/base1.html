@@ -1,0 +1,35 @@
+{% extends "website/inc/base.html" %}
+{% load staticfiles static %}
+{# top page section #}
+{% block page_top %}
+	<section id="home">
+		<div id="particles">
+			<div class="cont-area">
+				<div class="container banner-area">
+					<!-- Start: Slider Container -->
+					<ul class="slides clearfix">
+						<!-- Start: Slider 01 -->
+						<li>
+							<h1>Realizziamo il tuo sito</h1>
+							<h5>Siti web realmente funzionanti ad altro impatto grafico</h5> <a href="/contatti" class="button-large">Incontra il futuro</a> </li>
+						<!-- End: Slider 01 -->
+						<!-- Start: Slider 02 -->
+						<li>
+							<h1>Tecnologie avanzate</h1>
+							<h5>Tecniche all'avanguardia a prezzi competitivi</h5> <a href="/contatti" class="button-large">Incontra il futuro</a> </li>
+						<!-- End: Slider 02 -->
+						<!-- Start: Slider 03 -->
+						<li>
+							<h1>Risultati tangibili</h1>
+							<h5>Traduciamo il tuo audience in potenziali clienti</h5> <a href="/contatti" class="button-large">Incontra il futuro</a> </li>
+						<!-- End: Slider 03 -->
+					</ul>
+					<!-- End: Slider Container -->
+				</div>
+			</div>
+			<!-- Start: Banner Bottom -->
+			<div class="banner-btm-img"><img src="{% static "website/img/buildings.png" %}" alt=""> </div>
+			<!-- End: Banner Bottom -->
+		</div>
+	</section>
+{% endblock %}

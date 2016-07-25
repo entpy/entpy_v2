@@ -1,0 +1,28 @@
+{% extends "website/inc/base.html" %}
+{% load staticfiles static %}
+{# top page section #}
+{% block page_top %}
+	<section id="home">
+		<div id="particles" class="inner-particle">
+			<div class="cont-area-inner">
+				<div class="inner-rocket-img"><img src="{% static "website/img/rocket-inner.png" %}" alt=""></div>
+				<div class="heading-area">
+					<div class="container clearfix">
+						<div class="col-md-8">
+							<h1>{% block section_title %}{% endblock %}</h1>
+						</div>
+						<div class="col-md-4">
+							<ul class="breadcrumbs-inner">
+								<li class="active"><a href="/index">Home</a></li>
+								{% block breadcrumbs_item %}{% endblock %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Start: Banner Bottom -->
+			<div class="banner-btm-img"><img src="{% static "website/img/buildings.png" %}" alt=""></div>
+			<!-- End: Banner Bottom -->
+		</div>
+	</section>
+{% endblock %}
