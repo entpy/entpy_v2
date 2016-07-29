@@ -103,39 +103,12 @@
 		<!-- End: portfolio Area -->
 	</section>
 	<!-- Portfolio Area End -->
-	<!-- Call To Action 02 Start -->
-	<section class="call-to-action-02">
-		<div class="solid-bg">
-			<div class="container text-center">
-				<h2>Are you ready for awesomeness ?</h2>
-				<h4>Lorem ipsum dolor sit amet, consetetur sadips tempor...!</h4>
-				<a class="button-large" href="#">Contact Us</a>
-			</div>
-		</div>
-	</section>
-	<!-- Call To Action 02 End -->
+
+	<!-- Call To Action Area Start -->
+	{% include "website/blocks/bar1.html" %}
+	<!-- Call To Action Area End -->
+
 	<!-- Client Logos Area Start -->
-	<section class="client-logos-main">
-		<div class="container carousel-main-cont clearfix">
-			<!-- Start: Carousel Area -->
-			<div class="clients-carousel crsl-items" data-navigation="skill_nav">
-				<ul class="logo-carousel crsl-wrap">
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-01.png" %}" alt=""></a></li>
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-02.png" %}" alt=""></a></li>
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""></a></li>
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-04.png" %}" alt=""></a></li>
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-05.png" %}" alt=""></a></li>
-					<li class="crsl-item"><a href="#"><img src="{% static "website/img/client-logo-03.png" %}" alt=""></a></li>
-				</ul>
-			</div>
-			<!-- End: Carousel Area -->
-			<!-- Start: Carousel Navigation -->
-			<ul id="skill_nav" class="crsl-nav">
-				<li><a class="previous" href="#"><i class="fa fa-chevron-left"></i></a></li>
-				<li><a class="next" href="#"><i class="fa fa-chevron-right"></i></a></li>
-			</ul>
-			<!-- End: Carousel Navigation -->
-		</div>
-	</section>
+	{% include "website/blocks/bar2.html" %}
 	<!-- Client Logos Area End -->
 {% endblock %}
