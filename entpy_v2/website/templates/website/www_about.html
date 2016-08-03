@@ -114,7 +114,15 @@
 	<!-- About Area End -->
 
 	<!-- About Color Start -->
-	{% include "website/blocks/bar3.html" %}
+	<section class="about-area-inner">
+		<!-- Start: About Top -->
+		<div class="about-top-area">
+			<div class="container">
+				{% include "website/blocks/bar3.html" %}
+			</div>
+		</div>
+		<!-- End: About Top -->
+	</section>
 	<!-- About Color End -->
 
 	<!-- Call To Action Area Start -->
@@ -151,64 +159,6 @@
 		</div>
 	</section>
 	<!-- About Page Content End -->
-	{% comment %}
-	<!-- Testimonial Area Start -->
-	<section class="testimonial-main">
-		<div class="solid-bg">
-			<div class="container text-center">
-				<div class="testimonial-cont-main">
-					<div  class="testimonial-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-						<!-- Testimonial Slider Start -->
-						<div id="carousel-example-generic" class="lum-testimonial carousel slide" data-ride="carousel">
-							<!-- Slider Indicators Start -->
-							<ol class="carousel-indicators">
-								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"><a href="#"></a></li>
-								<li data-target="#carousel-example-generic" data-slide-to="1"><a href="#"></a></li>
-								<li data-target="#carousel-example-generic" data-slide-to="2"><a href="#"></a></li>
-								<li data-target="#carousel-example-generic" data-slide-to="3"><a href="#"></a></li>
-							</ol>
-							<!-- Slider Indicators End -->
-							<!-- Wrapper for slides Start -->
-							<div class="carousel-inner">
-								<!-- Slide 01 Start -->
-								<div class="item active">
-									<div class="testimonial-user-photo"><span><img src="{% static "website/img/testimonial-user-01.jpg" %}" alt=""></span></div>
-									<p>&quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod sed libero at congue. Praesent vulputate dolor velit, in consectetur adipiscing condimentum odio libero consectetur adipiscing elit. Nunc euismod sed libero adipiscing dolor sit amet. &quot;</p>
-									<p><span>- Martina Henry -</span></p>
-								</div>
-								<!-- Slide 01 End -->
-								<!-- Slide 02 Start -->
-								<div class="item">
-									<div class="testimonial-user-photo"><span><img src="{% static "website/img/testimonial-user-01.jpg" %}" alt=""></span></div>
-									<p>&quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod sed libero at congue. Praesent vulputate dolor velit, in consectetur adipiscing condimentum odio libero consectetur adipiscing elit. Nunc euismod sed libero adipiscing dolor sit amet. &quot;</p>
-									<p><span>- Martina Henry -</span></p>
-								</div>
-								<!-- Slide 02 End -->
-								<!-- Slide 03 Start -->
-								<div class="item">
-									<div class="testimonial-user-photo"><span><img src="{% static "website/img/testimonial-user-01.jpg" %}" alt=""></span></div>
-									<p>&quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod sed libero at congue. Praesent vulputate dolor velit, in consectetur adipiscing condimentum odio libero consectetur adipiscing elit. Nunc euismod sed libero adipiscing dolor sit amet. &quot;</p>
-									<p><span>- Martina Henry -</span></p>
-								</div>
-								<!-- Slide 03 End -->
-								<!-- Slide 04 Start -->
-								<div class="item">
-									<div class="testimonial-user-photo"><span><img src="{% static "website/img/testimonial-user-01.jpg" %}" alt=""></span></div>
-									<p>&quot; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod sed libero at congue. Praesent vulputate dolor velit, in consectetur adipiscing condimentum odio libero consectetur adipiscing elit. Nunc euismod sed libero adipiscing dolor sit amet. &quot;</p>
-									<p><span>- Martina Henry -</span></p>
-								</div>
-								<!-- Slide 04 End -->
-							</div>
-							<!-- Wrapper for slides End -->
-						</div>
-						<!-- Testimonial Slider End -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Testimonial Area End -->
-	{% endcomment %}
 
 	<!-- Client Logos Area Start -->
 	{% include "website/blocks/bar2.html" %}

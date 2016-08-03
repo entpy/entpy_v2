@@ -19,23 +19,7 @@
 				<h1 class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="100">Questa è Entpy</h1>
 				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="200">Design creativi, App e siti web a prezzi competitivi.</h5>
 				<hr class="special">
-				<div class="row colum-contents clearfix">
-					<div class="col-md-4 col-conts animated" data-animation="fadeInLeft" data-animation-delay="200">
-						<div class="icon-container"><img src="{% static "website/img/icon-01.png" %}" alt=""> </div>
-						<h4>Design Stupendi</h4>
-						<p>Realizziamo siti web ad alto impatto grafico, curando pixel per pixel il vostro prodotto. Dobbiamo essere certi che i nostri prodotti abbiamo un elevato livello di usabilità.</p>
-					</div>
-					<div class="col-md-4 col-conts animated" data-animation="fadeInUp" data-animation-delay="400">
-						<div class="icon-container"><img src="{% static "website/img/icon-02.png" %}" alt=""> </div>
-						<h4>100% Responsive</h4>
-						<p>Siamo nell'era degli smartphone, la nostra idea è che i siti e da noi sviluppate si adattino a qualunque device, avvicinando il più possibile il sito ad un App.</p>
-					</div>
-					<div class="col-md-4 col-conts animated" data-animation="fadeInRight" data-animation-delay="600">
-						<div class="icon-container"><img src="{% static "website/img/icon-03.png" %}" alt=""> </div>
-						<h4>Tecnologie All'Avanguardia</h4>
-						<p>Utilizziamo le più moderne tecnologie che il mondo dell'informatica mette a disposizione per realizzare i nostri siti. Questo si traduce in strumenti particolarmente all'avanguardia.</p>
-					</div>
-				</div>
+				{% include "website/blocks/bar3.html" %}
 			</div>
 		</div>
 		<!-- End: About Top -->
@@ -47,20 +31,36 @@
 			<div class="container">
 				<div class="row clearfix">
 					<!-- Start: Statstics 01 -->
-					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="200"> <span class="icon-cont"><i class="fa fa-heart"></i></span> <span class="count-txt">1024</span>
-						<hr> <span class="count-btm">Hearts</span> </div>
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="200">
+						<span class="icon-cont">
+							<i class="fa fa-heart"></i>
+						</span>
+						<span class="count-txt">Passione</span>
+					</div>
 					<!-- End: Statstics 01 -->
 					<!-- Start: Statstics 02 -->
-					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="400"> <span class="icon-cont"><i class="fa fa-star"></i></span> <span class="count-txt">102</span>
-						<hr> <span class="count-btm">Ideas</span> </div>
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="400">
+						<span class="icon-cont">
+							<i class="fa fa-lightbulb-o"></i>
+						</span>
+						<span class="count-txt">Idee</span>
+					</div>
 					<!-- End: Statstics 02 -->
 					<!-- Start: Statstics 03 -->
-					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="600"> <span class="icon-cont"><i class="fa fa-map-marker"></i></span> <span class="count-txt">108</span>
-						<hr> <span class="count-btm">Countries</span> </div>
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="600">
+						<span class="icon-cont">
+							<i class="fa fa-thumbs-o-up"></i>
+						</span>
+						<span class="count-txt">Qualità</span>
+					</div>
 					<!-- End: Statstics 03 -->
 					<!-- Start: Statstics 04 -->
-					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="800"> <span class="icon-cont"><i class="fa fa-user-secret"></i></span> <span class="count-txt">1890</span>
-						<hr> <span class="count-btm">Clients</span> </div>
+					<div class="col-md-3 col-cont animated" data-animation="fadeInRight" data-animation-delay="800">
+						<span class="icon-cont">
+							<i class="fa fa-diamond"></i>
+						</span>
+						<span class="count-txt">Risultati</span>
+					</div>
 					<!-- End: Statstics 04 -->
 				</div>
 			</div>
@@ -79,11 +79,11 @@
 					<h4>Come lo facciamo</h4>
 					<hr>
 					<p>Ecco come il software dovrebbe essere: <b>bello</b>, <b>semplice</b> e <b>utile</b>. Questi sono i tre piloni portanti sui quali sorge <b>Entpy</b>.</p>
-					<p>I nostri prodotti sono indicati per i privati, ma anche per piccole e medie imprese.</p>
+					<p>I nostri prodotti sono rivolti a privati, ma anche a piccole e medie imprese.</p>
 				</div>
 				<!-- Start: Story Area -->
 				<!-- Start: Tab Area -->
-				<div class="col-md-8 about-tab animated">
+				<div class="col-md-8 about-tab animated" data-animation="fadeInUp" data-animation-delay="200">
 					<div id="tab-container">
 						<ul class="etabs clearfix">
 							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-eye"></i> Visione</a> </li>

@@ -636,7 +636,7 @@ a.nav-order-btn, a.nav-order-btn:hover {
     display: inline-table;
 }
 .statistics-main .count-txt {
-    font-size: 90px;
+    font-size: 49px;
     line-height: 80px;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
@@ -2105,7 +2105,7 @@ h2 {
     position: inherit;
 }
 .header-area, .nav-main .menu-cont li ul.sub-menu {
-    position: inherit;
+    position: fixed!important;
 }
 h1 {
     font-size: 42px;
