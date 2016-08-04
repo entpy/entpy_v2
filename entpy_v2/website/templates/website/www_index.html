@@ -87,34 +87,34 @@
 					<div id="tab-container">
 						<ul class="etabs clearfix">
 							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-eye"></i> Visione</a> </li>
-							<li class="tab"><a href="#tab-02"><i class="fa fa-trophy"></i> Mission</a> </li>
+							<li class="tab"><a href="#tab-02"><i class="fa fa-trophy"></i> Obiettivo</a> </li>
 							<li class="tab"><a href="#tab-03"><i class="fa fa-question-circle"></i> Chi siamo</a> </li>
 						</ul>
 						<div class="panel-container">
 							<!-- Start: Tab 01 -->
 							<div id="tab-01" class="tab-cont clearfix active">
-								<div class="tab-cont-right"> <img src="{% static "website/img/icon-04.png" %}" alt=""> </div>
+								<div class="tab-cont-right"> <img src="{% static "website/img/vision.png" %}" alt=""> </div>
 								<div class="tab-cont-left">
-									<h6>Our Vision</h6>
+									<h6>La nostra visione</h6>
 									<p>L'informatica si è radicata pian piano nella nostra cultura, divenendo parte integrante della nostra vita. Alcuni la sottovalutano, altri la sfruttano, altri la vedono come un'arte da modellare per realizzare le cose più incredibili. La vision di Entpy è questo: arte modellata al di sopra del resto.</p>
 								</div>
 							</div>
 							<!-- End: Tab 01 -->
 							<!-- Start: Tab 02 -->
 							<div id="tab-02" class="tab-cont clearfix">
-								<div class="tab-cont-right"> <img src="{% static "website/img/icon-01.png" %}" alt=""> </div>
+								<div class="tab-cont-right"> <img src="{% static "website/img/mission.png" %}" alt=""> </div>
 								<div class="tab-cont-left">
-									<h6>Our Mission</h6>
+									<h6>Il nostro obiettivo</h6>
 									<p>Il nostro obiettivo è quello di realizzare strumenti informatici che siano utili ed abbiano davvero un potenziale, i classici siti di presentazione (o statici) sono ormai obsoleti e non hanno utilità se non sono sorretti da un sistema che converta le visite in qualcosa di concreto, come possono essere dei nuovi clienti. Per questo sappiamo come creare il tuo ecosistema digitale.</p>
 								</div>
 							</div>
 							<!-- End: Tab 02 -->
 							<!-- Start: Tab 03 -->
 							<div id="tab-03" class="tab-cont clearfix">
-								<div class="tab-cont-right"> <img src="{% static "website/img/icon-02.png" %}" alt=""> </div>
+								<div class="tab-cont-right"> <img src="{% static "website/img/chi-siamo.png" %}" alt=""> </div>
 								<div class="tab-cont-left">
 									<h6>Chi siamo</h6>
-									<p>Prima di tutto siamo appassionati di informatica, adoriamo tenerci informati sulle nuove tecnologie. Ci piace applicare dei semplici concetti nella vita reale, cercando di renderla migliore per tutti. Le nostre idee prependono per l'open source, anche tutti gli strumenti utilizzati per realizzare il tuo sito hanno questa natura. Questo ti offre la garanzia che i nostri prodotti sono frutto del panorama informatico più attivo, aggiornato e sicuro.</p>
+									<p>Prima di tutto siamo appassionati di informatica, adoriamo tenerci informati sulle nuove tecnologie. Ci piace applicare dei semplici concetti nella vita reale, cercando di renderla migliore per tutti. Le nostre idee prependono per l'open source, anche tutti gli strumenti utilizzati per realizzare il tuo sito hanno questa natura. Questo ti offre la garanzia che i nostri prodotti siano frutto del panorama informatico più attivo, aggiornato e sicuro.<br /><a href="/chi-siamo/">Leggi</a> altre informazioni su di noi.</p>
 								</div>
 							</div>
 							<!-- End: Tab 03 -->
@@ -129,8 +129,8 @@
 	<!-- Team Area Start -->
 	<section class="team-area-top text-center">
 		<div class="container">
-			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Ti Aiutiamo Ad Avere Successo</h2>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">" Il nostro obiettivo non è quello di fare un sito, il nostro obiettivo è quello di realizzare uno strumento plasmato ad-hoc per te che sia funzionante e porti dei <b>risultati</b> ben definiti. Contattaci per un <b>preventivo gratuito</b>, siamo sicuri che troverai le nostre <b>idee utili</b> ed <b>efficaci</b>."</div> <a href="#" class="button-large animated" data-animation="fadeInUp" data-animation-delay="400">Contattaci adesso</a> </div>
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Ti Aiutiamo Nel Tuo Successo</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">" Il nostro obiettivo non è quello di fare un sito, il nostro obiettivo è quello di realizzare uno strumento plasmato ad-hoc per te che sia funzionante e porti dei <b>risultati</b> ben definiti. Contattaci per un <b>preventivo gratuito</b>, siamo sicuri che troverai le nostre <b>idee utili</b> ed <b>efficaci</b>."</div> <a href="/contatti/" class="button-large animated" data-animation="fadeInUp" data-animation-delay="400">Contattaci adesso</a> </div>
 		<div class="team-image-big"><img src="{% static "website/img/team-big.jpg" %}" alt=""> </div>
 	</section>
 	<!-- Team Area End -->
@@ -138,8 +138,4 @@
 	<!-- Call To Action Area Start -->
 	{% include "website/blocks/bar1.html" %}
 	<!-- Call To Action Area End -->
-
-	<!-- Client Logos Area Start -->
-	{% include "website/blocks/bar2.html" %}
-	<!-- Client Logos Area End -->
 {% endblock %}

@@ -20,10 +20,11 @@ from website import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.www_index, name='www_index'),
-    url(r'^index$', views.www_index, name='www_index'),
-    url(r'^chi-siamo$', views.www_about, name='www_about'),
-    url(r'^servizi$', views.www_services, name='www_services'),
-    url(r'^portfolio$', views.www_portfolio, name='www_portfolio'),
-    url(r'^contatti$', views.www_contact_us, name='www_contact_us'),
-    url(r'^404$', views.www_404, name='www_404'),
+    url(r'^index/$', views.www_index, name='www_index'),
+    url(r'^chi-siamo/$', views.www_about, name='www_about'),
+    url(r'^servizi/$', views.www_services, name='www_services'),
+    url(r'^portfolio/$', views.www_portfolio, name='www_portfolio'),
+    url(r'^contatti/$', views.www_contact_us, name='www_contact_us'),
+    url(r'^404/$', views.www_404, name='www_404'),
+    url(r'^send_info_email/$', views.send_info_email, name='send_info_email'),
 ]

@@ -568,6 +568,7 @@ a.nav-order-btn, a.nav-order-btn:hover {
 }
 .panel-container {
     padding: 30px;
+    height: auto!important;
     border: 1px solid #ccc;
 }
 .panel-container .tab-cont {
