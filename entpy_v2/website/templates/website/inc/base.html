@@ -5,10 +5,9 @@
 	{% block head %}
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>Entpy - Realizziamo siti che portano risultati</title>
+	<title>{% block title %}Entpy - Realizziamo siti web che portano risultati{% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
+	<meta name="description" content="{% block description %}{% endblock %}">
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 	<!-- favicon -->
