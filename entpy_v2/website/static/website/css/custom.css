@@ -1749,6 +1749,9 @@ a.nav-order-btn, a.nav-order-btn:hover {
 .logo-carousel li.crsl-item {
     width: 171px!important;
 }
+.logo-carousel a {
+   cursor: default;
+}
 .client-logos-main ul.crsl-nav {
     padding: 0;
     margin: 0;
