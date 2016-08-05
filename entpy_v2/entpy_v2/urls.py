@@ -20,7 +20,6 @@ from website import views
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^$', views.www_index, name='www_index'),
-    url(r'^index/$', views.www_index, name='www_index'),
     url(r'^chi-siamo/$', views.www_about, name='www_about'),
     url(r'^servizi/$', views.www_services, name='www_services'),
     url(r'^contatti/$', views.www_contact_us, name='www_contact_us'),
