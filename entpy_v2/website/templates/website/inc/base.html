@@ -10,7 +10,16 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<link rel="shortcut icon" href="{% static "website/img/favicon.ico" %}">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="{% static "website/img/icons/favicon.ico" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/touch-icon-iphone.png" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/apple-touch-icon-72×72.png" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/apple-touch-icon-114×114.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/touch-icon-iphone-precomposed.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/apple-touch-icon-72×72-precomposed.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/apple-touch-icon-114×114-precomposed.png" %}" />
+
 	<!-- Custom css style -->
 	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
 	{% block extra_css %}{% endblock %}
