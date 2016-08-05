@@ -38,16 +38,17 @@ def send_info_email(request):
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone = request.POST.get("phone")
-        message = "Nome: " + name + "\nMittente: " + str(email) + "\nMessaggio: " + request.POST.get("msg")
+        txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg")
+        html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg")
         subject = "Richiesta informazioni"
 
         # send email
         send_status = send_mail(
             subject=subject,
-            message=message,
+            message=txt_message,
             from_email="no-reply@entpy.com",
             recipient_list=["info@entpy.com"],
-            html_message=message,
+            html_message=html_message,
         )
 
         data = {'success' : True, "send_status" : send_status }
