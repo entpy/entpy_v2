@@ -2,6 +2,6 @@
 User-agent: *
 Disallow: 
 Disallow: /404/
-Disallow: /segnalazione/
+Disallow: /send_info_email/
 
 Sitemap: http://www.entpy.com/sitemap.xml
