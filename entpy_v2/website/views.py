@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core.mail import send_mail
 from django.http import HttpResponse
 import json
 
@@ -33,15 +34,25 @@ def www_404(request):
 def send_info_email(request):
     """View to send an email"""
     if request.method == "POST":
-        # prelevo i dati e invio la mail
+        # retrieve email data
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone = request.POST.get("phone")
-        body = request.POST.get("msg")
+        message = "Nome: " + name + "\nMittente: " + str(email) + "\nMessaggio: " + request.POST.get("msg")
         subject = "Richiesta informazioni"
-        data = {'success' : True}
+
+        # send email
+        send_status = send_mail(
+            subject=subject,
+            message=message,
+            from_email="no-reply@entpy.com",
+            recipient_list=["info@entpy.com"],
+            html_message=message,
+        )
+
+        data = {'success' : True, "send_status" : send_status }
     else:
-        data = {'success' : False}
+        data = {'success' : False, "send_status" : send_status }
 
     # retrieve JSON response
     return HttpResponse(json.dumps(data), content_type="application/json")

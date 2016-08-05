@@ -84,10 +84,14 @@
 		"" == e && ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no"), c(e) || ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no");
 		var o = $("#contact-phone").val();
 		var n = $("#contact-msg").val();
+		// reading csrfmiddlewaretoken from cookie
+		var csrftoken = readCsrftokenFromCookie();
+
 		("" == n || "Your Message *" == n) && ("yes" == t && $("#contact-msg").focus(), $("#contact-msg").addClass("error"), t = "no"), "yes" != t ? $("#contact-error").show().html("Ricontrolla i dati che hai inserito sopra") : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").show(), $.ajax({
 		    url: "/send_info_email/",
 		    type: "post",
 		    cache: !1,
+		    headers: { "X-CSRFToken": csrftoken },
 		    data: {
 			name: a,
 			email: e,
@@ -95,7 +99,7 @@
 			msg: n
 		    },
 		    success: function(c) {
-			"ok" == c ? ($("#contact-error").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-success").show(), $("#contact-name").val(""), $("#contact-email").val(""), $("#contact-phone").val(""), $("#contact-msg").val(""), setTimeout("$('#contact-success').hide();$('#contact-form').show();", 5e3)) : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-failed").show(), setTimeout("$('#contact-failed').hide();$('#contact-form').show();", 5e3))
+			true == c.success ? ($("#contact-error").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-success").show(), $("#contact-name").val(""), $("#contact-email").val(""), $("#contact-phone").val(""), $("#contact-msg").val(""), setTimeout("$('#contact-success').hide();$('#contact-form').show();", 5e3)) : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-failed").show(), setTimeout("$('#contact-failed').hide();$('#contact-form').show();", 5e3))
 		    }
 		}))
 	    }
