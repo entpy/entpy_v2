@@ -2149,7 +2149,9 @@ h4 {
     min-height: 600px;
 }
 .cont-area {
-    top: 10%}
+    margin-top: 53px;
+    top: 10%
+}
 .about-top-area .top-float-img .image-container {
     bottom: 70px;
 }
