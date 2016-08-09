@@ -57,3 +57,8 @@ def send_info_email(request):
 
     # retrieve JSON response
     return HttpResponse(json.dumps(data), content_type="application/json")
+
+@ensure_csrf_cookie
+def l_www_landing1(request):
+    """Landing page1"""
+    return render(request, 'website/l/www_landing1.html', {})
