@@ -2307,6 +2307,7 @@ h4 {
     font-size: 24px;
     line-height: 30px;
 }
+hr { width: 50%; }
 }@media (max-width:380px) {
     .logo-area {
     text-align: center;
