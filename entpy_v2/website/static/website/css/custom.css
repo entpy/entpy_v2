@@ -315,9 +315,9 @@ a.nav-order-btn, a.nav-order-btn:hover {
 .banner-area {
     text-align: center;
 }
-.banner-area h1 {
-    font-size: 72px;
-    color: #fff;
+.banner-area h1, .banner-area h2 {
+    font-size: 72px!important;
+    color: #fff!important;
 }
 .banner-area h5 {
     color: #1e9fb4;
@@ -388,7 +388,7 @@ a.nav-order-btn, a.nav-order-btn:hover {
     margin: 0;
     z-index: 30;
 }
-.banner-area .slides li h1 {
+.banner-area .slides li h1, .banner-area .slides li h2 {
     opacity: 1;
     -webkit-transform: scale(1.5);
     -moz-transform: scale(1.5);
@@ -398,7 +398,7 @@ a.nav-order-btn, a.nav-order-btn:hover {
     -moz-transition: -moz-transform .5s cubic-bezier(.19, 1, .22, 1), opacity 1s cubic-bezier(.19, 1, .22, 1);
     transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1), -moz-transform 2.5s cubic-bezier(.19, 1, .22, 1);
 }
-.banner-area .slides li.flex-active-slide h1 {
+.banner-area .slides li.flex-active-slide h1, .banner-area .slides li.flex-active-slide h2 {
     opacity: 1;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -2008,15 +2008,15 @@ a.nav-order-btn, a.nav-order-btn:hover {
     .features-cont hr, .features-icon i {
     display: inline-block;
 }
-.banner-area h1 { font-size: 37px!important; }
+.banner-area h1, .banner-area h2 { font-size: 37px!important; }
 .breadcrumbs-inner, .cont-area-inner .heading-area, .features-icon, .footer-bottom, .story-cont, .want-more-left, .want-more-left .medium-txt, .want-more-right {
     text-align: center;
 }
 h2 {
     font-size: 38px;
 }
-.banner-area h1 {
-    font-size: 50px;
+.banner-area h1, .banner-area h2 {
+    font-size: 50px!important;
 }
 .cont-area {
     top: 25%}
