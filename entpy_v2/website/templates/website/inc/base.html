@@ -5,9 +5,10 @@
 	{% block head %}
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>{% block title %}Entpy - Realizzazione siti web Torino, creazione siti web Torino{% endblock %}</title>
+	<title>{% block title %}Realizzazione Siti Web Torino | Creazione Siti Web Torino{% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="description" content="{% block description %}{% endblock %}">
+	<meta name="keywords" itemprop="keywords" content="Creazione Siti web Torino, Web agency, web designer Torino, realizzazione siti web, SEO, web designer freelance Torino" />
 	<meta name="google-site-verification" content="93xav_rSxnItyPWa_vhHH2tr4fmnM8AzU3qIqnEAHns" />
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -21,6 +22,8 @@
 	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/apple-touch-icon-114×114-precomposed.png" %}" />
 
 	<link rel="publisher" href="https://plus.google.com/+Entpy-Software" />
+	<link rel='shortlink' href="http://www.entpy.com" />
+	<link rel="canonical" href="http://www.entpy.com" />
 
 	<!-- Custom css style -->
 	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
@@ -41,7 +44,7 @@
 				<ul class="menu-cont">
 					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
 					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
-					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Cosa ti offriamo</a></li>
+					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>
 					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
 				</ul>
 			</nav>
@@ -70,7 +73,7 @@
 							<ul>
 								<li><a href="/">Home</a></li>
 								<li><a href="/chi-siamo">Chi siamo</a></li>
-								<li><a href="/servizi">Cosa ti offriamo</a></li>
+								<li><a href="/servizi">Non chiamatelo sito</a></li>
 								<li><a href="/contatti">Contattaci</a></li>
 							</ul>
 						</nav>
@@ -107,7 +110,7 @@
 		<!-- Start: Footer Bottom -->
 		<div class="footer-bottom">
 			<div class="container">
-				<p>{% now "Y" %} Entpy Software | Made With <i class="fa fa-heart"></i> ...!</p>
+				<p>Made With <i class="fa fa-heart"></i> by Entpy Software | {% now "Y" %}</p>
 			</div>
 		</div>
 		<!-- End: Footer Bottom -->

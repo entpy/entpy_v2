@@ -1,7 +1,7 @@
 {% extends "website/inc/base2.html" %}
 {% load staticfiles static %}
 
-{% block description %}Abbiamo le idee giuste per te. Il preventivo è completamente gratuito. Richiedi le informazioni che preferisci, ti risponderemo nel più breve tempo possibile.{% endblock %}
+{% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Abbiamo le idee giuste per te. Il preventivo è completamente gratuito.{% endblock %}
 
 {# extra css #}
 {% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
@@ -81,7 +81,7 @@
 	    function t() {
 		$("#contact-error").hide();
 		var t = "yes",
-		    a = $("#contact-name").val();
+		a = $("#contact-name").val();
 		"" == a && ("yes" == t && $("#contact-name").focus(), $("#contact-name").addClass("error"), t = "no");
 		var e = $("#contact-email").val();
 		"" == e && ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no"), c(e) || ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no");
