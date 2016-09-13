@@ -7,7 +7,7 @@
 {% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
 
 {# section title #}
-{% block section_title %}Realizziamo il tuo sito{% endblock %}
+{% block section_title %}Il tuo sito web in promozione{% endblock %}
 
 {# section content #}
 {% block page_content %}
@@ -29,7 +29,7 @@
 				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
 					<h4>Abbiamo le idee giuste per te!</h4>
 					<hr>
-					<p>Il tuo nuovo sito verrà forgiato sulla base delle tue <b>reali necessità</b>, tenendo conto degli obiettivi da raggiungere: acquisizione nuovi clienti, maggiore visibilità, incremento fidelizzazione con gli attuali clienti, ...<br />Contattaci, con le nostre idee sarai sempre un <b>passo avanti</b>.</p>
+					<p>Il tuo nuovo sito verrà forgiato sulla base delle tue <b>reali necessità</b>, tenendo conto degli obiettivi da raggiungere: acquisizione nuovi clienti, maggiore visibilità, fidelizzazione con gli attuali clienti, ...<br />Contattaci, con le nostre idee sarai sempre un <b>passo avanti</b>.</p>
 				</div>
 			</div>
 		</div>
@@ -37,12 +37,13 @@
 	<!-- Contact Area Start -->
 	<section class="contact-area">
 		<div class="container text-center">
-			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Contattaci adesso!</h2>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">&quot; Richiedi oggi il tuo sito web e inizia ad attirare nuovi clienti. Il preventivo è completamente <b>GRATUITO</b>.&quot;</div>
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Affrettati!</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">&quot; Richiedi oggi il tuo sito web e inizia ad attirare nuovi clienti. Contattaci adesso per godere della promozione "<b>web nel tre</b>".&quot;</div>
 			<!-- Start: Contact Form Area -->
 			<div class="contact-form-main clearfix">
 				<form name="contact" method="post">
 					<div id="contact-form">
+						<input type="hidden" name="is_promo" value="1" >
 						<input type="text" id="contact-name" class="first-field animated" data-animation="fadeInUp" data-animation-delay="200" name="" placeholder="Il Tuo Nome *">
 						<input type="text" id="contact-email" class="second-field animated" data-animation="fadeInUp" data-animation-delay="400" name="" placeholder="La Tua Email *">
 						<input type="text" id="contact-phone" class="third-field animated" data-animation="fadeInUp" data-animation-delay="600" name="" placeholder="Il Tuo Telefono">
@@ -67,8 +68,61 @@
 	<!-- Services Area Start -->
 	<section class="services-main" id="services">
 		<div class="container">
-			<h4>Tutti i servizi di cui hai bisogno</h4>
-			{% include "website/blocks/services.html" %}
+			<h4>Cosa include la promozione "<b>web nel tre</b>"?</h4>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">La promozione "<b>web nel tre</b>" include le seguenti caratteristiche.</div>
+			<!-- Start: Services All -->
+			<div class="row service-all clearfix">
+				<!-- Start: Service 01 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="100">
+					<i class="fa fa-thumbs-o-up"></i>
+					<h5>Qualità</h5>
+					<p>Il tuo sito verrà curato maniacalmente e sarà conforme agli standard che il mondo informatico richiede. Il risultato sarà un prodotto unico e di qualità.</p>
+				</div>
+				<!-- End: Service 01 -->
+				<!-- Start: Service 03 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="300">
+					<i class="fa fa-cubes"></i>
+					<h5>Utilità</h5>
+					<p>Il tuo sito avrà fino a 10 pagine, compresa una form di contatto per permettere ai tuoi possibili clienti di entrare facilmente in contatto con te. Il tutto ottimizzato per dispositivi mobili e PC.</p>
+				</div>
+				<!-- End: Service 03 -->
+				<!-- Start: Service 04 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="400">
+					<i class="fa fa-bar-chart "></i>
+					<h5>Statistiche avanzate</h5>
+					<p>Il tuo sito sarà in grado di rilevare i visitatori, quanti uomini e quante donne, il sistema operativo e dispositivo utilizzato, questi dati, da te visibili, verranno utilizzati per aumentarne maggiormente l'efficacia.</p>
+				</div>
+				<!-- End: Service 04 -->
+				<!-- Start: Service 06 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="600">
+					<i class="fa fa-facebook-official"></i>
+					<h5>Pagine social</h5>
+					<p>Oltre al sito, realizziamo le tue pagine social: Facebook, Twitter, posizionamento su Google Places e ti consigliamo come farle lavorare tutte all'unisono per incrementare i risultati.</p>
+				</div>
+				<!-- End: Service 06 -->
+				<!-- Start: Service 09 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="600">
+					<i class="fa  fa-at"></i>
+					<h5>Dominio</h5>
+					<p>Ti aiutiamo nella fondamentale scelta del dominio più indicato a te.</p>
+				</div>
+				<!-- End: Service 09 -->
+				<!-- Start: Service 10 -->
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="600">
+					<i class="fa fa-newspaper-o"></i>
+					<h5>Testi accurati</h5>
+					<p>Realizziamo i testi del tuo sito con attenzione e professionalmente, mettendo in rilievo le parti fondamentali per aumentare l'interazione con i tuoi visitatori.</p>
+				</div>
+				<!-- End: Service 10 -->
+				{# Start {{{ #}
+				<div class="col-md-4 service-single animated" data-animation="fadeInUp" data-animation-delay="600">
+					<i class="fa fa-google"></i>
+					<h5>SEO</h5>
+					<p>Curiamo l'ottimizzazione per i motori di ricerca in modo naturale, seguendo maniacalmente gli standard e generando prodotti di qualità per i motori di ricerca, oltre che per te.</p>
+				</div>
+				{# End }}} #}
+			</div>
+			<!-- End: Services All -->
 		</div>
 	</section>
 	<!-- Services Area End -->
@@ -76,9 +130,9 @@
 	<section class="call-to-action">
 		<div class="container clearfix">
 			<div class="col-md-9 call-to-left">
-				<div class="ico-container animated" data-animation="fadeInLeft" data-animation-delay="200"><i class="fa fa-heart"></i> </div>
-				<h3 class="animated" data-animation="fadeInRight" data-animation-delay="300">Il tuo successo è il nostro traguardo</h3>
-				<p class="animated" data-animation="fadeInRight" data-animation-delay="500">Qualità e passione sono la chiave per il successo.</p>
+				<div class="ico-container animated" data-animation="fadeInLeft" data-animation-delay="200"><i class="fa fa-fort-awesome"></i> </div>
+				<h3 class="animated" data-animation="fadeInRight" data-animation-delay="300">Ti servono soluzioni più complesse?</h3>
+				<p class="animated" data-animation="fadeInRight" data-animation-delay="500">Scopri cosa possiamo fare per te!</p>
 			</div>
 			<div class="call-to-right animated" data-animation="fadeInRight" data-animation-delay="400"><a href="/" class="button-large">Scopri di più</a> </div>
 		</div>
