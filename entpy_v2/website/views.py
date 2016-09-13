@@ -40,7 +40,10 @@ def send_info_email(request):
         phone = request.POST.get("phone")
         txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg")
         html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg")
-        subject = "Richiesta informazioni"
+        if request.POST.get("is_promo"):
+            subject = "Richiesta informazioni (promozione)"
+        else:
+            subject = "Richiesta informazioni"
 
         # send email
         send_status = send_mail(
