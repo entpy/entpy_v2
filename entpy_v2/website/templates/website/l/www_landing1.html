@@ -43,7 +43,6 @@
 			<div class="contact-form-main clearfix">
 				<form name="contact" method="post">
 					<div id="contact-form">
-						<input type="hidden" name="is_promo" value="1" >
 						<input type="text" id="contact-name" class="first-field animated" data-animation="fadeInUp" data-animation-delay="200" name="" placeholder="Il Tuo Nome *">
 						<input type="text" id="contact-email" class="second-field animated" data-animation="fadeInUp" data-animation-delay="400" name="" placeholder="La Tua Email *">
 						<input type="text" id="contact-phone" class="third-field animated" data-animation="fadeInUp" data-animation-delay="600" name="" placeholder="Il Tuo Telefono">
@@ -167,7 +166,8 @@
 			name: a,
 			email: e,
 			phone: o,
-			msg: n
+			msg: n,
+			is_promo: 1
 		    },
 		    success: function(c) {
 			true == c.success ? ($("#contact-error").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-success").show(), $("#contact-name").val(""), $("#contact-email").val(""), $("#contact-phone").val(""), $("#contact-msg").val(""), setTimeout("$('#contact-success').hide();$('#contact-form').show();", 5e3)) : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-failed").show(), setTimeout("$('#contact-failed').hide();$('#contact-form').show();", 5e3))
