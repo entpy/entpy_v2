@@ -1,0 +1,153 @@
+{% load staticfiles static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	{% block head %}
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>{% block title %}Realizzazione Siti Web Torino | Creazione Siti Web Torino{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="{% block description %}{% endblock %}">
+	<meta name="keywords" itemprop="keywords" content="Creazione Siti web Torino, Realizzazione Siti web Torino, Web agency, web designer Torino, SEO, web designer freelance Torino" />
+	<meta name="google-site-verification" content="93xav_rSxnItyPWa_vhHH2tr4fmnM8AzU3qIqnEAHns" />
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="{% static "website/img/icons/favicon.ico" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/touch-icon-iphone.png" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/apple-touch-icon-72×72.png" %}" />
+	<link rel="apple-touch-icon" href="{% static "website/img/icons/apple-touch-icon-114×114.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/touch-icon-iphone-precomposed.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/apple-touch-icon-72×72-precomposed.png" %}" />
+	<link rel="apple-touch-icon-precomposed" href="{% static "website/img/icons/apple-touch-icon-114×114-precomposed.png" %}" />
+
+	<link rel="publisher" href="https://plus.google.com/+Entpy-Software" />
+	<link rel='shortlink' href="http://www.entpy.com" />
+	<link rel="canonical" href="http://www.entpy.com" />
+
+	<!-- Custom css style -->
+	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
+	{% block extra_css %}{% endblock %}
+	{% endblock head %}
+</head>
+<body>
+	<!-- Header Area Start -->
+	<header class="header-area">
+		<div class="container clearfix">
+			<!-- Start: Logo Area -->
+			<div class="logo-area">
+				<a href="/" class="logo"><img src="{% static "website/img/logo.png" %}" alt="Entpy Software"></a></div>
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+			<!-- End: Logo Area -->
+			<!-- Start: Navigation Area -->
+			<nav class="nav-main">
+				<ul class="menu-cont">
+					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
+					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
+					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>
+					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
+				</ul>
+			</nav>
+			<!-- End: Navigation Area -->
+		</div>
+	</header>
+	senza il tuo sito stai perdendo grandi opportunutà di crescita
+
+	Ecco come possiamo aiutarti:
+
+	1) Seleziona il problema che noti presentarsi più spesso
+
+		- non ho abbastanza visibilità
+			Per questa tipologia di problemi, la soluzione è creare un'identità online, oppure, nel caso
+			in cui fosse già presente occorre attuare determinate strategie in modo da metterla più in evidenza
+			La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta,
+			si elencano i servizi offerti e la possibilità di essere contattati. Il sito va poi "agganciato" con la pagina Facebook
+			e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti che richiedono
+			il servizio da te offerto
+			COSA OCCORRE
+			- sito statico di presentazione
+			- pagina di contatto
+			- ottimizzazione per smartphone, tablet e desktop
+			- SEO
+			- facoltativamente pubblicità su Google, Facebook e affini
+		- non riesco ad attirare nuovi clienti
+			Per queste tipologie di problemi possono esserci più soluzioni, tutto dipende da quale attività svolgi.
+			Facciamo l'esempio di una pizzeria (una buona pizzeria). I prodotti sono buoni, ma i clienti scarseggiano, possiamo
+			attaccare il problema da più parti. Mediante pubblicità su Google e su Facebook.
+			Oltre a questo, occorre che il proprio sito sia in grado di ricevere la pubblicità, certo perchè pubblicizzare un prodotto come una
+			pizza e "buttare" un potenziale cliente sul nostro sito senza instradarlo equivale a perdere la vendita della pizza nel 99%
+			dei casi. La soluzione è realizzare una lading page, ottimizzata per tutti i dispositivi, dove permettiamo al potenziale
+			cliente di prenotare il tavolo e magari, offrire uno sconto se la prenotazione avviene entro pochi minuti.
+			Realizzando cose di questo tipo è possibile aumentare esponenzialmente la possibilità di acquisire un nuovo cliente
+			COSA OCCORRE
+			- sito statico di presentazione
+			- pagina di contatto
+			- landing page dinamica
+			- SEO
+			- pubblicità su Google, Facebook e affini
+
+	<header class="header-area">
+		<div class="container clearfix">
+			<!-- Start: Logo Area -->
+			<div class="logo-area">
+				<a href="/" class="logo"><img src="{% static "website/img/logo.png" %}" alt="Entpy Software"></a></div>
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+			<!-- End: Logo Area -->
+			<!-- Start: Navigation Area -->
+			<nav class="nav-main">
+				<ul class="menu-cont">
+					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
+					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
+					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>
+					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
+				</ul>
+			</nav>
+			<!-- End: Navigation Area -->
+		</div>
+	</header>
+	<header class="header-area">
+		<div class="container clearfix">
+			<!-- Start: Logo Area -->
+			<div class="logo-area">
+				<a href="/" class="logo"><img src="{% static "website/img/logo.png" %}" alt="Entpy Software"></a></div>
+				<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+			<!-- End: Logo Area -->
+			<!-- Start: Navigation Area -->
+			<nav class="nav-main">
+				<ul class="menu-cont">
+					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
+					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
+					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>
+					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
+				</ul>
+			</nav>
+			<!-- End: Navigation Area -->
+		</div>
+	</header>
+		COSA OCCORRE
+		- sito dinamico con database di clienti
+		- pagina di fidelizzazione clienti
+		- sistema di invio offerte targettizzate, sconti e promozioni
+
+
+		- ho un buon numero di clienti ma non ottengo abbastanza risultati
+		Questa tipologia di problemi ha diverse soluzioni, ma tutte confluiscono nel "conoscere meglio" i propri
+		clienti. Questo cosa vuol dire? Significa che ogni persona ha delle esigenze diverse dall'altra e per ottenere
+		un alto tasso di ritorno dei clienti dobbiamo prima saperle e poi mandare delle offerte personalizzate
+		sulla base degli interessi. Facciamo un esempio, prendiamo una pizzeria e chiamiamo l'ipotetico propritatio Tony.
+		Tony ha una buona base di clienti, ha un suo sito web e utilizza Facebook per rimanere in contatto con i clienti.
+		Tony vorrebbe promuovere una delle sue pizze migliori, la focaccia alla Tony, per farlo potrebbe creare un post su Facebook,
+		ma le conversioni (chi effettivamente verrà per la focaccia) saranno molto basse se non nulle. Questo perchè proporre
+		un'offerta al massimo numero di persone possibile non è la chiave per aumentare le vendite delle sue pizze.
+		La soluzione è schedare i propri clienti, sapere chi adora la focaccia e quindi mandare direttamente a loro l'offerta, per esempio
+		tramite email. Mandare offerte targettizzate aumenta notevolmente la possibilità che i clienti vengano effettivamente
+		in pizzeria (nel nostro esempio)
+	<!-- Header Area End -->
+	{# top page section #}
+	{% block page_top %}{% endblock %}
+	{# content page section #}
+	{% block page_content %}{% endblock %}
+
+	<!-- Client Logos Area Start -->
+	{% include "website/blocks/bar2.html" %}
+	<!-- Client Logos Area End -->
