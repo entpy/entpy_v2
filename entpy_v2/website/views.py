@@ -65,3 +65,8 @@ def send_info_email(request):
 def l_www_landing1(request):
     """Landing page1"""
     return render(request, 'website/l/www_landing1.html', {})
+
+@ensure_csrf_cookie
+def www_wizard(request):
+    """Pagina con la scelta guidata"""
+    return render(request, 'website/www_wizard.html', {})

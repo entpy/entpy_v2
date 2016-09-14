@@ -1,0 +1,146 @@
+{% extends "website/inc/base2.html" %}
+{% load staticfiles static %}
+
+{% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Abbiamo le idee giuste per te. Il preventivo è completamente gratuito.{% endblock %}
+
+{# extra css #}
+{% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
+
+{# menu active element #}
+{% block contact_us_navigation_active %}active{% endblock %}
+
+{# section title #}
+{% block section_title %}Scelta guidata{% endblock %}
+
+{# breadcrumbs item #}
+{% block breadcrumbs_item %}<li>Scelta guidata</li>{% endblock %}
+
+{# section content #}
+{% block page_content %}
+	<!-- Contact Area Start -->
+	<section class="about-main">
+		<div class="container text-center">
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Senza un sito web adatto stai perdendo grandi opportunità di guadagno!</h2>
+			<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Ti aiutiamo nella scelta degli obiettivi più adatti a te.</h5>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Qual'è il tuo problema principale? (Clicca sui box sotto per selezionare)</div>
+			{# seleziona il tuo problema principale {{{ #}
+			<div class="order-form">
+				<div class="container text-center">
+					<!-- Order Buttons Start -->
+					<div class="order-btns clearfix">
+						<div class="col-md-4">
+							<a class="order-opt-link active">
+							<span class="icon"><i class="fa fa-html5"></i></span>
+							<span id="psd-to-res">Non ho abbastanza visibilità</span>
+							</a>
+						</div>
+						<div class="col-md-4">
+							<a class="order-opt-link">
+							<span class="icon"><i class="fa fa-shopping-cart"></i></span>
+							<span id="psd-to-ecom">Non riesco ad attirare nuovi clienti</span>
+							</a>
+						</div>
+						<div class="col-md-4">
+							<a class="order-opt-link">
+							<span class="icon"><i class="fa fa-lightbulb-o"></i></span>
+							<span id="order-con-id">Ho molti clienti ma non ottengo abbastanza risultati</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{# seleziona il tuo problema principale }}} #}
+			{# hai già un sito web? {{{ #}
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</div>
+			<div class="order-form">
+				<div class="container text-center">
+					<!-- Order Buttons Start -->
+					<div class="order-btns clearfix">
+						<div class="col-md-4 col-md-offset-2">
+							<a class="order-opt-link active">
+							<span class="icon"><i class="fa fa-html5"></i></span>
+							<span id="psd-to-res">Si, ho un sito web</span>
+							</a>
+						</div>
+						<div class="col-md-4">
+							<a class="order-opt-link">
+							<span class="icon"><i class="fa fa-shopping-cart"></i></span>
+							<span id="psd-to-ecom">Non ho un sito web</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			{# hai già un sito web? }}} #}
+			{# soluzione {{{ #}
+			<h4>La soluzione da noi proposta</h4>
+			<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
+			Per questa tipologia di problemi, la soluzione è creare un'identità online, oppure, nel caso
+			in cui fosse già presente occorre attuare determinate strategie in modo da metterla più in evidenza
+			La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta,
+			si elencano i servizi offerti e la possibilità di essere contattati. Il sito va poi "agganciato" con la pagina Facebook
+			e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti che richiedono
+			il servizio da te offerto.
+			<h5>COSA OCCORRE:</h5>
+			<ul>
+			    <li>sito statico di presentazione</li>
+			    <li>pagina di contatto</li>
+			    <li>ottimizzazione per smartphone, tablet e desktop</li>
+			    <li>SEO</li>
+			    <li>pubblicità su Google, Facebook e affini (facoltativo)</li>
+			</ul>
+			</div>
+			{# soluzione }}} #}
+			{# contattaci oppure ottieni sconto {{{ #}
+			<h3>Approfitta della promozione</h3>
+			<a class="button-large" href="/contatti">Ottieni codice promozionale</a>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">oppure<br /><a href="/contatti">Richiedi informazioni</a></div>
+			{# contattaci oppure ottieni sconto }}} #}
+		</div>
+	</section>
+	<!-- Contact Area End -->
+{% endblock %}
+{% block extra_js %}
+	<script>
+	    function c(c) {
+		var t = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		return t.test(c)
+	    }
+
+	    function t() {
+		$("#contact-error").hide();
+		var t = "yes",
+		a = $("#contact-name").val();
+		"" == a && ("yes" == t && $("#contact-name").focus(), $("#contact-name").addClass("error"), t = "no");
+		var e = $("#contact-email").val();
+		"" == e && ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no"), c(e) || ("yes" == t && $("#contact-email").focus(), $("#contact-email").addClass("error"), t = "no");
+		var o = $("#contact-phone").val();
+		var n = $("#contact-msg").val();
+		// reading csrfmiddlewaretoken from cookie
+		var csrftoken = readCsrftokenFromCookie();
+
+		("" == n || "Your Message *" == n) && ("yes" == t && $("#contact-msg").focus(), $("#contact-msg").addClass("error"), t = "no"), "yes" != t ? $("#contact-error").show().html("Ricontrolla i dati che hai inserito sopra") : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").show(), $.ajax({
+		    url: "/send_info_email/",
+		    type: "post",
+		    cache: !1,
+		    headers: { "X-CSRFToken": csrftoken },
+		    data: {
+			name: a,
+			email: e,
+			phone: o,
+			msg: n
+		    },
+		    success: function(c) {
+			true == c.success ? ($("#contact-error").hide(), $("#contact-failed").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-success").show(), $("#contact-name").val(""), $("#contact-email").val(""), $("#contact-phone").val(""), $("#contact-msg").val(""), setTimeout("$('#contact-success').hide();$('#contact-form').show();", 5e3)) : ($("#contact-error").hide(), $("#contact-success").hide(), $("#contact-form").hide(), $("#contact-loading").hide(), $("#contact-failed").show(), setTimeout("$('#contact-failed').hide();$('#contact-form').show();", 5e3))
+		    }
+		}))
+	    }
+	    $(document).ready(function() {
+		$("#contact-submit").click(function(c) {
+		    c.preventDefault(), t()
+		}), $("input:text, textarea").keyup(function() {
+		    $(this).removeClass("error")
+		}), $("#contact-error").hide(), $("#contact-loading").hide(), $("#contact-success").hide(), $("#contact-failed").hide(), $("#rsvp-error").hide(), $("#rsvp-loading").hide(), $("#rsvp-success").hide(), $("#rsvp-failed").hide()
+	    });
+	</script>
+{% endblock extra_js %}

@@ -44,8 +44,20 @@
 				<ul class="menu-cont">
 					<li class="{% block home_navigation_active %}{% endblock %}"><a href="/">Home</a></li>
 					<li class="{% block about_navigation_active %}{% endblock %}"><a href="/chi-siamo">Chi Siamo</a></li>
-					<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>
-					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti" class="nav-order-btn">Contattaci</a></li>
+					<!--<li class="{% block services_navigation_active %}{% endblock %}"><a href="/servizi">Non chiamatelo sito</a></li>-->
+					<li><a href="#">Servizi</a>
+						<ul class="sub-menu">
+							<li><a href="order-now.html">Siti statici</a></li>
+							<li><a href="team.html">Landing pages</a></li>
+							<li><a href="pricing.html">Siti dinamici</a></li>
+							<li><a href="blog.html">SEO</a></li>
+							<li><a href="blog-single.html">App</a></li>
+							<li><a href="blog-single.html">Campagne pubblicitarie</a></li>
+						</ul>
+					</li>
+					<li><a href="/scelta-guidata">Scelta guidata</a></li>
+					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti">Contattaci</a></li>
+					<li><a href="/contatti" class="nav-order-btn">Offerte</a></li>
 				</ul>
 			</nav>
 			<!-- End: Navigation Area -->
