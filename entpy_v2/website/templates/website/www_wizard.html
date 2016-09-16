@@ -1,48 +1,57 @@
-{% extends "website/inc/base2.html" %}
+{% extends "website/inc/base3.html" %}
 {% load staticfiles static %}
 
 {% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Abbiamo le idee giuste per te. Il preventivo è completamente gratuito.{% endblock %}
 
 {# extra css #}
-{% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
+{% block extra_css %}
+<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">
+<style>
+	.wizard-form { padding-top: 50px; }
+	.wizardRequiredTitle { margin-bottom: 20px; margin-top: 40px; }
+	li.li_exists, li.li_not_exists { list-style-type: none; }
+	li.li_exists:before { content: "\f00c"; color: green; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* V */
+	li.li_not_exists:before { content: "\f00d"; color: red; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* X */
+	.contact_us_box { margin-top: 30px; }
+	.couponCode { color: #333; display: inline-block; font-size: 22px; font-weight: bold; margin: 20px 0; }
+	.promo_code_info { font-size: 12px; margin: 0; }
+</style>
+{% endblock %}
 
 {# menu active element #}
-{% block contact_us_navigation_active %}active{% endblock %}
+{% block wizard_navigation_active %}active{% endblock %}
 
 {# section title #}
 {% block section_title %}Scelta guidata{% endblock %}
-
-{# breadcrumbs item #}
-{% block breadcrumbs_item %}<li>Scelta guidata</li>{% endblock %}
 
 {# section content #}
 {% block page_content %}
 	<!-- Contact Area Start -->
 	<section class="about-main">
 		<div class="container text-center">
-			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Senza un sito web adatto stai perdendo grandi opportunità di guadagno!</h2>
-			<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Ti aiutiamo nella scelta degli obiettivi più adatti a te.</h5>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Qual'è il tuo problema principale? (Clicca sui box sotto per selezionare)</div>
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Senza il sito web adatto<br />stai perdendo grandi opportunità!</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Ti aiutiamo nella scelta dell'obiettivo più adatto a te.</div>
+			<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Qual'è il tuo problema principale? (Clicca sui box sotto per selezionare)</h5>
 			{# seleziona il tuo problema principale {{{ #}
-			<div class="order-form">
+			<div class="wizard-form wizardScroll1">
 				<div class="container text-center">
 					<!-- Order Buttons Start -->
 					<div class="order-btns clearfix">
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noVisibilityHelp">
-							<span class="icon"><i class="fa fa-html5"></i></span>
+							<span class="icon"><i class="fa fa-child"></i></span>
 							<span id="psd-to-res">Non ho abbastanza visibilità</span>
 							</a>
 						</div>
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noCustomersHelp">
-							<span class="icon"><i class="fa fa-shopping-cart"></i></span>
+							<span class="icon"><i class="fa fa-user-times"></i></span>
 							<span id="psd-to-ecom">Non riesco ad attirare nuovi clienti</span>
 							</a>
 						</div>
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noSalesHelp">
-							<span class="icon"><i class="fa fa-lightbulb-o"></i></span>
+							<span class="icon"><i class="fa fa-money"></i></span>
 							<span id="order-con-id">Ho molti clienti ma non ottengo abbastanza risultati</span>
 							</a>
 						</div>
@@ -51,22 +60,23 @@
 			</div>
 			{# seleziona il tuo problema principale }}} #}
 			{# hai già un sito web? {{{ #}
+			<span class="wizardScroll2"></span>
 			<div class="siteSelectionBlock" style="display: none;">
-				<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</div>
-				<div class="order-form">
+				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</h5>
+				<div class="wizard-form">
 					<div class="container text-center">
 						<!-- Order Buttons Start -->
 						<div class="order-btns clearfix">
-							<div class="col-md-4 col-md-offset-2">
-								<a class="order-opt-link siteClickAction" data-site-exists="siteYes">
-								<span class="icon"><i class="fa fa-html5"></i></span>
-								<span id="psd-to-res">Si, ho un sito web</span>
-								</a>
-							</div>
 							<div class="col-md-4">
 								<a class="order-opt-link siteClickAction" data-site-exists="siteNo">
-								<span class="icon"><i class="fa fa-shopping-cart"></i></span>
+								<span class="icon"><i class="fa fa-toggle-off"></i></span>
 								<span id="psd-to-ecom">Non ho un sito web</span>
+								</a>
+							</div>
+							<div class="col-md-4 col-md-offset-2">
+								<a class="order-opt-link siteClickAction" data-site-exists="siteYes">
+								<span class="icon"><i class="fa fa-toggle-on"></i></span>
+								<span id="psd-to-res">Si, ho un sito web</span>
 								</a>
 							</div>
 						</div>
@@ -77,55 +87,140 @@
 			{# soluzione {{{ #}
 			<!-- visibilità - no sito -->
 			<div class="tipListAction noVisibilityHelp_siteNo" style="display: none;">
-				<h4>La soluzione da noi proposta</h4>
+				<h4>Non ho abbastanza visibilità</h4>
 				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
-					Per questa tipologia di problemi, la soluzione è creare un'identità online, oppure, nel caso
-					in cui fosse già presente occorre attuare determinate strategie in modo da metterla più in evidenza
-					La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta,
-					si elencano i servizi offerti e la possibilità di essere contattati. Il sito va poi "agganciato" con la pagina Facebook
-					e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti che richiedono
-					il servizio da te offerto.
-					<h5>COSA OCCORRE:</h5>
+					Per questa tipologia di problemi, la soluzione è creare un'identità online.<br /><br />
+					La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta, si elencano i servizi offerti e si da la possibilità di essere contattati.<br /><br />
+					Il sito va poi "agganciato" con la pagina Facebook e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
 					<ul>
-					    <li>sito statico di presentazione</li>
-					    <li>pagina di contatto</li>
-					    <li>ottimizzazione per smartphone, tablet e desktop</li>
-					    <li>SEO</li>
-					    <li>pubblicità su Google, Facebook e affini (facoltativo)</li>
+					    <li class="li_not_exists">Sito web statico di presentazione</li>
+					    <li class="li_not_exists">Pagina di contatto</li>
+					    <li class="li_not_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_not_exists">SEO</li>
+					    <li class="li_not_exists">Pubblicità su Google, Facebook e affini (facoltativo)</li>
 					</ul>
 				</div>
 			</div>
 			<!-- visibilità - si sito -->
 			<div class="tipListAction noVisibilityHelp_siteYes" style="display: none;">
-				<h4>La soluzione da noi proposta</h4>
+				<h4>Non ho abbastanza visibilità</h4>
 				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
-					Per questa tipologia di problemi, la soluzione è creare un'identità online, oppure, nel caso
-					in cui fosse già presente occorre attuare determinate strategie in modo da metterla più in evidenza
-					La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta,
-					si elencano i servizi offerti e la possibilità di essere contattati. Il sito va poi "agganciato" con la pagina Facebook
-					e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti che richiedono
-					il servizio da te offerto.
-					<h5>COSA OCCORRE:</h5>
+					Per questa tipologia di problemi occorre attuare determinate strategie in modo da mettere la propria immagine più in evidenza.<br /><br />
+					E' necessario intervenire sul sito già esistente in termini di ottimizzazione SEO e creare delle campagne pubblicitarie ad-hoc per portare nuovo traffico.<br /><br />
+					Inoltre conviene "agganciare" il tuo sito web con la tua pagina Facebook e con Google plus per poter godere di più visibilità.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
 					<ul>
-					    <li>V sito statico di presentazione</li>
-					    <li>pagina di contatto</li>
-					    <li>ottimizzazione per smartphone, tablet e desktop</li>
-					    <li>SEO</li>
-					    <li>pubblicità su Google, Facebook e affini (facoltativo)</li>
+					    <li class="li_exists">Sito web statico di presentazione</li>
+					    <li class="li_exists">Pagina di contatto</li>
+					    <li class="li_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_not_exists">SEO</li>
+					    <li class="li_not_exists">Pubblicità su Google, Facebook e affini</li>
+					</ul>
+				</div>
+			</div>
+			<!-- no clienti - no sito -->
+			<div class="tipListAction noCustomersHelp_siteNo" style="display: none;">
+				<h4>Non riesco ad attirare nuovi clienti</h4>
+				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
+					Per queste tipologie di problemi possono esserci più soluzioni, tutto dipende da quale attività svolgi.<br /> Facciamo l'esempio di una pizzeria (una pizzeria di qualità). I prodotti sono buoni, ma i clienti scarseggiano. Possiamo intervenire su più fronti.<br /><br />
+					Prima di tutto occorre che il tuo sito sia in grado di ricevere pubblicità. Certo! Perchè pubblicizzare un prodotto come una pizza "buttando" un potenziale cliente su un sito, senza instradarlo a dovere, equivale a perdere la vendita nel 99% dei casi.<br /><br >
+					La soluzione, nel caso della pizzeria, è quella di realizzare una sezione nel tuo sito, ovviamente ottimizzata per tutti i dispositivi, che permetta al potenziale cliente di prenotare il tavolo e magari, offrire uno sconto se la prenotazione avviene entro pochi minuti.<br />
+					Realizzando soluzioni innovative di questo tipo, potrai aumentare esponenzialmente la possibilità di acquisire nuova clientela.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
+					<ul>
+					    <li class="li_not_exists">Sito web statico di presentazione</li>
+					    <li class="li_not_exists">Pagina di contatto</li>
+					    <li class="li_not_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_not_exists">SEO</li>
+					    <li class="li_not_exists">Landing page dinamica</li>
+					    <li class="li_not_exists">Pubblicità su Google, Facebook e affini (facoltativo)</li>
+					</ul>
+				</div>
+			</div>
+			<!-- no clienti - si sito -->
+			<div class="tipListAction noCustomersHelp_siteYes" style="display: none;">
+				<h4>Non riesco ad attirare nuovi clienti</h4>
+				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
+					Per queste tipologie di problemi possono esserci più soluzioni, tutto dipende da quale attività svolgi.<br /> Facciamo l'esempio di una pizzeria (una pizzeria di qualità). I prodotti sono buoni, ma i clienti scarseggiano. Possiamo intervenire su più fronti.<br /><br />
+					Prima di tutto occorre che il tuo sito sia in grado di ricevere pubblicità. Certo! Perchè pubblicizzare un prodotto come una pizza "buttando" un potenziale cliente su un sito, senza instradarlo a dovere, equivale a perdere la vendita nel 99% dei casi.<br /><br >
+					La soluzione, nel caso della pizzeria, è quella di realizzare una lading page dinamica, ottimizzata per tutti i dispositivi, che permetta al potenziale cliente di prenotare il tavolo e magari, offrire uno sconto se la prenotazione avviene entro pochi minuti.<br /><br />
+					La landing page è una soluzione non invasiva, che permette al tuo sito di non subire alcuna modifica, in caso è possibile integrarla senza troppi problemi.<br />
+					Realizzando soluzioni innovative di questo tipo, potrai aumentare esponenzialmente la possibilità di acquisire nuova clientela.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
+					<ul>
+					    <li class="li_exists">Sito web statico di presentazione</li>
+					    <li class="li_exists">Pagina di contatto</li>
+					    <li class="li_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_not_exists">SEO</li>
+					    <li class="li_not_exists">Landing page dinamica</li>
+					    <li class="li_not_exists">Pubblicità su Google, Facebook e affini (facoltativo)</li>
+					</ul>
+				</div>
+			</div>
+			<!-- no vendite - no sito -->
+			<div class="tipListAction noSalesHelp_siteNo" style="display: none;">
+				<h4>Ho un buon numero di clienti ma non ottengo abbastanza risultati</h4>
+				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
+					Questa tipologia di problemi ha diverse soluzioni, ma tutte confluiscono nel "conoscere meglio" i propri clienti.<br /><br />
+					Questo cosa vuol dire?<br />
+					Significa che ogni persona ha delle esigenze diverse l'una dall'altra. Per ottenere un alto tasso di ritorno dei clienti, dobbiamo prima conoscerli, quindi mandare solo offerte personalizzate e targhettizzate sulla base dei loro interessi.<br /><br />
+					Facciamo un esempio: prendiamo una pizzeria e chiamiamo l'ipotetico propritatio Tony.
+					Tony ha una buona base di clienti, ha un suo sito web e utilizza Facebook per rimanere in contatto con loro.<br />
+					Tony vorrebbe promuovere una delle sue pizze migliori, la "Focaccia ghiottona super farcita", per farlo potrebbe creare un post su Facebook, ma le conversioni (chi effettivamente verrà per gustare la focaccia) saranno molto basse se non nulle.<br /><br />
+					Questo perchè proporre un'offerta ad un pubblico ampio, senza prima valutare gli interessi, non è la chiave per aumentare le proprie vendite.<br /><br />
+					La soluzione è conoscere gli interessi dei propri clienti, sapere chi adora la focaccia, quindi mandare direttamente a loro l'offerta tramite differenti canali.<br /><br />
+					Mandare offerte targettizzate, basate sugli interessi, aumenta notevolmente la possibilità che un cliente generi un acquisto.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
+					<ul>
+					    <li class="li_not_exists">Sito web dinamico con database di clienti</li>
+					    <li class="li_not_exists">Pagina di contatto</li>
+					    <li class="li_not_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_not_exists">SEO</li>
+					    <li class="li_not_exists">Pagina di fidelizzazione clienti</li>
+					    <li class="li_not_exists">Sistema di invio offerte targettizzate, sconti e promozioni</li>
+					</ul>
+				</div>
+			</div>
+			<!-- no vendite - si sito -->
+			<div class="tipListAction noSalesHelp_siteYes" style="display: none;">
+				<h4>Ho un buon numero di clienti ma non ottengo abbastanza risultati</h4>
+				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
+					Questa tipologia di problemi ha diverse soluzioni, ma tutte confluiscono nel "conoscere meglio" i propri clienti.<br /><br />
+					Questo cosa vuol dire?<br />
+					Significa che ogni persona ha delle esigenze diverse l'una dall'altra. Per ottenere un alto tasso di ritorno dei clienti, dobbiamo prima conoscerli, quindi mandare solo offerte personalizzate e targhettizzate sulla base dei loro interessi.<br /><br />
+					Facciamo un esempio: prendiamo una pizzeria e chiamiamo l'ipotetico propritatio Tony.
+					Tony ha una buona base di clienti, ha un suo sito web e utilizza Facebook per rimanere in contatto con loro.<br />
+					Tony vorrebbe promuovere una delle sue pizze migliori, la "Focaccia ghiottona super farcita", per farlo potrebbe creare un post su Facebook, ma le conversioni (chi effettivamente verrà per gustare la focaccia) saranno molto basse se non nulle.<br /><br />
+					Questo perchè proporre un'offerta ad un pubblico ampio, senza prima valutare gli interessi, non è la chiave per aumentare le proprie vendite.<br /><br />
+					La soluzione è conoscere gli interessi dei propri clienti, sapere chi adora la focaccia, quindi mandare direttamente a loro l'offerta tramite differenti canali.<br /><br />
+					Mandare offerte targettizzate, basate sugli interessi, aumenta notevolmente la possibilità che un cliente generi un acquisto.<br /><br />
+					E' possibile realizzare una soluzione di questo tipo creando un modulo dinamico da aggangiare al sito già esistente, il sistema si occuperà di mantenere i clienti su un database per poterli gestire.
+					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
+					<ul>
+					    <li class="li_exists">Pagina di contatto</li>
+					    <li class="li_exists">Ottimizzazione per smartphone, tablet e desktop</li>
+					    <li class="li_exists">SEO</li>
+					    <li class="li_not_exists">Sito web dinamico con database di clienti</li>
+					    <li class="li_not_exists">Pagina di fidelizzazione clienti</li>
+					    <li class="li_not_exists">Sistema di invio offerte targettizzate, sconti e promozioni</li>
 					</ul>
 				</div>
 			</div>
 			{# soluzione }}} #}
 			{# contattaci oppure ottieni sconto {{{ #}
-			<h3>Approfitta della promozione</h3>
-			<a class="button-large" href="/contatti">Ottieni codice promozionale</a>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">oppure<br /><a href="/contatti">Richiedi informazioni</a></div>
+			<div class="contactUsBox contact_us_box" style="display: none;">
+				<h3 class="animated" data-animation="fadeInUp" data-animation-delay="200">Approfitta della promozione</h3>
+				<a class="button-large getPromoCodeAction" href="#">Ottieni codice promozionale</a>
+				<div class="animated" data-animation="fadeInUp" data-animation-delay="200">oppure</div><div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400"><a href="/contatti">Richiedi informazioni</a></div>
+			</div>
 			{# contattaci oppure ottieni sconto }}} #}
 		</div>
 	</section>
 	<!-- Contact Area End -->
 {% endblock %}
 {% block extra_js %}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			/* Click sul tipo di problema */
@@ -137,6 +232,8 @@
 
 				// chiedo se l'utente ha già un sito
 				$(".siteSelectionBlock").show();
+
+				$(window).scrollTo(".wizardScroll1", 1000);
 
 				return false;
 			});
@@ -155,6 +252,22 @@
 				// mostro la soluzione al prblema
 				showTip(problemType, siteExists);
 
+				// mostro il pulsante per ottenere l'offerta
+				$(".contactUsBox").show();
+
+				$(window).scrollTo(".wizardScroll2", 1000);
+
+				return false;
+			});
+
+			// click per ottenere il codice di sconto
+			$(document).on("click", ".getPromoCodeAction", function(){
+				$(".modal-title").html('Sconto del 20% per te*');
+				$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">ABC123</span><br />Comunicacelo per usufruire di un <b>20%</b> di sconto sui nostri servizi (creazione di un sito web, ottimizzazione SEO, ecc...).</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
+				$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Contattaci</a>');
+
+				$(".modal").modal('show');
+
 				return false;
 			});
 		});
@@ -165,6 +278,7 @@
 			$(".siteClickAction").removeClass("active");
 			$(".siteSelectionBlock").hide();
 			$(".tipListAction").hide();
+			$(".contactUsBox").hide();
 
 			return true;
 		}

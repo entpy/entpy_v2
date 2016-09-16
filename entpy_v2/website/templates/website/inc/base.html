@@ -55,7 +55,7 @@
 							<li><a href="blog-single.html">Campagne pubblicitarie</a></li>
 						</ul>
 					</li>
-					<li><a href="/scelta-guidata">Scelta guidata</a></li>
+					<li class="{% block wizard_navigation_active %}{% endblock %}"><a href="/scelta-guidata">Scelta guidata</a></li>
 					<li class="{% block contact_us_navigation_active %}{% endblock %}"><a href="/contatti">Contattaci</a></li>
 					<li><a href="/contatti" class="nav-order-btn">Offerte</a></li>
 				</ul>
@@ -72,6 +72,20 @@
 	<!-- Client Logos Area Start -->
 	{% include "website/blocks/bar2.html" %}
 	<!-- Client Logos Area End -->
+
+	<!-- modal -->
+	<div class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Chiudi"><span aria-hidden="true">&times;</span></button>
+					<h5 class="modal-title"></h5>
+				</div>
+				<div class="modal-body"></div>
+				<div class="modal-footer"></div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 	<!-- Footer Area Start -->
 	<footer class="footer-area">
@@ -188,7 +202,9 @@
 			$("#tab-container").easytabs({updateHash:!1})
 
 			// particle js init
+			{% block particleground_init %}
 			$("#particles").particleground({dotColor:"#424756",lineColor:"#363a49"}),$(".intro").css({"margin-top":-($(".intro").height()/2)});
+			{% endblock %}
 
 			// Testimonial Carousel
 			$(".crsl-items").carousel({ visible: 5, itemMinWidth: 171, itemMargin: 50 });

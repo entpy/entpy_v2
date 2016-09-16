@@ -1,0 +1,38 @@
+{% extends "website/inc/base.html" %}
+{% load staticfiles static %}
+{# top page section #}
+{% block page_top %}
+	<section id="home">
+		<div class="inner-particle" id="particles">
+		</div>
+		{% comment %}
+		<!-- barra del titolo senza immagine -->
+		<div class="cont-area-inner">
+			<div class="heading-area">
+				<div class="container clearfix">
+					<div class="col-xs-12">
+						<h1>{% block section_title %}{% endblock %}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endcomment %}
+	</section>
+	<style>
+		.banner-btm-img, .cont-area, .cont-area-inner { position: static; }
+		.cont-area-inner .heading-area { background: black; }
+
+		@media (max-width:480px) {
+			#particles.inner-particle { min-height: auto; height: 63px; }
+		}@media (min-width:481px) and (max-width:767px) {
+			#particles.inner-particle { min-height: auto; height: 155px; }
+		}@media (min-width:768px) and (max-width:991px) {
+			#particles.inner-particle { min-height: auto; height: 135px; }
+		}@media (min-width:992px) and (max-width:1100px) {
+			#particles.inner-particle { min-height: auto; height: 135px; }
+		}@media (min-width:1101px) {
+			#particles.inner-particle { min-height: auto; height: 100px; }
+		}
+	</style>
+{% endblock %}
+
