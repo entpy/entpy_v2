@@ -1,0 +1,75 @@
+{% extends "website/inc/base3.html" %}
+{% load staticfiles static %}
+
+{% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Siamo specializzati nella creazione di Siti Web futuristici realmente utili.{% endblock %}
+
+{# menu active element #}
+{% block services_navigation_active %}active{% endblock %}
+
+{# section content #}
+{% block page_content %}
+	<!-- About Area Start -->
+	<section class="about-main">
+		<div class="container">
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
+				<p>&quot; Entpy è specializzata nella creazione di software pulito, utile ed avanzato. Utilizziamo gli strumenti necessari per creare delle vere perle tecnologiche che possano migliorare il tuo modo di vivere e di lavorare. &quot;</p>
+			</div>
+			<div class="row col-content clearfix">
+				<!-- Start: Story Area -->
+				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+					<h4>Il sito bacheca o di immagine</h4>
+					<hr>
+					<p>Una delle più grandi, errate convinzioni, è pensare al proprio sito web, come una cosa molto statica, con nome dell'attività, qualche immagine inerente all'argomento e dei testi buttati qua e la. Siti del genere possono essere fatti gratuitamente con WordPress o affini, ci sono molti servizi online che permettono di creare il proprio sito vetrina. Il problema principale è che siti di questo tipo sono completamente inutili nel 99% dei casi. Il problema principale è che non hanno un'utilità precisa. I clienti devono essere attratti e coinvolti. Questo si può fare solo con la consapevolezza che il nostro sito debba essere in grado di convertire i visitatori in potenziali clienti e successivamente acquisirli per renderli clienti attivi.<br />Questo è il modo sensato di procedere: per obiettivi.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About Area End -->
+
+	<!-- About Color Start -->
+	<section class="about-area-inner">
+		<!-- Start: About Top -->
+		<div class="about-top-area">
+			<div class="container">
+				{% include "website/blocks/bar3.html" %}
+			</div>
+		</div>
+		<!-- End: About Top -->
+	</section>
+	<!-- About Color End -->
+
+	<!-- About Page Content Start -->
+	<section class="about-pg-cont text-center">
+		<div class="container clearfix">
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Entpy fa per te</h2>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">&quot; Il nostro lavoro consiste nel creare soluzioni. Prendiamo in esame una determinata situazione, formuliamo le possibili ipotesi e troviamo la soluzione più adatta a te.<br />Che tu sia un privato o un'azienda, qui sei nel posto giusto! &quot;</div>
+			<div class="about-pg-texts">
+				<!-- Start: Left Content -->
+				<div class="col-md-6">
+					<h4 class="color">La migliore presenza online che si possa avere...!</h4>
+					<p>Creiamo la tua presenza online di successo, facciamo in modo che il tuo spazio diventi il punto di riferimento per i tuoi clienti e per quelli che lo diventeranno.<br><br></p>
+					<p>Prova ad immaginare come modificare in meglio la tua attività, noi possiamo farlo! Per esempio ampliando il tuo audience, facendo conoscere meglio chi sei e quello che fai, in modo che tu raggiunga nuovi clienti con uno strumento completamente tuo e progettato per te.<br />Realizzaimo il sito web che hai sempre sognato ma non solo, ci assicuriamo che funzioni davvero per lo scopo per il quale è stato progettato.<br />Abbiamo le idee giuste per te.</p>
+				</div>
+				<!-- End: Left Content -->
+				<!-- Start: Right Content -->
+				<div class="col-md-6">
+					<h4 class="color">I nostri punti di forza</h4>
+					<p>Qualche punto di forza che ci contraddistingue dagli altri. Per vedere la lista completa di tutto quello che offriamo sempre nella realizzazione del tuo sito <a href="/servizi/">clicca qui</a>.<br><br></p>
+					<ul class="icon-list">
+						<li><i class="fa fa-lightbulb-o"></i> troviamo la soluzione per il 99.99% dei problemi</li>
+						<li><i class="fa fa-paint-brush"></i> interfacce grafiche altamente usabili ad elevato impatto grafico</li>
+						<li><i class="fa fa-paw"></i> seguiamo maniacalmente gli standard per garantire prodotti di qualità</li>
+						<li><i class="fa fa-newspaper-o"></i> creiamo la tua immagine digitale di successo</li>
+						<li><i class="fa fa-motorcycle"></i> realizziamo piccoli capolavori che ti faranno andare lontano</li>
+					</ul>
+				</div>
+				<!-- End: Right Content -->
+			</div>
+		</div>
+	</section>
+	<!-- About Page Content End -->
+
+	<!-- Call To Action Area Start -->
+	{% include "website/blocks/bar1.html" %}
+	<!-- Call To Action Area End -->
+{% endblock %}

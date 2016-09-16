@@ -7,7 +7,7 @@
 {% block extra_css %}
 <link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">
 <style>
-	.wizard-form { padding-top: 50px; }
+	.wizard-form, .site-form { padding-top: 40px; }
 	.wizardRequiredTitle { margin-bottom: 20px; margin-top: 40px; }
 	li.li_exists, li.li_not_exists { list-style-type: none; }
 	li.li_exists:before { content: "\f00c"; color: green; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* V */
@@ -15,6 +15,10 @@
 	.contact_us_box { margin-top: 30px; }
 	.couponCode { color: #333; display: inline-block; font-size: 22px; font-weight: bold; margin: 20px 0; }
 	.promo_code_info { font-size: 12px; margin: 0; }
+	.order-opt-link { padding: 40px 10px 30px; }
+	.order-opt-link .text { display: table-cell; height: 95px; padding: 10px 0; vertical-align: middle; }
+	.site-form-title { margin-top: 45px; }
+	.order-opt-link-small .text { height: 45px; }
 </style>
 {% endblock %}
 
@@ -40,19 +44,19 @@
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noVisibilityHelp">
 							<span class="icon"><i class="fa fa-child"></i></span>
-							<span id="psd-to-res">Non ho abbastanza visibilità</span>
+							<span class="text">Non ho abbastanza visibilità</span>
 							</a>
 						</div>
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noCustomersHelp">
 							<span class="icon"><i class="fa fa-user-times"></i></span>
-							<span id="psd-to-ecom">Non riesco ad attirare nuovi clienti</span>
+							<span class="text">Non riesco ad attirare nuovi clienti</span>
 							</a>
 						</div>
 						<div class="col-md-4">
 							<a class="order-opt-link helpTypeAction" data-help-type="noSalesHelp">
 							<span class="icon"><i class="fa fa-money"></i></span>
-							<span id="order-con-id">Ho molti clienti ma non ottengo abbastanza risultati</span>
+							<span class="text">Ho molti clienti ma non ottengo abbastanza risultati</span>
 							</a>
 						</div>
 					</div>
@@ -62,21 +66,21 @@
 			{# hai già un sito web? {{{ #}
 			<span class="wizardScroll2"></span>
 			<div class="siteSelectionBlock" style="display: none;">
-				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</h5>
-				<div class="wizard-form">
+				<h5 class="site-form-title animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</h5>
+				<div class="site-form">
 					<div class="container text-center">
 						<!-- Order Buttons Start -->
 						<div class="order-btns clearfix">
-							<div class="col-md-4">
-								<a class="order-opt-link siteClickAction" data-site-exists="siteNo">
+							<div class="col-md-4 col-md-offset-1">
+								<a class="order-opt-link order-opt-link-small siteClickAction" data-site-exists="siteNo">
 								<span class="icon"><i class="fa fa-toggle-off"></i></span>
-								<span id="psd-to-ecom">Non ho un sito web</span>
+								<span class="text">Non ho un sito web</span>
 								</a>
 							</div>
 							<div class="col-md-4 col-md-offset-2">
-								<a class="order-opt-link siteClickAction" data-site-exists="siteYes">
+								<a class="order-opt-link order-opt-link-small siteClickAction" data-site-exists="siteYes">
 								<span class="icon"><i class="fa fa-toggle-on"></i></span>
-								<span id="psd-to-res">Si, ho un sito web</span>
+								<span class="text">Si, ho un sito web</span>
 								</a>
 							</div>
 						</div>
@@ -87,12 +91,13 @@
 			{# soluzione {{{ #}
 			<!-- visibilità - no sito -->
 			<div class="tipListAction noVisibilityHelp_siteNo" style="display: none;">
-				<h4>Non ho abbastanza visibilità</h4>
+				<h5 class="site-form-title animated" data-animation="fadeInUp" data-animation-delay="400">Non ho abbastanza visibilità</h5>
 				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
 					Per questa tipologia di problemi, la soluzione è creare un'identità online.<br /><br />
 					La nostra proposta è iniziare con un sito web definito "statico", ovvero un sito nel quale ci si presenta, si elencano i servizi offerti e si da la possibilità di essere contattati.<br /><br />
 					Il sito va poi "agganciato" con la pagina Facebook e/o Google plus per poter iniziare a generare le prime visite e magari, i primi potenziali clienti.
 					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
+					<span>Le voci segnate in rosso sono </span>
 					<ul>
 					    <li class="li_not_exists">Sito web statico di presentazione</li>
 					    <li class="li_not_exists">Pagina di contatto</li>
@@ -144,7 +149,7 @@
 				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
 					Per queste tipologie di problemi possono esserci più soluzioni, tutto dipende da quale attività svolgi.<br /> Facciamo l'esempio di una pizzeria (una pizzeria di qualità). I prodotti sono buoni, ma i clienti scarseggiano. Possiamo intervenire su più fronti.<br /><br />
 					Prima di tutto occorre che il tuo sito sia in grado di ricevere pubblicità. Certo! Perchè pubblicizzare un prodotto come una pizza "buttando" un potenziale cliente su un sito, senza instradarlo a dovere, equivale a perdere la vendita nel 99% dei casi.<br /><br >
-					La soluzione, nel caso della pizzeria, è quella di realizzare una lading page dinamica, ottimizzata per tutti i dispositivi, che permetta al potenziale cliente di prenotare il tavolo e magari, offrire uno sconto se la prenotazione avviene entro pochi minuti.<br /><br />
+					La soluzione, nel caso della pizzeria, è quella di realizzare una landing page dinamica, ottimizzata per tutti i dispositivi, che permetta al potenziale cliente di prenotare il tavolo e magari, offrire uno sconto se la prenotazione avviene entro pochi minuti.<br /><br />
 					La landing page è una soluzione non invasiva, che permette al tuo sito di non subire alcuna modifica, in caso è possibile integrarla senza troppi problemi.<br />
 					Realizzando soluzioni innovative di questo tipo, potrai aumentare esponenzialmente la possibilità di acquisire nuova clientela.
 					<h5 class="wizardRequiredTitle">COSA OCCORRE:</h5>
@@ -264,7 +269,7 @@
 			$(document).on("click", ".getPromoCodeAction", function(){
 				$(".modal-title").html('Sconto del 20% per te*');
 				$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">ABC123</span><br />Comunicacelo per usufruire di un <b>20%</b> di sconto sui nostri servizi (creazione di un sito web, ottimizzazione SEO, ecc...).</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
-				$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Contattaci</a>');
+				$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Utilizza codice</a>');
 
 				$(".modal").modal('show');
 

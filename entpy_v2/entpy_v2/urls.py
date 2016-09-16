@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^404/$', views.www_404, name='www_404'),
     url(r'^send_info_email/$', views.send_info_email, name='send_info_email'),
     url(r'^scelta-guidata/$', views.www_wizard, name='www_wizard'),
+    url(r'^siti-statici/$', views.www_static_site, name='www_static_site'),
 
     # landing
     url(r'^promozione-web/$', views.l_www_landing1, name='l_www_landing1'),

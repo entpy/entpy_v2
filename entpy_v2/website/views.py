@@ -70,3 +70,8 @@ def l_www_landing1(request):
 def www_wizard(request):
     """Pagina con la scelta guidata"""
     return render(request, 'website/www_wizard.html', {})
+
+@ensure_csrf_cookie
+def www_static_site(request):
+    """Pagina di info"""
+    return render(request, 'website/www_static_site.html', {})
