@@ -11,6 +11,7 @@
 
 {# menu active element #}
 {% block services_navigation_active %}active{% endblock %}
+{% block services_static_site_navigation_active %}active{% endblock %}
 
 {# section content #}
 {% block page_content %}
@@ -46,27 +47,26 @@
 			<div class="row col-content clearfix">
 				<!-- block title-text -->
 				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>Qualche consiglio sul sito statico</h4>
+					<h4>Qualche consiglio...</h4>
 					<hr>
-					<p>I siti statici, perchè funzionino al fine di attirare nuova clientela, hanno bisogno di molto traffico in ingresso. Per questo conviene associarli alle pagine sui social (Facebook, Google +, Twitter), oltre a questo occorre fare un ottimo lavoro a livello SEO e pubblicizzandolo online, puntanto su determinate keyword. In questo modo si amplificherà l'effetto "megafono" e l'efficacia del sito statico.</p>
+					<p>I siti statici, perchè funzionino al fine di attirare nuova clientela, hanno bisogno di molto traffico in ingresso. Per questo conviene associarli alle pagine sui social (Facebook, Google +, Twitter), oltre a questo occorre fare un ottimo lavoro a livello SEO e creare una campagna online, puntanto su determinate keyword. In questo modo si amplificherà l'effetto "megafono" e l'efficacia del sito statico.</p>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row col-content clearfix">
 				<!-- block title-text -->
-				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+				<div class="col-xs-12 story-cont animated wizard-call-to-action-block" data-animation="fadeInUp" data-animation-delay="200">
 					<h3>Non sai se è la scelta giusta per te?</h3>
-					<p>Utilizzando il configuratore guidato ti aiutiamo nella scelta più adatta alle tue esigenze, subito in omaggio un buono sconto per te.</p>
-					<a class="btn button-large" href="/promozione-web">Vai al configuratore</a>
-					<p>oppure</p>
+					<p>Utilizzando il configuratore guidato ti aiutiamo nella scelta più adatta alle tue esigenze.<br />Per te, in omaggio, un <b>buono sconto</b> da utilizzare sui nostri servizi.</p>
+					<a class="btn button-large" href="/scelta-guidata">Vai al configuratore</a>
+					<p class="or">oppure</p>
 					<p><a href="/contatti">Contattaci adesso</a></p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- About Area End -->
-
 	<!-- Call To Action Area Start -->
 	{% include "website/blocks/bar1.html" %}
 	<!-- Call To Action Area End -->
