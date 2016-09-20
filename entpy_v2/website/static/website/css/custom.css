@@ -2339,3 +2339,5 @@ hr { width: 50%; }
 }
 }
 
+li.li_icon { list-style-type: none; }
+li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* V */

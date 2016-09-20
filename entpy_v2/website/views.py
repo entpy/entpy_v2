@@ -75,3 +75,28 @@ def www_wizard(request):
 def www_static_site(request):
     """Pagina di info"""
     return render(request, 'website/www_static_site.html', {})
+
+@ensure_csrf_cookie
+def www_landing_pages(request):
+    """Landing page"""
+    return render(request, 'website/www_landing_pages.html', {})
+
+@ensure_csrf_cookie
+def www_dynamic_site(request):
+    """Dynamic sites"""
+    return render(request, 'website/www_dynamic_site.html', {})
+
+@ensure_csrf_cookie
+def www_seo(request):
+    """SEO"""
+    return render(request, 'website/www_seo.html', {})
+
+@ensure_csrf_cookie
+def www_app(request):
+    """App"""
+    return render(request, 'website/www_app.html', {})
+
+@ensure_csrf_cookie
+def www_advertising(request):
+    """Advertising"""
+    return render(request, 'website/www_advertising.html', {})

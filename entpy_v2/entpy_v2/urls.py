@@ -28,6 +28,12 @@ urlpatterns = [
     url(r'^scelta-guidata/$', views.www_wizard, name='www_wizard'),
     url(r'^siti-statici/$', views.www_static_site, name='www_static_site'),
 
+    url(r'^landing-pages/$', views.www_landing_pages, name='www_landing_pages'),
+    url(r'^siti-dinamici/$', views.www_dynamic_site, name='www_dynamic_site'),
+    url(r'^seo/$', views.www_seo, name='www_seo'),
+    url(r'^app/$', views.www_app, name='www_app'),
+    url(r'^pubblicita/$', views.www_advertising, name='www_advertising'),
+
     # landing
     url(r'^promozione-web/$', views.l_www_landing1, name='l_www_landing1'),
 ]
