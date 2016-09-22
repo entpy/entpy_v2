@@ -3,11 +3,11 @@
 from django.contrib import admin
 from website.models import Account, Promotion, Campaign
 from website.forms import *
-from django.conf.urls import patterns
 from django.contrib import admin, messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
+from django.conf.urls import url
 import logging
 
 # Get an instance of a logger
@@ -23,9 +23,9 @@ class AccountAdmin(admin.ModelAdmin):
     # URLs overwriting to add new admin views (with auth check and without cache)
     def get_urls(self):
         urls = super(AccountAdmin, self).get_urls()
-        my_urls = patterns('',
-            (r'^code_validator$', self.admin_site.admin_view(self.code_validator)),
-        )
+        my_urls = [
+            url(r'^code-validator/$', self.admin_site.admin_view(self.code_validator)),
+        ]
 
         # return custom URLs with default URLs
         return my_urls + urls
@@ -41,7 +41,7 @@ class AccountAdmin(admin.ModelAdmin):
             # cancel operation
             if request.POST.get("cancel", ""):
                 messages.add_message(request, messages.WARNING, 'Operazione annullata.')
-                return HttpResponseRedirect('/admin/website/account/code_validator') # Redirect after POST
+                return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
             if form.is_valid():
                 post_code = request.POST.get("promo_code")
@@ -52,17 +52,17 @@ class AccountAdmin(admin.ModelAdmin):
                 # checking if code exists
                 if (not campaign_obj.check_code_validity(code=post_code, validity_check="exists")):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale non esistente.')
-                    return HttpResponseRedirect('/admin/website/account/code_validator') # Redirect after POST
+                    return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
                 # checking if code is not already validated
                 if (not campaign_obj.check_code_validity(code=post_code, validity_check="not_used")):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale già validato.')
-                    return HttpResponseRedirect('/admin/website/account/code_validator') # Redirect after POST
+                    return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
                 # checking if campaign is not expired
                 if (not campaign_obj.check_code_validity(code=post_code, validity_check="not_expired")):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale scaduto.')
-                    return HttpResponseRedirect('/admin/website/account/code_validator') # Redirect after POST
+                    return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
                 # user can redeem the code
                 can_redeem = True
@@ -74,7 +74,7 @@ class AccountAdmin(admin.ModelAdmin):
                     # redeem code and redirect to success page
                     campaign_obj.redeem_code(post_code)
                     messages.add_message(request, messages.SUCCESS, 'Codice promozionale validato!')
-                    return HttpResponseRedirect('/admin/website/account/code_validator') # Redirect after POST
+                    return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
         else:
             form = ValidateCodeForm() # An unbound form
 
