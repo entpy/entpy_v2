@@ -3,6 +3,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.mail import send_mail
 from django.http import HttpResponse
+from website.models import Promotion
 import json
 
 def www_index(request):
@@ -100,3 +101,17 @@ def www_app(request):
 def www_advertising(request):
     """Advertising"""
     return render(request, 'website/www_advertising.html', {})
+
+@ensure_csrf_cookie
+def www_our_offers(request):
+    """Our Offers"""
+    promotion_obj = Promotion()
+
+    # list of all valid promotion (not expired) with type = frontend_post
+    valid_promotion_dict = promotion_obj.get_valid_promotions_list()
+
+    context = {
+            'promotion_list' : valid_promotion_dict,
+    }
+
+    return render(request, 'website/www_our_offers.html', context)
