@@ -85,6 +85,8 @@ class AccountAdmin(admin.ModelAdmin):
             'title': "Validatore di codici",
             'opts': self.model._meta,
             'app_label': self.model._meta.app_label,
+            'has_permission': request.user.is_superuser,
+            'site_url': '/',
         }
 
         return render(request, 'admin/custom_view/code_validator.html', context)
@@ -121,3 +123,4 @@ class PromotionAdmin(admin.ModelAdmin):
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Promotion, PromotionAdmin)
 
+admin.site.index_template = "admin/index_custom.html"
