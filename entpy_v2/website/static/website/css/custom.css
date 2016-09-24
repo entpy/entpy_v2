@@ -2344,3 +2344,4 @@ li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-
 
 .wizard-call-to-action-block, .wizard-call-to-action-block * { text-align: center; }
 .wizard-call-to-action-block p.or { margin: 0; }
+.no-gutter { padding-left: 0px; padding-right: 0px; }

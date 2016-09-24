@@ -9,17 +9,64 @@
 {# section title #}
 {% block section_title %}Le nostre offerte{% endblock %}
 
+{% block extra_css %}
+<style>
+@media screen and (min-width: 992px) {
+    .single_offer_container .promo_image { text-align: right; }
+}
+@media screen and (max-width: 991px) {
+    .single_offer_container .promo_image { margin-top: 25px; text-align: center; }
+    .single_offer_container .promo_code_label { margin-top: 10px; text-align: center; }
+    .single_offer_container .promo_expiring_label { display: inline-block; margin-top: 30px; text-align: center; width: 100%; }
+    .single_offer_container .promo_code, .single_offer_container .promo_expiring { text-align: center; }
+    .single_offer_container .promo_code { font-weight: bold; }
+}
+.single_offer_container .promo_expiring { font-weight: bold; }
+</style>
+{% endblock %}
+
 {# section content #}
 {% block page_content %}
-	{% if promotion_list %}
-	{% for single_promotion in promotion_list %}
-		<!-- single offer container -->
-		<div><img src="{{ single_promotion.image_relative_path }}" alt="Offerta speciale"></div>
-		<div><h2>{{ single_promotion.name }}</h2></div>
-		<div>{{ single_promotion.description }}</div>
-		<div>{{ single_promotion.expiring_in_readable_frontend | safe }}</div>
-		<div>{{ single_promotion.code }}</div>
-		<br /><br />
-		{% endfor %}
-	{% endif %}
+	<!-- About Area Start -->
+	<section class="about-main">
+		<div class="container">
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
+				<p>Scopri le nostre migliori offerte, comunicaci il codice di quella più adatta a te per ottenere sconti speciali sui nostri servizi.<br />Attenzione, le offerte sono a tempo limitato: <b>affrettati</b>.</p>
+			</div>
+			{% if promotion_list %}
+				{% for single_promotion in promotion_list %}
+					<!-- single offer container -->
+					<div class="row col-content clearfix">
+						<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+							<h4>{{ single_promotion.name }}</h4>
+							<hr>
+							<div class="single_offer_container">
+								<div class="col-md-8 no-gutter">
+									<div class="col-xs-12 no-gutter"><p>{{ single_promotion.description }}</p></div>
+									<div class="col-xs-12 no-gutter hidden-md hidden-lg promo_image"><img src="{{ single_promotion.image_relative_path }}" alt="Offerta speciale"></div>
+									<div class="col-md-6 no-gutter promo_expiring_label">Scadenza</div>
+									<div class="col-md-6 no-gutter hidden-xs hidden-sm promo_code_label">Codice</div>
+									<div class="col-md-6 no-gutter promo_expiring">{{ single_promotion.expiring_in_readable_frontend | safe }}</div>
+									<div class="col-xs-12 no-gutter hidden-md hidden-lg promo_code_label">Codice</div>
+									<div class="col-md-6 no-gutter promo_code">{{ single_promotion.code }}</div>
+								</div>
+								<div class="col-md-4 hidden-xs hidden-sm no-gutter">
+									<div class="promo_image"><img src="{{ single_promotion.image_relative_path }}" alt="Offerta speciale"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="row col-content clearfix">
+					<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+						<p>Spiacenti, in questo momento non ci sono offerte speciali, prova a tornare in un secondo momento.</p>
+					</div>
+				</div>
+			{% endif %}
+	</section>
+	<!-- About Area End -->
+	<!-- Call To Action Area Start -->
+	{% include "website/blocks/bar1.html" %}
+	<!-- Call To Action Area End -->
 {% endblock %}

@@ -11,10 +11,10 @@ class CustomImagePIL:
         source_type = { "type" : None }
 
         def __init__(self, file_path=None, image_raw=None):
-                if (file_path):
+                if file_path:
                         self.image_name = file_path
                         self.source_type["type"] = "path"
-                elif (image_raw):
+                elif image_raw:
                         self.image_raw = image_raw
                         self.source_type["type"] = "raw"
 
@@ -24,10 +24,10 @@ class CustomImagePIL:
                 max_box_size = { "width" : 300, "height" : 300 }
                 try:
                         # checking source type
-                        if (self.source_type["type"] == "path"):
+                        if self.source_type["type"] == "path":
                                 # open image from path
                                 im=Image.open(self.image_name)
-                        elif (self.source_type["type"] == "raw"):
+                        elif self.source_type["type"] == "raw":
                                 # create image from raw string
                                 im=Image.open(self.image_name)
                         else:
@@ -41,30 +41,37 @@ class CustomImagePIL:
                         res_h=nh
                         res_l=nl
 
-                        if (nl > nh):
-                                if (nl > max_box_size["width"]):
+                        if nl > nh:
+                                if nl > max_box_size["width"]:
                                         # Caso 1 -> h:l=nh:nl -> h=?
                                         print("caso 1")
                                         res_h = self.calculate_image_h(max_box_size["width"], nh, nl)
                                         res_l = max_box_size["width"]
-                                elif (nh > max_box_size["height"]):
+                                elif nh > max_box_size["height"]:
                                         # Caso 2 -> h:l=nh:nl l=?
                                         print("caso 2")
                                         res_h = max_box_size["height"]
                                         res_l = self.calculate_image_l(max_box_size["height"], nh, nl)
-                        elif (nh > nl):
-                                if (nh > max_box_size["height"]):
+                        elif nh > nl:
+                                if nh > max_box_size["height"]:
                                         # Caso 2 -> h:l=nh:nl l=?
                                         print("caso 2")
                                         res_h = max_box_size["height"]
                                         res_l = self.calculate_image_l(max_box_size["height"], nh, nl)
-                                elif (nl > max_box_size["width"]):
+                                elif nl > max_box_size["width"]:
                                         # Caso 1 -> h:l=nh:nl -> h=?
                                         print("caso 1")
                                         res_h = self.calculate_image_h(max_box_size["width"], nh, nl)
                                         res_l = max_box_size["width"]
+			else:
+			    # square image
+			    if nh > max_box_size["height"]:
+				    # guardo se una delle due lunghezze a caso supera la larghezza/altezza max
+				    print("caso square image")
+				    res_h = max_box_size["height"]
+				    res_l = self.calculate_image_l(max_box_size["height"], nh, nl)
 
-                        if (im.format in valid_format):
+                        if im.format in valid_format:
                                 # resize image
                                 image_resized = im.resize((res_l,res_h), Image.ANTIALIAS)
 
@@ -83,7 +90,7 @@ class CustomImagePIL:
                 """
                 return_var = False
 
-                if (box_width and image_h and image_l):
+                if box_width and image_h and image_l:
                         return_var = (box_width * image_h) / image_l
 
                 return return_var
@@ -94,7 +101,7 @@ class CustomImagePIL:
                 """
                 return_var = False
 
-                if (box_height and image_h and image_l):
+                if box_height and image_h and image_l:
                         return_var = (box_height * image_l) / image_h
 
                 return return_var
@@ -110,8 +117,8 @@ class CustomImagePIL:
 
                 return_var = None
 
-                if (image):
-                    if (not new_filename):
+                if image:
+                    if not new_filename:
                             # removing dot
                             filename_no_ext = re.sub('\..*$', '', old_filename)
                             # append height and width in image name
