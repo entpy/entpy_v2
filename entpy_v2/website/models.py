@@ -47,22 +47,25 @@ class Account(models.Model):
 
 class Promotion(models.Model):
     PROMOTION_TYPE_FRONTEND = { "key" : "frontend_bonus", "description" : "Pubblica sul frontend" }
-    PROMOTION_TYPE_BIRTHDAY = { "key" : "service_bonus", "description" : "Promozione compleanno" }
+    PROMOTION_TYPE_SERVICE = { "key" : "service_bonus", "description" : "Sconto su un servizio" }
+    PROMOTION_TYPE_WIZARD = { "key" : "wizard_bonus", "description" : "Sconto su un obiettivo" }
 
     # promotion type selector for admin
     PROMOTION_TYPES_SELECTOR = (
         (PROMOTION_TYPE_FRONTEND["key"], PROMOTION_TYPE_FRONTEND["description"]),
-        (PROMOTION_TYPE_BIRTHDAY["key"], PROMOTION_TYPE_BIRTHDAY["description"]),
+        (PROMOTION_TYPE_SERVICE["key"], PROMOTION_TYPE_SERVICE["description"]),
+        (PROMOTION_TYPE_WIZARD["key"], PROMOTION_TYPE_WIZARD["description"]),
     )
 
     id_promotion = models.AutoField(primary_key=True)
     name = models.CharField("Titolo promozione", max_length=50)
     description = models.TextField("Contenuto")
-    promo_image = models.ImageField("Immagine della promozione", upload_to="promo_images/")
+    promo_image = models.ImageField("Immagine della promozione", upload_to="promo_images/", blank=True, null=True)
     expiring_date = models.DateField("Scadenza", null=True)
     promo_type = models.CharField(max_length=30, choices=PROMOTION_TYPES_SELECTOR)
     status = models.BooleanField(default=0)
     campaigns = models.ManyToManyField(Account, through='Campaign')
+    creation_date = models.DateTimeField(auto_now_add=True)
 
     # custom model options
     class Meta:
@@ -80,9 +83,10 @@ class Promotion(models.Model):
         super(Promotion, self).save(*args, **kwargs) # Call the "real" save() method.
 
         # resize image
-        img_file_name = str(self.promo_image.path)
-        custom_image_PIL_obj = CustomImagePIL(file_path=img_file_name)
-        custom_image_PIL_obj.resize_image(filename=self.promo_image.path)
+        if self.promo_image:
+            img_file_name = str(self.promo_image.path)
+            custom_image_PIL_obj = CustomImagePIL(file_path=img_file_name)
+            custom_image_PIL_obj.resize_image(filename=self.promo_image.path)
 
     def get_valid_promotions_list(self, promo_type = PROMOTION_TYPE_FRONTEND["key"]):
         """Return a list of valid promotions (not expired yet)"""
@@ -105,6 +109,24 @@ class Promotion(models.Model):
                 valid_promotion_list.append(campaign_obj.get_campaign_details(id_campaign=id_valid_campaign))
 
         return valid_promotion_list
+
+    def create_promotion(self, name, description, promo_type, expiring_date=None):
+        """Function to create a new promotion"""
+        return_var = False
+        promotion_obj = Promotion()
+
+        promotion_obj.name = name
+        promotion_obj.description = description
+        promotion_obj.promo_type = promo_type
+        if expiring_date:
+            promotion_obj.expiring_date = expiring_date
+
+        promotion_obj.save()
+
+        # prelevo l'id della promo appena inserita
+        return_var = promotion_obj.id_promotion
+
+        return return_var
 
 class Campaign(models.Model):
     id_campaign = models.AutoField(primary_key=True)
@@ -156,7 +178,7 @@ class Campaign(models.Model):
                     code = campaign_obj.generate_random_code()
                 )
                 campaign_obj.save()
-                return_var = True
+                return_var = campaign_obj.id_campaign
 
         return return_var
 
@@ -216,7 +238,8 @@ class Campaign(models.Model):
                     campaign_details["expiring_in_readable_frontend"] = campaign_obj.get_expiring_in_text(expiring_in_days)
                     campaign_details["expiring_in_readable_backend"] = campaign_obj.get_expiring_in_text(expiring_in_days, True)
 
-                    campaign_details["image_relative_path"] = promotion_obj.promo_image.url
+                    if promotion_obj.promo_image:
+                        campaign_details["image_relative_path"] = promotion_obj.promo_image.url
                     campaign_details["code"] = campaign_obj.code
                     # a frontend_post promotion has not recipients
                     if (account_obj):

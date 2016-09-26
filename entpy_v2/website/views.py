@@ -1,23 +1,29 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.mail import send_mail
-from django.http import HttpResponse
-from website.models import Promotion
-import json
+from django.http import HttpResponse, Http404
+from website.models import Promotion, Campaign
+import logging, json
 
+@ensure_csrf_cookie
 def www_index(request):
     """Home page view"""
     return render(request, 'website/www_index.html', {})
 
+@ensure_csrf_cookie
 def www_about(request):
     """About us page view"""
     return render(request, 'website/www_about.html', {})
 
+@ensure_csrf_cookie
 def www_services(request):
     """Services page view"""
     return render(request, 'website/www_services.html', {})
 
+@ensure_csrf_cookie
 def www_portfolio(request):
     """Portfolio page view"""
     return render(request, 'website/www_portfolio.html', {})
@@ -27,11 +33,13 @@ def www_contact_us(request):
     """Contact us page view"""
     return render(request, 'website/www_contact_us.html', {})
 
+@ensure_csrf_cookie
 def www_404(request):
     """404 page view"""
     return render(request, 'website/www_404.html', {})
 
 @require_POST
+@ensure_csrf_cookie
 def send_info_email(request):
     """View to send an email"""
     if request.method == "POST":
@@ -115,3 +123,45 @@ def www_our_offers(request):
     }
 
     return render(request, 'website/www_our_offers.html', context)
+
+@require_POST
+def create_promotion_AJAX(request):
+    """ View to create a promo code via AJAX call"""
+
+    http_response = None
+    promotion_obj = Promotion()
+    campaign_obj = Campaign()
+    promotion_type = request.POST.get("promotion_type")
+    extra_text = request.POST.get("extra_text")
+
+    if not promotion_type or not promotion_type:
+        raise Http404()
+
+    # creo una nuova promozione
+    if promotion_type == "service_bonus":
+        id_promotion = promotion_obj.create_promotion(
+            name = "Promozione per un servizio",
+            description = "Lo sconto è da applicare sul servizio: " + str(extra_text),
+            promo_type = "service_bonus",
+            expiring_date = None,
+        )
+    elif promotion_type == "wizard_bonus":
+        id_promotion = promotion_obj.create_promotion(
+            name = "Promozione per un obiettivo",
+            description = "Lo sconto è da applicare sull'obiettivo: " + str(extra_text),
+            promo_type = "service_bonus",
+            expiring_date = None,
+        )
+
+    if id_promotion:
+        # associo la promozione creata ad una campagna
+        id_campaign = campaign_obj.add_frontend_post_campaign(id_promotion=id_promotion)
+
+        # prelevo le info della campagna creata
+        campaign_details = campaign_obj.get_campaign_details(id_campaign=id_campaign)
+
+        # create http response (also attach a cookie if exists)
+        http_response = HttpResponse(json.dumps(campaign_details), content_type="application/json")
+
+    # return a JSON response
+    return http_response

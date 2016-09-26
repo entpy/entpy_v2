@@ -221,7 +221,7 @@
 					<div class="col-xs-12 story-cont animated wizard-call-to-action-block" data-animation="fadeInUp" data-animation-delay="200">
 						<h3>Approfitta della promozione</h3>
 						<p>Clicca sul pulsante sotto per ottenere uno sconto esclusivo per te.</p>
-						<a class="btn button-large" href="/scelta-guidata">Ottieni codice promozionale</a>
+						<a class="btn button-large getPromoCodeAction" href="#">Ottieni codice promozionale</a>
 						<p class="or">oppure</p>
 						<p><a href="/contatti">Contattaci adesso</a></p>
 					</div>
@@ -275,11 +275,42 @@
 
 			// click per ottenere il codice di sconto
 			$(document).on("click", ".getPromoCodeAction", function(){
-				$(".modal-title").html('Sconto del 20% per te*');
-				$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">ABC123</span><br />Comunicacelo per usufruire di un <b>20%</b> di sconto sui nostri servizi (creazione di un sito web, ottimizzazione SEO, ecc...).</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
-				$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Utilizza codice</a>');
 
-				$(".modal").modal('show');
+				var problemType = $(".helpTypeAction.active").data("helpType");
+				var problemTypeDesc = "";
+
+				if (problemType) {
+					if (problemType == "noVisibilityHelp") {
+						problemTypeDesc = "aumento della visibilità";
+					} else if (problemType == "noCustomersHelp") {
+						problemTypeDesc = "acquisizione nuovi clienti";
+					} else if (problemType == "noSalesHelp") {
+						problemTypeDesc = "incremento delle vendite";
+					}
+
+					// chiamata ajax per ottenere il codice
+					$.ajax({
+						url: "/create_promotion_AJAX/",
+						type: "post",
+						cache: !1,
+						async: false,
+						headers: { "X-CSRFToken": readCsrftokenFromCookie() },
+						data: {
+							promotion_type: "wizard_bonus",
+							extra_text: problemTypeDesc
+						},
+						success: function(c) {
+							console.log("=== success ===");
+							console.log(c);
+
+							$(".modal-title").html('Sconto del 20% per te*');
+							$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">' + c.code + '</span><br />Il codice contiente uno sconto del <b>20%</b> da utilizzare sui nostri servizi per raggiungere l\'obiettivo "<b>' + problemTypeDesc + '</b>".</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
+							$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Utilizza codice</a>');
+
+							$(".modal").modal('show');
+						}
+					});
+				}
 
 				return false;
 			});

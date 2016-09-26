@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^app/$', views.www_app, name='www_app'),
     url(r'^pubblicita/$', views.www_advertising, name='www_advertising'),
     url(r'^offerte/$', views.www_our_offers, name='www_our_offers'),
+    url(r'^create_promotion_AJAX/$', views.create_promotion_AJAX, name='create_promotion_AJAX'),
 
     # landing (in lavorazione...)
     # url(r'^promozione-web/$', views.l_www_landing1, name='l_www_landing1'),
