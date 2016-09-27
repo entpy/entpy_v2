@@ -14,3 +14,38 @@
 
 // Function to read csrftoken from cookie
 function readCsrftokenFromCookie() { return $.cookie('csrftoken'); }
+
+$(document).ready(function(){
+	// click per ottenere il codice di sconto
+	$(document).on("click", ".getServiceDiscountAction", function(){
+
+		var serviceType = $(this).data("serviceType");
+		var serviceDesc = $(this).data("serviceDesc");
+		var serviceDiscount = $(this).data("serviceDiscount");
+
+		// chiamata ajax per ottenere il codice
+		$.ajax({
+			url: "/create_promotion_AJAX/",
+			type: "post",
+			cache: !1,
+			async: false,
+			headers: { "X-CSRFToken": readCsrftokenFromCookie() },
+			data: {
+				promotion_type: "service_bonus",
+				extra_text: serviceType
+			},
+			success: function(c) {
+				console.log("=== success ===");
+				console.log(c);
+
+				$(".modal-title").html('Sconto del ' + serviceDiscount + '% per te*');
+				$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">' + c.code + '</span><br />Il codice ti da diritto ad un <b>' + serviceDiscount + '% di sconto</b> da utilizzare per<br /><b>' + serviceDesc + '</b>.</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
+				$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/' + c.code + '/#anchor1" class="btn btn-primary">Utilizza codice</a>');
+
+				$(".modal").modal('show');
+			}
+		});
+
+		return false;
+	});
+});

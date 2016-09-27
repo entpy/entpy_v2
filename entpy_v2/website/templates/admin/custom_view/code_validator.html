@@ -12,6 +12,7 @@
 		margin-right: 10px;
 		margin-top: 5px;
 	}
+	.promoTitleInput { width: 610px; }
 </style>
 {% endblock %}
 
@@ -29,7 +30,7 @@
 							<div class="form-row field-name">
 								<div>
 									<label>Titolo promozione:</label>
-									<input type="text" name="promo_title" value="{{ promotion_details.name }}" readonly="readonly">
+									<input type="text" class="promoTitleInput" name="promo_title" value="{{ promotion_details.name }}" readonly="readonly">
 								</div>
 							</div>
 							<div class="form-row field-name">

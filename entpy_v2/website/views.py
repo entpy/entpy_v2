@@ -6,6 +6,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.mail import send_mail
 from django.http import HttpResponse, Http404
 from website.models import Promotion, Campaign
+from entpy_v2.consts import project_constants
 import logging, json
 
 @ensure_csrf_cookie
@@ -29,9 +30,14 @@ def www_portfolio(request):
     return render(request, 'website/www_portfolio.html', {})
 
 @ensure_csrf_cookie
-def www_contact_us(request):
+def www_contact_us(request, promo_code=None):
     """Contact us page view"""
-    return render(request, 'website/www_contact_us.html', {})
+
+    context = {
+            'promo_code' : promo_code,
+    }
+
+    return render(request, 'website/www_contact_us.html', context)
 
 @ensure_csrf_cookie
 def www_404(request):
@@ -47,8 +53,9 @@ def send_info_email(request):
         name = request.POST.get("name")
         email = request.POST.get("email")
         phone = request.POST.get("phone")
-        txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg")
-        html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg")
+        promo_code = request.POST.get("promo_code")
+        txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
+        html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
         if int(request.POST.get("is_promo", 0)):
             subject = "Richiesta informazioni (promozione)"
         else:
@@ -140,14 +147,14 @@ def create_promotion_AJAX(request):
     # creo una nuova promozione
     if promotion_type == "service_bonus":
         id_promotion = promotion_obj.create_promotion(
-            name = "Promozione per un servizio",
+            name = "Promozione per un servizio (sconto del " + str(project_constants.SERVICE_BONUS_DISCOUNT) + "%)",
             description = "Lo sconto è da applicare sul servizio: " + str(extra_text),
             promo_type = "service_bonus",
             expiring_date = None,
         )
     elif promotion_type == "wizard_bonus":
         id_promotion = promotion_obj.create_promotion(
-            name = "Promozione per un obiettivo",
+            name = "Promozione per un obiettivo (sconto del " + str(project_constants.WIZARD_BONUS_DISCOUNT) + "%)",
             description = "Lo sconto è da applicare sull'obiettivo: " + str(extra_text),
             promo_type = "service_bonus",
             expiring_date = None,

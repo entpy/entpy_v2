@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'entpy_v2.contest_processors.common_contest_processors', # <= il nuovo context
             ],
         },
     },

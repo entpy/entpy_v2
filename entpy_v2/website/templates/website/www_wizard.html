@@ -12,9 +12,6 @@
 	li.li_exists, li.li_not_exists { list-style-type: none; }
 	li.li_exists:before { content: "\f00c"; color: green; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* V */
 	li.li_not_exists:before { content: "\f00d"; color: red; font-family: FontAwesome; display: inline-block; margin-left: -1.3em; width: 1.3em; } /* X */
-	.contact_us_box { margin-top: 30px; }
-	.couponCode { color: #333; display: inline-block; font-size: 22px; font-weight: bold; margin: 20px 0; }
-	.promo_code_info { font-size: 12px; margin: 0; }
 	.order-opt-link { padding: 40px 10px 30px; }
 	.order-opt-link .text { display: table-cell; height: 95px; padding: 10px 0; vertical-align: middle; }
 	.site-form-title { margin-top: 45px; }
@@ -303,9 +300,9 @@
 							console.log("=== success ===");
 							console.log(c);
 
-							$(".modal-title").html('Sconto del 20% per te*');
-							$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">' + c.code + '</span><br />Il codice contiente uno sconto del <b>20%</b> da utilizzare sui nostri servizi per raggiungere l\'obiettivo "<b>' + problemTypeDesc + '</b>".</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
-							$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/ABC123" class="btn btn-primary">Utilizza codice</a>');
+							$(".modal-title").html('Sconto del {{ project_constants.WIZARD_BONUS_DISCOUNT }}% per te*');
+							$(".modal-body").html('<p class="text-center">Ecco il tuo codice promozionale:<br /><span class="couponCode">' + c.code + '</span><br />Il codice contiente uno sconto del <b>{{ project_constants.WIZARD_BONUS_DISCOUNT }}%</b> da utilizzare sui nostri servizi per raggiungere l\'obiettivo "<b>' + problemTypeDesc + '</b>".</p><p class="text-right promo_code_info">*Il codice promozionale non è cumulabile con altre offerte.</p>');
+							$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a><a href="/contatti/' + c.code + '/#anchor1" class="btn btn-primary">Utilizza codice</a>');
 
 							$(".modal").modal('show');
 						}

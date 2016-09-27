@@ -53,18 +53,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="row col-content clearfix">
-				<!-- block title-text -->
-				<div class="col-xs-12 story-cont animated wizard-call-to-action-block" data-animation="fadeInUp" data-animation-delay="200">
-					<h3>Non sai se è la scelta giusta per te?</h3>
-					<p>Utilizza il nostro configuratore, ti aiutiamo nella scelta più adatta a te.<br />Subito, in omaggio, un <b>buono sconto</b> sui nostri servizi.</p>
-					<a class="btn button-large" href="/scelta-guidata">Vai al configuratore</a>
-					<p class="or">oppure</p>
-					<p><a href="/contatti">Contattaci adesso</a></p>
-				</div>
-			</div>
-		</div>
+		{# get discount block #}
+		{% include "website/blocks/get_service_discount.html" with service_desc="la creazione di una landing page" service_type="Landing page" service_discount=project_constants.SERVICE_BONUS_DISCOUNT only %}
 	</section>
 	<!-- About Area End -->
 
