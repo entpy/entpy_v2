@@ -2351,3 +2351,7 @@ li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-
 .promo_code_info { font-size: 12px; margin: 0; }
 .submit-form-container { display: inline-block; width: 100%; }
 .promo-code-input { float: right!important; }
+
+@media (max-width:480px) {
+	.nav-main .menu-cont li ul.sub-menu { display: none!important; }
+}
