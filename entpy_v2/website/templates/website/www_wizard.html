@@ -35,7 +35,7 @@
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Ti aiutiamo nella scelta dell'obiettivo più adatto a te.</div>
 			<h5 class="animated" data-animation="fadeInUp" data-animation-delay="400">Qual'è il tuo problema principale? (Clicca sui box sotto per selezionare)</h5>
 			{# seleziona il tuo problema principale {{{ #}
-			<div class="wizard-form wizardScroll1">
+			<div class="wizard-form">
 				<div class="container text-center">
 					<!-- Order Buttons Start -->
 					<div class="order-btns clearfix">
@@ -62,7 +62,7 @@
 			</div>
 			{# seleziona il tuo problema principale }}} #}
 			{# hai già un sito web? {{{ #}
-			<span class="wizardScroll2"></span>
+			<span class="wizardScroll1"></span>
 			<div class="siteSelectionBlock" style="display: none;">
 				<h5 class="site-form-title animated" data-animation="fadeInUp" data-animation-delay="400">Possiedi già un sito web?</h5>
 				<div class="site-form">
@@ -88,6 +88,7 @@
 			{# hai già un sito web? }}} #}
 			{# soluzione {{{ #}
 			<!-- visibilità - no sito -->
+			<span class="wizardScroll2"></span>
 			<div class="tipListAction noVisibilityHelp_siteNo" style="display: none;">
 				<h5 class="site-form-title animated" data-animation="fadeInUp" data-animation-delay="400">Non ho abbastanza visibilità</h5>
 				<div class="desc-txt animated" data-animation="fadeInUp" data-animation-delay="400">
@@ -243,7 +244,7 @@
 				// chiedo se l'utente ha già un sito
 				$(".siteSelectionBlock").show();
 
-				$(window).scrollTo(".wizardScroll1", 1000);
+				$(window).scrollTo(".wizardScroll1", 1000, {offset: -50});
 
 				return false;
 			});
@@ -265,7 +266,7 @@
 				// mostro il pulsante per ottenere l'offerta
 				$(".contactUsBox").show();
 
-				$(window).scrollTo(".wizardScroll2", 1000);
+				$(window).scrollTo(".wizardScroll2", 1000, {offset: -50});
 
 				return false;
 			});

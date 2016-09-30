@@ -2355,3 +2355,5 @@ li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-
 @media (max-width:480px) {
 	.nav-main .menu-cont li ul.sub-menu { display: none!important; }
 }
+
+.modal-footer .btn { position: relative; z-index: 9999; }
