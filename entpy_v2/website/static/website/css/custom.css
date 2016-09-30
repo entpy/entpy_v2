@@ -2356,4 +2356,5 @@ li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-
 	.nav-main .menu-cont li ul.sub-menu { display: none!important; }
 }
 
+.modal-footer { position: relative; z-index: 8888; }
 .modal-footer .btn { position: relative; z-index: 9999; }
