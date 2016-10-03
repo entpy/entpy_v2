@@ -15,6 +15,9 @@
 // Function to read csrftoken from cookie
 function readCsrftokenFromCookie() { return $.cookie('csrftoken'); }
 
+var scroll_position = false;
+var return_position = false;
+var not_scroll = false;
 $(document).ready(function(){
 	// click per ottenere il codice di sconto
 	$(document).on("click", ".getServiceDiscountAction", function(){
@@ -47,5 +50,33 @@ $(document).ready(function(){
 		});
 
 		return false;
+	});
+
+	// modal in fase di apertura ma non ancora aperta
+	$(document).on('show.bs.modal', ".modal", function () {
+		if ($(".modal").css('position') === 'absolute' && !not_scroll) {
+			/* We will need to return to where we were.*/
+			// return_position = true;
+			// saving position
+			scroll_position = $(window).scrollTop(); // Where did we start in the window.
+			not_scroll = true;
+		}
+	});
+
+	// modal apertura completata
+	$(document).on('shown.bs.modal', ".modal", function () {
+		if ($(".modal").css('position') === 'absolute') {
+			// scroll top page top
+			$(window).scrollTop(0);
+		}
+	});
+
+	// modal in fase di chiusura ma non ancora chiusa
+	$(document).on('hide.bs.modal', ".modal", function (e) {
+		if ($(".modal").css('position') === 'absolute') {
+			/* Return to where we were.*/
+			$(window).scrollTop(scroll_position);
+			not_scroll = false;
+		}
 	});
 });
