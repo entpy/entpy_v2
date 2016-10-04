@@ -259,13 +259,13 @@
 				var problemType = $(".helpTypeAction.active").data("helpType");
 				var siteExists = $(".siteClickAction.active").data("siteExists");
 
-				// mostro la soluzione al prblema
+				// mostro la soluzione al problema
 				showTip(problemType, siteExists);
 
 				// mostro il pulsante per ottenere l'offerta
 				$(".contactUsBox").show();
 
-				$(window).scrollTo(".wizardScroll2", 1000, {offset: -60});
+				$(window).scrollTo(".wizardScroll2", 1000, {offset: -65});
 
 				return false;
 			});
@@ -312,6 +312,7 @@
 				return false;
 			});
 
+			// init delle tooltip
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 
@@ -326,7 +327,6 @@
 			return true;
 		}
 
-		// TODO
 		/* Funzione per mostrare i consigli in base alla selezione */
 		function showTip(problemType, siteExists) {
 			if (problemType && siteExists) {
