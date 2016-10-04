@@ -61,7 +61,7 @@ class Promotion(models.Model):
     name = models.CharField("Titolo promozione", max_length=50)
     description = models.TextField("Contenuto")
     promo_image = models.ImageField("Immagine della promozione", upload_to="promo_images/", blank=True, null=True)
-    expiring_date = models.DateField("Scadenza", null=True)
+    expiring_date = models.DateField("Scadenza", blank=True, null=True)
     promo_type = models.CharField(max_length=30, choices=PROMOTION_TYPES_SELECTOR)
     status = models.BooleanField(default=0)
     campaigns = models.ManyToManyField(Account, through='Campaign')
@@ -203,7 +203,7 @@ class Campaign(models.Model):
 
             return True
 
-    def get_campaign_details(self, id_campaign=None, campaign_code=None):
+    def get_campaign_details(self, id_campaign, campaign_code):
         """
         Function to retrieve all details about a campaign.
         First by id_campaign, if id_campaign is null campaign_code will
@@ -220,12 +220,12 @@ class Campaign(models.Model):
         campaign_obj = None
 
         try:
-                if (id_campaign):
+                if id_campaign:
                     campaign_obj = Campaign.objects.select_related().get(id_campaign=id_campaign)
-                elif (campaign_code):
+                elif campaign_code:
                     campaign_obj = Campaign.objects.select_related().get(code=campaign_code)
 
-                if (campaign_obj):
+                if campaign_obj:
                     promotion_obj = campaign_obj.id_promotion
                     account_obj = campaign_obj.id_account
 
@@ -242,7 +242,7 @@ class Campaign(models.Model):
                         campaign_details["image_relative_path"] = promotion_obj.promo_image.url
                     campaign_details["code"] = campaign_obj.code
                     # a frontend_post promotion has not recipients
-                    if (account_obj):
+                    if account_obj:
                         campaign_details["receiver_email"] = account_obj.email
                         campaign_details["receiver_first_name"] = account_obj.first_name
                         campaign_details["receiver_last_name"] = account_obj.last_name
@@ -252,24 +252,24 @@ class Campaign(models.Model):
 
         return campaign_details
 
-    def get_expiring_in_text(self, expiring_in_days=None, is_frontend=False):
+    def get_expiring_in_text(self, expiring_in_days, is_frontend=False):
             """Function to build a string about promotion expiring in"""
 
             expiring_in_string = ""
 
-            if (is_frontend):
-                if (expiring_in_days == 0):
+            if is_frontend:
+                if expiring_in_days == 0:
                     expiring_in_string = "<br /><b>Approfittane subito, l'offerta scade OGGI!</b>"
-                if (expiring_in_days == 1):
+                if expiring_in_days == 1:
                     expiring_in_string = "<br /><b>Approfittane subito, l'offerta scade domani!</b>"
-                elif (expiring_in_days > 1):
+                elif expiring_in_days > 1:
                     expiring_in_string = "<br /><b>Approfittane subito, l'offerta scade tra " + str(expiring_in_days) + " giorni</b>"
             else:
-                if (expiring_in_days == 0):
+                if expiring_in_days == 0:
                     expiring_in_string = "L'offerta scade <span class=\"expiring_today\">OGGI</span>!"
-                if (expiring_in_days == 1):
+                if expiring_in_days == 1:
                     expiring_in_string = "L'offerta scade domani!"
-                elif (expiring_in_days > 1):
+                elif expiring_in_days > 1:
                     expiring_in_string = "L'offerta scade tra " + str(expiring_in_days) + " giorni"
 
             return expiring_in_string
@@ -290,16 +290,16 @@ class Campaign(models.Model):
                 campaign_obj = Campaign.objects.select_related().get(code=code)
                 promotion_obj = campaign_obj.id_promotion
 
-                if (validity_check == 'not_used'):
-                    if ((not campaign_obj.status) or (promotion_obj.promo_type == Promotion.PROMOTION_TYPE_FRONTEND["key"])):
+                if validity_check == 'not_used':
+                    if (not campaign_obj.status) or (promotion_obj.promo_type == Promotion.PROMOTION_TYPE_FRONTEND["key"]):
                         return_var = True
 
-                if (validity_check == 'not_expired'):
-                    if ((promotion_obj.expiring_date is None) or (promotion_obj.expiring_date >= datetime.now().date())):
+                if validity_check == 'not_expired':
+                    if (promotion_obj.expiring_date is None) or (promotion_obj.expiring_date >= datetime.now().date()):
                         return_var = True
 
-                if (validity_check == 'exists'):
-                    if (campaign_obj.id_campaign):
+                if validity_check == 'exists':
+                    if campaign_obj.id_campaign:
                         return_var = True
 
             except(KeyError, Campaign.DoesNotExist):
@@ -327,12 +327,12 @@ class Campaign(models.Model):
 
         return return_var
 
-    def get_expiring_in_days(self, expiring_date=None):
+    def get_expiring_in_days(self, expiring_date):
         """Function to calculate expiring in between two date"""
 
         return_var = None
 
-        if (expiring_date):
+        if expiring_date:
             return_var = (expiring_date - datetime.now().date()).days
 
         return return_var

@@ -1,10 +1,10 @@
 {% extends "website/inc/base3.html" %}
 {% load staticfiles static %}
 
-{% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Abbiamo le idee giuste per te. Il preventivo è completamente gratuito.{% endblock %}
+{% block description %}{{ project_constants.seo_data.www_wizard.description }}{% endblock %}
 
 {# section title #}
-{% block section_title %}Scelta guidata{% endblock %}
+{% block section_title %}{{ project_constants.seo_data.www_wizard.page_title }}{% endblock %}
 {% block base3_title %}{% endblock %}
 
 {# extra css #}

@@ -145,18 +145,18 @@ def create_promotion_AJAX(request):
         raise Http404()
 
     # creo una nuova promozione
-    if promotion_type == "service_bonus":
+    if promotion_type == Promotion.PROMOTION_TYPE_SERVICE["key"]:
         id_promotion = promotion_obj.create_promotion(
             name = "Promozione per un servizio (sconto del " + str(project_constants.SERVICE_BONUS_DISCOUNT) + "%)",
             description = "Lo sconto è da applicare sul servizio: " + str(extra_text),
-            promo_type = "service_bonus",
+            promo_type = Promotion.PROMOTION_TYPE_SERVICE["key"],
             expiring_date = None,
         )
-    elif promotion_type == "wizard_bonus":
+    elif promotion_type == Promotion.PROMOTION_TYPE_WIZARD["key"]:
         id_promotion = promotion_obj.create_promotion(
             name = "Promozione per un obiettivo (sconto del " + str(project_constants.WIZARD_BONUS_DISCOUNT) + "%)",
             description = "Lo sconto è da applicare sull'obiettivo: " + str(extra_text),
-            promo_type = "service_bonus",
+            promo_type = Promotion.PROMOTION_TYPE_WIZARD["key"],
             expiring_date = None,
         )
 
@@ -167,7 +167,7 @@ def create_promotion_AJAX(request):
         # prelevo le info della campagna creata
         campaign_details = campaign_obj.get_campaign_details(id_campaign=id_campaign)
 
-        # create http response (also attach a cookie if exists)
+        # create http response
         http_response = HttpResponse(json.dumps(campaign_details), content_type="application/json")
 
     # return a JSON response

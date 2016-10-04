@@ -1,13 +1,14 @@
 {% extends "website/inc/base3.html" %}
 {% load staticfiles static %}
 
-{% block description %}Realizzazione Siti Web Torino - Creazione Siti Web Torino | Siamo specializzati nella creazione di Siti Web futuristici realmente utili.{% endblock %}
+{% block description %}{% endblock %}
+{% block description %}{{ project_constants.seo_data.www_landing_pages.description }}{% endblock %}
 
 {# section title #}
-{% block section_title %}Landing pages{% endblock %}
+{% block section_title %}{{ project_constants.seo_data.www_landing_pages.page_title }}{% endblock %}
 
 {# breadcrumbs item #}
-{% block breadcrumbs_item %}<li class="active"><a href="/servizi">Servizi</a></li><li>Landing pages</li>{% endblock %}
+{% block breadcrumbs_item %}<li class="active"><a href="/servizi">{{ project_constants.seo_data.www_services.page_title }}</a></li><li>{{ project_constants.seo_data.www_landing_pages.page_title }}</li>{% endblock %}
 
 {# menu active element #}
 {% block services_navigation_active %}active{% endblock %}

@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
 from django.conf.urls import url
+from datetime import datetime
 import logging
 
 # Get an instance of a logger
@@ -50,17 +51,17 @@ class AccountAdmin(admin.ModelAdmin):
                 campaign_obj = Campaign()
 
                 # checking if code exists
-                if (not campaign_obj.check_code_validity(code=post_code, validity_check="exists")):
+                if not campaign_obj.check_code_validity(code=post_code, validity_check="exists"):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale non esistente.')
                     return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
                 # checking if code is not already validated
-                if (not campaign_obj.check_code_validity(code=post_code, validity_check="not_used")):
+                if not campaign_obj.check_code_validity(code=post_code, validity_check="not_used"):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale già validato.')
                     return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
                 # checking if campaign is not expired
-                if (not campaign_obj.check_code_validity(code=post_code, validity_check="not_expired")):
+                if not campaign_obj.check_code_validity(code=post_code, validity_check="not_expired"):
                     messages.add_message(request, messages.ERROR, 'Codice promozionale scaduto.')
                     return HttpResponseRedirect('/admin/website/account/code-validator') # Redirect after POST
 
@@ -98,9 +99,9 @@ class PromotionAdmin(admin.ModelAdmin):
     # table list fields
     list_display = ('name', 'expiring_date')
 
-    # showing only valid promotion
-    def queryset(self, request):
-        qs = super(PromotionAdmin, self).queryset(request)
+    def get_queryset(self, request):
+        """ mostro solo le promozioni di tipo "frontend" che non siano ancora scadute """
+        qs = super(PromotionAdmin, self).get_queryset(request)
         return qs.filter(expiring_date__gte=datetime.now().date()).filter(promo_type=Promotion.PROMOTION_TYPE_FRONTEND["key"])
 
     def save_model(self, request, obj, form, change):
@@ -123,4 +124,5 @@ class PromotionAdmin(admin.ModelAdmin):
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Promotion, PromotionAdmin)
 
+# sovrascrivo il template base con questo che contiene il blocco con le azioni extra
 admin.site.index_template = "admin/index_custom.html"
