@@ -203,7 +203,7 @@ class Campaign(models.Model):
 
             return True
 
-    def get_campaign_details(self, id_campaign, campaign_code):
+    def get_campaign_details(self, id_campaign=None, campaign_code=None):
         """
         Function to retrieve all details about a campaign.
         First by id_campaign, if id_campaign is null campaign_code will
