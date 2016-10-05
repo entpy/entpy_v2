@@ -2360,35 +2360,32 @@ li.li_icon:before { content: "\f00c"; font-family: FontAwesome; display: inline-
 .tooltip_question_point, .tooltip_question_point * { cursor: default; }
 .tooltip_question_point, .tooltip_question_point .fa-circle { color: #1e9fb4; }
 
-/* bootstrap modal mobile fix */
-/*.modal .modal-dialog { position: relative; z-index: 8888; }
-.modal .modal-dialog .modal-content { position: relative; z-index: 8900; }
-.modal-footer { position: relative; z-index: 8888; }
-.modal-footer .btn { position: relative; z-index: 9999; }*/
-/* bootstrap modal mobile fix {{{ */
-.modal-open {
-	/*-webkit-overflow-scrolling: touch*/
-	overflow: visible;
-}
+@media (max-width:991px) {
+	/* bootstrap modal mobile fix {{{ */
+	.modal-open {
+		/*-webkit-overflow-scrolling: touch*/
+		overflow: visible;
+	}
 
-.modal {
-	position: absolute;
-	/*-webkit-overflow-scrolling: touch*/
-	overflow: visible;
-}
-
-/* black background only for all bootstrap modal */
-.modal-backdrop.in {
-	opacity: 0.85!important;
-}
-
-@media (min-height: 40em) {
 	.modal {
 		position: absolute;
+		/*-webkit-overflow-scrolling: touch*/
+		overflow: visible;
 	}
-	.modal-body {
-		max-height: 35em; /* This should be less than the min-height in the media query. */
-		overflow-y: auto;
+
+	/* black background only for all bootstrap modal */
+	.modal-backdrop.in {
+		opacity: 0.85!important;
 	}
+
+	@media (min-height: 40em) {
+		.modal {
+			position: absolute;
+		}
+		.modal-body {
+			max-height: 35em; /* This should be less than the min-height in the media query. */
+			overflow-y: auto;
+		}
+	}
+	/* bootstrap modal mobile fix }}} */
 }
-/* bootstrap modal mobile fix }}} */
