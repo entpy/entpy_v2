@@ -12,7 +12,7 @@ class project_constants(object):
         "www_index" : {
             "page_title" : "Realizzazione Siti Internet", # la home page non ha un titolo principale ma uno slider con diversi h1
             "description" : "Realizzazione Siti Internet Torino - Creazione Siti Internet Torino | Siti Web belli e utili, basati su obiettivi.",
-            "tag_title" : "Realizzazione Siti Internet Torino - Creazione Siti Internet Torino",
+            "tag_title" : "Realizzazione Siti Internet - Creazione Siti Internet Torino",
             "keywords" : "",
         },
         "www_about" : {
