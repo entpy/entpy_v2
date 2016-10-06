@@ -2,6 +2,7 @@
 {% load staticfiles static %}
 
 {% block description %}{{ project_constants.seo_data.www_index.description }}{% endblock %}
+{% block title %}{{ project_constants.seo_data.www_index.tag_title }}{% endblock %}
 
 {# menu active element #}
 {% block home_navigation_active %}active{% endblock %}
@@ -19,7 +20,7 @@
 				</div>
 				<!-- End Top Image -->
 				<h2 class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="100">Siti Web all'avanguardia</h2>
-				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="200">realizzati per portarti valore</h5>
+				<h5 class="animated" data-animation="fadeInUp" data-animation-delay="200">concepiti per portarti valore</h5>
 				<hr class="special">
 				{% include "website/blocks/bar3.html" %}
 			</div>
@@ -73,7 +74,7 @@
 	<section class="about-main">
 		<div class="container">
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
-				<p>&quot; Realizziamo il tuo sito web secondo le più moderne tecniche<br />ponendo in primo piano l'obiettivo da raggiungere più adatto a te.<br />Affidati ad Entpy per avere finalmente quel passo in più che ti farà distinguere dalla concorrenza. &quot;</p>
+				<p>Realizziamo il tuo sito internet secondo le più moderne tecniche<br />ponendo in primo piano l'obiettivo da raggiungere più adatto a te.<br />Affidati ad Entpy per avere finalmente quel passo in più che ti farà distinguere dalla concorrenza.</p>
 			</div>
 			<div class="row col-content clearfix">
 				<!-- Start: Story Area -->
@@ -85,41 +86,59 @@
 				</div>
 				<!-- Start: Story Area -->
 				<!-- Start: Tab Area -->
-				<div class="col-md-8 about-tab animated" data-animation="fadeInUp" data-animation-delay="200">
+				<div class="col-md-8 about-tab animated" data-animation="fadeInUp" data-animation-delay="400">
 					<div id="tab-container">
 						<ul class="etabs clearfix">
-							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-eye"></i> Visione</a> </li>
-							<li class="tab"><a href="#tab-02"><i class="fa fa-trophy"></i> Obiettivo</a> </li>
-							<li class="tab"><a href="#tab-03"><i class="fa fa-question-circle"></i> Chi siamo</a> </li>
+							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-crosshairs"></i> 1. Obiettivi</a></li>
+							<li class="tab"><a href="#tab-02"><i class="fa fa-cogs"></i> 2. Progetto</a></li>
+							<li class="tab"><a href="#tab-03"><i class="fa fa-wrench"></i> 3. Realizzazione</a></li>
+							<li class="tab"><a href="#tab-04"><i class="fa fa-flag-checkered"></i>4. Traguardo</a></li>
 						</ul>
 						<div class="panel-container">
 							<!-- Start: Tab 01 -->
 							<div id="tab-01" class="tab-cont clearfix active">
-								<div class="tab-cont-right"> <img src="{% static "website/img/vision.png" %}" alt="La nostra visione"> </div>
+								<div class="tab-cont-right">
+									<img src="{% static "website/img/obiettivi.png" %}" alt="L'analisi del progetto">
+								</div>
 								<div class="tab-cont-left">
-									<h6>La nostra visione</h6>
-									<p>L'informatica si è radicata pian piano nella nostra cultura, divenendo parte integrante della nostra vita. Alcuni la sottovalutano, altri la sfruttano, altri la vedono come un'arte da modellare per realizzare le cose più incredibili. La vision di Entpy è questo: arte modellata al di sopra del resto.</p>
+									<h6>L'analisi del progetto</h6>
+									<p>Prima di entrare nella fase di progettazione, è fondamentale definire gli obiettivi che si vogliono raggiungere. Ad alcuni interessa l'incremento dei clienti, ad altri interessa rendere più partecipe la clientela attiva, altri ancora hanno bisogno di sistemi di gestione più o meno complessi per facilitare, o addirittura automatizzare, lo svolgimento di determinate azioni. In questa fase definiamo tutte queste cose.</p>
 								</div>
 							</div>
 							<!-- End: Tab 01 -->
 							<!-- Start: Tab 02 -->
 							<div id="tab-02" class="tab-cont clearfix">
-								<div class="tab-cont-right"> <img src="{% static "website/img/mission.png" %}" alt="Il nostro obiettivo"> </div>
+								<div class="tab-cont-right">
+									<img src="{% static "website/img/progettazione.png" %}" alt="La progettazione">
+								</div>
 								<div class="tab-cont-left">
-									<h6>Il nostro obiettivo</h6>
-									<p>Il nostro obiettivo è quello di realizzare strumenti informatici che siano utili ed abbiano davvero un potenziale, i classici siti di presentazione (o statici) sono ormai obsoleti e non hanno utilità se non sono sorretti da un sistema che converta le visite in qualcosa di concreto, come possono essere dei nuovi clienti. Per questo sappiamo come creare il tuo ecosistema digitale.</p>
+									<h6>La progettazione</h6>
+									<p>Terminata la prima fase di raccolta informazioni, si passa a mettere tutto assieme per produrre un documento facilmente leggibile dal cliente, ma anche fondamentale per chi dovrà poi realizzare il sito (noi!). Questa sarà la base dalla quale partire per iniziare a sviluppare.</p>
 								</div>
 							</div>
 							<!-- End: Tab 02 -->
 							<!-- Start: Tab 03 -->
 							<div id="tab-03" class="tab-cont clearfix">
-								<div class="tab-cont-right"> <img src="{% static "website/img/chi-siamo.png" %}" alt="Chi siamo"> </div>
+								<div class="tab-cont-right">
+									<img src="{% static "website/img/realizzazione.png" %}" alt="La realizzazione">
+								</div>
 								<div class="tab-cont-left">
-									<h6>Chi siamo</h6>
-									<p>Prima di tutto siamo appassionati di informatica, adoriamo tenerci informati sulle nuove tecnologie. Ci piace applicare dei semplici concetti nella vita reale, cercando di renderla migliore per tutti. Le nostre idee prependono per l'open source, anche tutti gli strumenti utilizzati per realizzare il tuo sito hanno questa natura. Questo ti offre la garanzia che i nostri prodotti siano frutto del panorama informatico più attivo, aggiornato e sicuro.<br /><a href="/chi-siamo/">Leggi</a> altre informazioni su di noi.</p>
+									<h6>La realizzazione</h6>
+									<p>In questa fase tutto è ben definito, dallo studio della grafica fino alle funzionalità che il sito dovrà avere. In genere in questa fase il cliente dovrà attendere che il suo nuovo sito venga realizzato in tutte le sue parti. Il prodotto di questa fase sarà davvero fantastico.</p>
 								</div>
 							</div>
 							<!-- End: Tab 03 -->
+							<!-- Start: Tab 04 -->
+							<div id="tab-04" class="tab-cont clearfix">
+								<div class="tab-cont-right">
+									<img src="{% static "website/img/traguardo.png" %}" alt="Il traguardo">
+								</div>
+								<div class="tab-cont-left">
+									<h6>Il traguardo</h6>
+									<p>Completata la realizzazione del sito web, si procederà con la messa online. Da questo momento in poi rimarremo fianco a fianco con te per fornirti assistenza. Inoltre, ci impegneremo a colmare le lacune che non permettono al sito di funzionare a dovere, questo è possibile solo analizzando i dati dopo la messa online. Il tuo successo è il nostro traguardo</p>
+								</div>
+							</div>
+							<!-- End: Tab 04 -->
 						</div>
 					</div>
 				</div>
@@ -132,7 +151,7 @@
 	<section class="team-area-top text-center">
 		<div class="container">
 			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Ti Aiutiamo Nel Tuo Successo</h2>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">" Il nostro obiettivo non è quello di fare un sito, il nostro obiettivo è quello di realizzare uno strumento plasmato ad-hoc per te che sia funzionante e porti dei <b>risultati</b> ben definiti. Contattaci per un <b>preventivo gratuito</b>, siamo sicuri che troverai le nostre <b>idee utili</b> ed <b>efficaci</b>."</div> <a href="/contatti/" class="button-large animated" data-animation="fadeInUp" data-animation-delay="400">Contattaci adesso</a> </div>
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Il nostro obiettivo non è quello di fare un sito, il nostro obiettivo è quello di realizzare uno strumento plasmato ad-hoc per te che sia funzionante e porti dei <b>risultati</b> ben definiti. Contattaci per un <b>preventivo gratuito</b>, siamo sicuri che troverai le nostre <b>idee utili</b> ed <b>efficaci</b>.</div> <a href="/contatti/" class="button-large animated" data-animation="fadeInUp" data-animation-delay="400">Contattaci adesso</a></div>
 		<div class="team-image-big"><img src="{% static "website/img/team-big.jpg" %}" alt="Ti Aiutiamo Nel Tuo Successo"> </div>
 	</section>
 	<!-- Team Area End -->

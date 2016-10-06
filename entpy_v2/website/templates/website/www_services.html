@@ -2,6 +2,7 @@
 {% load staticfiles static %}
 
 {% block description %}{{ project_constants.seo_data.www_services.description }}{% endblock %}
+{% block title %}{{ project_constants.seo_data.www_services.tag_title }}{% endblock %}
 
 
 {# menu active element #}
@@ -13,7 +14,7 @@
 {# section content #}
 {% block page_content %}
 	<!-- Services Area Start -->
-	<section class="services-main" id="services">
+	<section class="about-main" id="services">
 		<div class="container">
 			{% include "website/blocks/services.html" %}
 			<div class="row col-content clearfix">

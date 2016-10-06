@@ -2,6 +2,7 @@
 {% load staticfiles static %}
 
 {% block description %}{{ project_constants.seo_data.www_about.description }}{% endblock %}
+{% block title %}{{ project_constants.seo_data.www_about.tag_title }}{% endblock %}
 
 {# menu active element #}
 {% block about_navigation_active %}active{% endblock %}
@@ -15,94 +16,43 @@
 	<section class="about-main">
 		<div class="container">
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
-				<p>&quot; Entpy è specializzata nella creazione di software pulito, utile ed avanzato. Utilizziamo gli strumenti necessari per creare delle vere perle tecnologiche che possano migliorare il tuo modo di vivere e di lavorare. &quot;</p>
+				<p>Siamo specializzati nella creazione di software pulito, <b>utile</b> ed <b>avanzato</b>.<br />Utilizziamo gli strumenti necessari per creare delle vere perle tecnologiche che possano <b>migliorare</b> il tuo modo di vivere e di lavorare.</p>
 			</div>
 			<div class="row col-content clearfix">
 				<!-- Start: Story Area -->
 				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>Il sito bacheca o di immagine</h4>
+					<h4>Entpy = ...</h4>
 					<hr>
-					<p>Una delle più grandi, errate convinzioni, è pensare al proprio sito web, come una cosa molto statica, con nome dell'attività, qualche immagine inerente all'argomento e dei testi buttati qua e la. Siti del genere possono essere fatti gratuitamente con WordPress o affini, ci sono molti servizi online che permettono di creare il proprio sito vetrina. Il problema principale è che siti di questo tipo sono completamente inutili nel 99% dei casi. Il problema principale è che non hanno un'utilità precisa. I clienti devono essere attratti e coinvolti. Questo si può fare solo con la consapevolezza che il nostro sito debba essere in grado di convertire i visitatori in potenziali clienti e successivamente acquisirli per renderli clienti attivi.<br />Questo è il modo sensato di procedere: per obiettivi.</p>
+					<p>Prima di tutto siamo appassionati di informatica, adoriamo tenerci informati sulle nuove tecnologie. Ci piace applicare dei semplici concetti nella vita reale, cercando di renderla migliore per tutti. Le nostre idee prependono per l'open source, anche tutti gli strumenti utilizzati per realizzare il tuo sito hanno questa natura. Questo ti offre la garanzia che i nostri prodotti siano frutto del panorama informatico più attivo, aggiornato e sicuro.</p>
 				</div>
 			</div>
 			<div class="row col-content clearfix">
-				<!-- Start: Story Area -->
-				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>Il SEO</h4>
-					<hr>
-					<p>Il tanto nomitato SEO (Search Engine Optimization) viene fatto passare da quasi tutti i realizzatori di siti, come un accessorio a parte in grado di creare rivoluzioni. La verità in campo pratico è tutt'altra, infatti, questa tecnica è implicita se lo sviluppo aderisce perfettamente a tutti gli standard rischiesti dal mondo web. Sono una serie di best practices secondo le quali i siti vanno sviluppati e strutturati, parte di queste ottimizzazioni sono peculiari di alcuni motori di ricerca (Google, Bing, ...). Se utilizzata a dovere, quindi rispettando tutti gli standard, permette ai motori di ricerca di digerire meglio il proprio sito, posizionandolo nei primi risultati quando gli argomenti della ricerca (su Google per esempio) sono affini con quanto trattato nel sito. Nella realtà il SEO è efficace solo fino ad un certo punto o meglio, è uno dei tanti piccoli tasselli che aiutano nel farsi trovare online.</p>
-				</div>
-			</div>
-			<div class="row col-content clearfix">
-				<!-- Start: Story Area -->
-				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>In conclusione...</h4>
-					<hr>
-					<p>Chi realizza siti deve avere molte competenze, non è solo questione di grafica, testi e SEO. E' un panorama molto più profondo di quello che sembra. Chi lo fa, spesso (troppo spesso) non è in grado di coprire queste competenze, come risultato si ottiene una spesa di denaro senza che questa porti a nulla.<br /><br />Noi garantiamo prodotti solidi, utili e sicuri, che sono semplicemente il risultato della nostra passione e competenza.<br />Affidati a noi per avere i risultati che cerchi.<br /><br /><a href="/contatti/">Contattaci adesso</a> per un preventito totalmente gratuito.</p>
-				</div>
-			</div>
-			<div class="row col-content clearfix">
-				<!-- Start: Story Area -->
-				<div class="col-md-4 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>Qualità e passione sono la chiave del successo</h4>
-					<hr>
-					<p>Se avessi ancora dei dubbi, eccoti spiegati i passi principali per poter realizzare dei siti web realmente funzionanti. Non esiste una formula universale, caso per caso va analizzato come un mondo a parte.</p>
-				</div>
-				<!-- Start: Story Area -->
 				<!-- Start: Tab Area -->
-				<div class="col-md-8 about-tab animated" data-animation="fadeInUp" data-animation-delay="400">
+				<div class="col-md-12 about-tab animated" data-animation="fadeInUp" data-animation-delay="200">
 					<div id="tab-container">
 						<ul class="etabs clearfix">
-							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-crosshairs"></i> 1. Obiettivi</a></li>
-							<li class="tab"><a href="#tab-02"><i class="fa fa-cogs"></i> 2. Progetto</a></li>
-							<li class="tab"><a href="#tab-03"><i class="fa fa-wrench"></i> 3. Realizzazione</a></li>
-							<li class="tab"><a href="#tab-04"><i class="fa fa-flag-checkered"></i>4. Traguardo</a></li>
+							<li class="tab active"><a href="#tab-01" class="active"><i class="fa fa-eye"></i> Visione</a> </li>
+							<li class="tab"><a href="#tab-02"><i class="fa fa-trophy"></i> Obiettivo</a> </li>
 						</ul>
 						<div class="panel-container">
 							<!-- Start: Tab 01 -->
 							<div id="tab-01" class="tab-cont clearfix active">
-								<div class="tab-cont-right">
-									<img src="{% static "website/img/obiettivi.png" %}" alt="L'analisi del progetto">
-								</div>
+								<div class="tab-cont-right"> <img src="{% static "website/img/vision.png" %}" alt="La nostra visione"> </div>
 								<div class="tab-cont-left">
-									<h6>L'analisi del progetto</h6>
-									<p>Prima di entrare nella fase di progettazione, è fondamentale definire gli obiettivi che si vogliono raggiungere. Ad alcuni interessa l'incremento dei clienti, ad altri interessa rendere più partecipe la clientela attiva, altri ancora hanno bisogno di sistemi di gestione più o meno complessi per facilitare, o addirittura automatizzare, lo svolgimento di determinate azioni. In questa fase definiamo tutte queste cose.</p>
+									<h6>La nostra visione</h6>
+									<p>L'informatica si è radicata pian piano nella nostra cultura, divenendo parte integrante della nostra vita. Alcuni la sottovalutano, altri la sfruttano, altri la vedono come un'arte da modellare per realizzare le cose più incredibili. La vision di Entpy è questo: arte modellata al di sopra del resto.</p>
 								</div>
 							</div>
 							<!-- End: Tab 01 -->
 							<!-- Start: Tab 02 -->
 							<div id="tab-02" class="tab-cont clearfix">
-								<div class="tab-cont-right">
-									<img src="{% static "website/img/progettazione.png" %}" alt="La progettazione">
-								</div>
+								<div class="tab-cont-right"> <img src="{% static "website/img/mission.png" %}" alt="Il nostro obiettivo"> </div>
 								<div class="tab-cont-left">
-									<h6>La progettazione</h6>
-									<p>Terminata la prima fase di raccolta informazioni, si passa a mettere tutto assieme per produrre un documento facilmente leggibile dal cliente, ma anche fondamentale per chi dovrà poi realizzare il sito (noi!). Questa sarà la base dalla quale partire per iniziare a sviluppare.</p>
+									<h6>Il nostro obiettivo</h6>
+									<p>Il nostro obiettivo è quello di realizzare strumenti informatici che siano utili ed abbiano davvero un potenziale, per esempio un sistema che converta le visite in qualcosa di concreto, come possono essere dei nuovi clienti.<br />Fidati...sappiamo come creare il tuo ecosistema digitale di successo.</p>
 								</div>
 							</div>
 							<!-- End: Tab 02 -->
-							<!-- Start: Tab 03 -->
-							<div id="tab-03" class="tab-cont clearfix">
-								<div class="tab-cont-right">
-									<img src="{% static "website/img/realizzazione.png" %}" alt="La realizzazione">
-								</div>
-								<div class="tab-cont-left">
-									<h6>La realizzazione</h6>
-									<p>In questa fase tutto è ben definito, dallo studio della grafica fino alle funzionalità che il sito dovrà avere. In genere in questa fase il cliente dovrà attendere che il suo nuovo sito venga realizzato in tutte le sue parti. Il prodotto di questa fase sarà davvero fantastico.</p>
-								</div>
-							</div>
-							<!-- End: Tab 03 -->
-							<!-- Start: Tab 04 -->
-							<div id="tab-04" class="tab-cont clearfix">
-								<div class="tab-cont-right">
-									<img src="{% static "website/img/traguardo.png" %}" alt="Il traguardo">
-								</div>
-								<div class="tab-cont-left">
-									<h6>Il traguardo</h6>
-									<p>Completata la realizzazione del sito web, si procederà con la messa online. Da questo momento in poi rimarremo fianco a fianco con te per fornirti assistenza. Inoltre, ci impegneremo a colmare le lacune che non permettono al sito di funzionare a dovere, questo è possibile solo analizzando i dati dopo la messa online. Il tuo successo è il nostro traguardo</p>
-								</div>
-							</div>
-							<!-- End: Tab 04 -->
 						</div>
 					</div>
 				</div>
@@ -127,14 +77,13 @@
 	<!-- About Page Content Start -->
 	<section class="about-pg-cont text-center">
 		<div class="container clearfix">
-			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Entpy fa per te</h2>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">&quot; Il nostro lavoro consiste nel creare soluzioni. Prendiamo in esame una determinata situazione, formuliamo le possibili ipotesi e troviamo la soluzione più adatta a te.<br />Che tu sia un privato o un'azienda, qui sei nel posto giusto! &quot;</div>
+			<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Qui sei nel posto giusto</h2>
 			<div class="about-pg-texts">
 				<!-- Start: Left Content -->
 				<div class="col-md-6">
 					<h4 class="color">La migliore presenza online che si possa avere...!</h4>
 					<p>Creiamo la tua presenza online di successo, facciamo in modo che il tuo spazio diventi il punto di riferimento per i tuoi clienti e per quelli che lo diventeranno.<br><br></p>
-					<p>Prova ad immaginare come modificare in meglio la tua attività, noi possiamo farlo! Per esempio ampliando il tuo audience, facendo conoscere meglio chi sei e quello che fai, in modo che tu raggiunga nuovi clienti con uno strumento completamente tuo e progettato per te.<br />Realizzaimo il sito web che hai sempre sognato ma non solo, ci assicuriamo che funzioni davvero per lo scopo per il quale è stato progettato.<br />Abbiamo le idee giuste per te.</p>
+					<p>Prova ad immaginare come modificare in meglio la tua attività, noi possiamo farlo! Per esempio ampliando il tuo audience, facendo conoscere meglio chi sei e quello che fai, in modo che tu raggiunga nuovi clienti con uno strumento completamente tuo e progettato per te.<br />Realizzaimo il sito internet che hai sempre sognato ma non solo, ci assicuriamo che funzioni davvero per lo scopo per il quale è stato progettato.<br />Abbiamo le idee giuste per te.</p>
 				</div>
 				<!-- End: Left Content -->
 				<!-- Start: Right Content -->
@@ -146,7 +95,7 @@
 						<li><i class="fa fa-paint-brush"></i> interfacce grafiche altamente usabili ad elevato impatto grafico</li>
 						<li><i class="fa fa-paw"></i> seguiamo maniacalmente gli standard per garantire prodotti di qualità</li>
 						<li><i class="fa fa-newspaper-o"></i> creiamo la tua immagine digitale di successo</li>
-						<li><i class="fa fa-motorcycle"></i> realizziamo piccoli capolavori che ti faranno andare lontano</li>
+						<li><i class="fa fa-motorcycle"></i> ti forniamo piccoli capolavori che ti faranno andare lontano</li>
 					</ul>
 				</div>
 				<!-- End: Right Content -->
