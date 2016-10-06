@@ -25,9 +25,6 @@
 	<link rel='shortlink' href="http://www.entpy.com" />
 	<link rel="canonical" href="http://www.entpy.com" />
 
-	<!-- Custom css style -->
-	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
-	{% block extra_css %}{% endblock %}
 	{% endblock head %}
 </head>
 <body>
@@ -141,6 +138,9 @@
 		<!-- End: Footer Bottom -->
 	</footer>
 	<!-- Footer Area End -->
+	<!-- Custom css style -->
+	<link rel="stylesheet" href="{% static "website/css/custom.css" %}">
+	{% block extra_css %}{% endblock %}
 </body>
 	<!-- js libraries (bootstrap, etc...) -->
 	<script async src="{% static "website/js/custom.js" %}"></script>
