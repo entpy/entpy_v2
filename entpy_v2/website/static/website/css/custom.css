@@ -9537,7 +9537,12 @@ a.nav-order-btn, a.nav-order-btn:hover {
 }
 .team-area-top {
     padding-top: 100px;
+    padding-bottom: 50px;
 }
+.help-you {
+    background: url(../img/scelta-obiettivo.png) center bottom no-repeat fixed;
+}
+.help-you h2, .help-you div { color: #000; }
 .team-image-big {
     padding: 0;
     margin: 0;
@@ -9761,8 +9766,10 @@ a.nav-order-btn, a.nav-order-btn:hover {
 }
 .service-single i {
     color: #1e9fb4;
+    float: left;
     font-size: 100px;
     margin-bottom: 15px;
+    margin-right: 40px;
 }
 .service-single h5 {
     font-weight: 400;
@@ -10506,7 +10513,7 @@ a.nav-order-btn, a.nav-order-btn:hover {
     display: inline-table;
 }
 .contact-area {
-    padding: 100px 0;
+    padding: 50px 0;
     margin: 0;
     background: url(../img/sky-bottom.jpg) center bottom no-repeat;
     -webkit-background-size: 100% auto!important;
@@ -10883,7 +10890,7 @@ h2 {
     font-size: 38px;
 }
 .banner-area h1, .banner-area h2 {
-    font-size: 50px!important;
+    font-size: 40px!important;
 }
 .cont-area {
     top: 25%}
@@ -11266,4 +11273,4 @@ li.li_icon:before {
     overflow-y: auto;
 }
 }}
-
+.color_button_1, .color_button_1:hover, .color_button_1:active { background-color: #000; }
