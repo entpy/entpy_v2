@@ -29,12 +29,11 @@ urlpatterns = [
     url(r'^send_info_email/$', views.send_info_email, name='send_info_email'),
     url(r'^scelta-guidata/$', views.www_wizard, name='www_wizard'),
     url(r'^siti-statici/$', views.www_static_site, name='www_static_site'),
-
     url(r'^landing-pages/$', views.www_landing_pages, name='www_landing_pages'),
     url(r'^siti-dinamici/$', views.www_dynamic_site, name='www_dynamic_site'),
     url(r'^seo/$', views.www_seo, name='www_seo'),
     url(r'^app/$', views.www_app, name='www_app'),
-    url(r'^pubblicita/$', views.www_advertising, name='www_advertising'),
+    url(r'^campagne-pubblicitarie/$', views.www_advertising, name='www_advertising'),
     url(r'^offerte/$', views.www_our_offers, name='www_our_offers'),
     url(r'^create_promotion_AJAX/$', views.create_promotion_AJAX, name='create_promotion_AJAX'),
 
