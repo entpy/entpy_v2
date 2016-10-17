@@ -1,4 +1,4 @@
-{% extends "website/inc/base2.html" %}
+{% extends "website/inc/base3.html" %}
 {% load staticfiles static %}
 
 {% block description %}Abbiamo le idee giuste per te. Il preventivo è completamente gratuito. Richiedi le informazioni che preferisci, ti risponderemo nel più breve tempo possibile.{% endblock %}
@@ -7,16 +7,11 @@
 {% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
 
 {# section title #}
-{% block section_title %}Il tuo sito web in promozione{% endblock %}
+{% block section_title %}Il tuo sito web GRATIS{% endblock %}
 
 {# section content #}
 {% block page_content %}
 	<style>
-		@media (max-width:480px) {
-			.header-area, .nav-main .menu-cont li ul.sub-menu { position: static!important; }
-		}
-		.client-logos-main, .toggle-btn, .breadcrumbs-inner, .nav-main { display: none; }
-		.contact-form-main .first-field, .contact-form-main .forth-field, .contact-form-main .second-field, .contact-form-main .third-field { min-height: 40px; padding: 10px; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
