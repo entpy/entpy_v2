@@ -38,5 +38,5 @@ urlpatterns = [
     url(r'^create_promotion_AJAX/$', views.create_promotion_AJAX, name='create_promotion_AJAX'),
 
     # landing (in lavorazione...)
-    url(r'^promozione-web/$', views.l_www_landing1, name='l_www_landing1'),
+    url(r'^sito-web-gratis/$', views.l_www_landing1, name='l_www_landing1'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
