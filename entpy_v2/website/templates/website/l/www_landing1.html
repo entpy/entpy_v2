@@ -12,15 +12,20 @@
 {# section content #}
 {% block page_content %}
 	<style>
+	    .want-more-main { margin: 0px; }
 	    .want-more-main img { width: 100%; }
 	    .want-more-main-right { background-color: #F6843A; }
 	    .want-more-main-left { margin: 0px; background-color: #007B80; }
-	    .want-more-main-left * { color: #282828!important; }
+	    .want-more-main-left * { color: #fff!important; }
 	    .want-more-main-left hr { background-color: #282828; }
 	    .want-more-main-left .features-icon i { background-color: #282828; color: #fff!important; }
-	    .calendar-text { margin-left: -13px; margin-top: -13px;color: #fff!important; }
+	    .calendar-text { margin-left: -14px; margin-top: -15px; color: #fff!important; }
 	    .features-icon { padding: 0 30px 0 0; }
 	    .features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
+
+	    .want-more-main-right-1-4 { background-color: #D6D6D6; }
+	    .want-more-main-right-1-4 h1, .want-more-main-right-1-4 h2, .want-more-main-right-1-4 h3, .want-more-main-right-1-4 h4, .want-more-main-right-1-4 h5, .want-more-main-right-1-4 h6 { color: #000; }
+	    .want-more-main-right-1-4 i, .want-more-main-right-1-4 hr { background-color: #000; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -167,6 +172,49 @@
 			</div>
 		</div>
 	</section>
+	<!-- Want More Area End -->
+
+	<!-- Want More Area Start -->
+	<form>
+		<section class="want-more-main want-more-main-right-1-4">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Left Container -->
+					<div class="col-md-5 want-more-left">
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">1) Seleziona il tuo tema grafico</h2>
+						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
+						<!-- Start: More Features -->
+						<div class="more-features">
+							<!-- Start: Features 01 -->
+							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
+								<div class="features-icon"><i class="fa fa-paint-brush"></i></div>
+								<div class="features-cont">
+									<h6>Un sito web statico professionale con 4 sezioni o 4 pagine: home page, chi siamo, contatti e cosa facciamo.</h6>
+								</div>
+							</div>
+							<!-- End: Features 01 -->
+						</div>
+						<!-- Start: More Features -->
+					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5">
+						<div class="col-md-6">
+							<div class="thumbnail">
+								<img src="..." alt="...">
+								<div class="caption">
+									<h3>Thumbnail label</h3>
+									<p>...</p>
+									<p><a href="#" class="btn btn-primary" role="button"></a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End: Right Container -->
+				</div>
+			</div>
+		</section>
+	</form>
 	<!-- Want More Area End -->
 
 				<!-- text block -->
