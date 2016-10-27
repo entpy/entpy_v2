@@ -24,8 +24,11 @@
 	    .features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
 
 	    .want-more-main-right-1-4 { background-color: #D6D6D6; }
-	    .want-more-main-right-1-4 h1, .want-more-main-right-1-4 h2, .want-more-main-right-1-4 h3, .want-more-main-right-1-4 h4, .want-more-main-right-1-4 h5, .want-more-main-right-1-4 h6 { color: #000; }
-	    .want-more-main-right-1-4 i, .want-more-main-right-1-4 hr { background-color: #000; }
+	    .want-more-main-right-2-4 { background-color: #C1C1C1; }
+	    .want-more-main-right-3-4 { background-color: #D6D6D6; }
+	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2 { color: #222!important; }
+	    .want-more-main-right-1-4 h6, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6 { color: #444!important; }
+	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr { background-color: #222; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -175,7 +178,7 @@
 	<!-- Want More Area End -->
 
 	<!-- Want More Area Start -->
-	<form>
+	<form name="create_site_form" action="" method="POST">
 		<section class="want-more-main want-more-main-right-1-4">
 			<div class="container">
 				<div class="row clearfix">
@@ -187,9 +190,8 @@
 						<div class="more-features">
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
-								<div class="features-icon"><i class="fa fa-paint-brush"></i></div>
 								<div class="features-cont">
-									<h6>Un sito web statico professionale con 4 sezioni o 4 pagine: home page, chi siamo, contatti e cosa facciamo.</h6>
+									<h6>Seleziona tra i due temi proposti "Classico" offre un modello di navigazione più tradizionale, con un contenuto per ogni pagina. "Moderno" è un tema basato su una singola pagina a scorrimento verticale.<br />Scegli quello che preferisci cliccando sul pulsante "Seleziona" (PS: puoi anche vedere un'anteprima del tema cliccando sul link "Anteprima").</h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -203,11 +205,91 @@
 							<div class="thumbnail">
 								<img src="..." alt="...">
 								<div class="caption">
-									<h3>Thumbnail label</h3>
-									<p>...</p>
-									<p><a href="#" class="btn btn-primary" role="button"></a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+									<h3>Classico</h3>
+									<p>Un tema semplice con un layout ben strutturato basato su 4 pagine</p>
+									<p><a href="#" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="thumbnail">
+								<img src="..." alt="...">
+								<div class="caption">
+									<h3>Moderno</h3>
+									<p>Un tema moderno basato su una singola pagina a scorrimento verticale</p>
+									<p><a href="#" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End: Right Container -->
+				</div>
+			</div>
+		</section>
+		<section class="want-more-main want-more-main-right-2-4">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Left Container -->
+					<div class="col-md-5">
+						<div class="input-group input-group-lg">
+							<input type="text" class="form-control" placeholder="il-tuo-dominio" aria-describedby="sizing-addon1">
+							<span class="input-group-addon">.entpy.com</span>
+						</div>
+					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5 want-more-left">
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">2) Seleziona il tuo dominio</h2>
+						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
+						<!-- Start: More Features -->
+						<div class="more-features">
+							<!-- Start: Features 01 -->
+							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
+								<div class="features-cont">
+									<h6>Seleziona un nome dominio di terzo livello (GRATUITO). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto. E' importante inserire un nome che sia riconducibile facilmente alla tua attività.</h6>
+								</div>
+							</div>
+							<!-- End: Features 01 -->
+						</div>
+						<!-- Start: More Features -->
+					</div>
+					<!-- End: Right Container -->
+				</div>
+			</div>
+		</section>
+		<section class="want-more-main want-more-main-right-3-4">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Left Container -->
+					<div class="col-md-5 want-more-left">
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">3) Inserisci le informazioni richieste</h2>
+						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
+						<!-- Start: More Features -->
+						<div class="more-features">
+							<!-- Start: Features 01 -->
+							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
+								<div class="features-cont">
+									<h6>Per procedere inserisci le informazioni richieste qui a lato.</h6>
+								</div>
+							</div>
+							<!-- End: Features 01 -->
+						</div>
+						<!-- Start: More Features -->
+					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
+							<input type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
+							<textarea class="form-control" placeholder="Informazioni aggiuntive, attività svolta, ecc..." aria-describedby="basic-addon1"></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
