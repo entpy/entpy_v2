@@ -7,7 +7,7 @@
 {% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
 
 {# section title #}
-{% block section_title %}Il tuo sito web GRATIS{% endblock %}
+{% block section_title %}Il tuo sito web GRATIS*{% endblock %}
 
 {# section content #}
 {% block page_content %}
@@ -23,18 +23,17 @@
 	    .features-icon { padding: 0 30px 0 0; }
 	    .features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
 
-	    .want-more-main-right-1-4 { background-color: #D6D6D6; }
-	    .want-more-main-right-2-4 { background-color: #C1C1C1; }
-	    .want-more-main-right-3-4 { background-color: #D6D6D6; }
-	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2 { color: #222!important; }
-	    .want-more-main-right-1-4 h6, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6 { color: #444!important; }
-	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr { background-color: #222; }
+	    .want-more-main-right-1-4, .want-more-main-right-3-4 { background-color: #D6D6D6; }
+	    .want-more-main-right-2-4, .want-more-main-right-4-4 { background-color: #C1C1C1; }
+	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2, .want-more-main-right-4-4 h2 { color: #222!important; }
+	    .want-more-main-right-1-4 h6, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
+	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr, .want-more-main-right-4-4 hr { background-color: #222; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
 		<div class="container">
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
-				<p>Un sito web, professionale, ottimizzato per tutti i dispositivi<br />GRATIS, per la tua attività.</p>
+				<p>Un sito web, professionale, ottimizzato per tutti i dispositivi<br />GRATIS*, per la tua attività.</p>
 			</div>
 			<div class="row col-content clearfix">
 				<!-- text block -->
@@ -246,7 +245,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Seleziona un nome dominio di terzo livello (GRATUITO). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto. E' importante inserire un nome che sia riconducibile facilmente alla tua attività.</h6>
+									<h6>Seleziona un nome dominio di terzo livello (lo offriamo noi). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto. E' importante inserire un nome che sia riconducibile facilmente alla tua attività.</h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -269,7 +268,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Per procedere inserisci le informazioni richieste qui a lato.</h6>
+									<h6>Per procedere inserisci le informazioni richieste.</h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -279,18 +278,59 @@
 					<!-- End: Left Container -->
 					<!-- Start: Right Container -->
 					<div class="col-md-offset-2 col-md-5">
-						<div class="input-group">
+						<!-- nome utente -->
+						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1">
+							<input type="text" class="form-control" placeholder="Il tuo nome" aria-describedby="basic-addon1">
 						</div>
-						<div class="input-group">
+						<!-- email utente -->
+						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
 							<input type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
 						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea class="form-control" placeholder="Informazioni aggiuntive, attività svolta, ecc..." aria-describedby="basic-addon1"></textarea>
+						<!-- nome attività -->
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" placeholder="Il nome della tua attività" aria-describedby="basic-addon1">
 						</div>
+						<!-- informazioni aggiuntive -->
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
+							<textarea class="form-control" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
+						</div>
+					</div>
+					<!-- End: Right Container -->
+				</div>
+			</div>
+		</section>
+		<section class="want-more-main want-more-main-right-4-4">
+			<div class="container">
+				<div class="row clearfix">
+					<!-- Start: Left Container -->
+					<div class="col-md-5">
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary btn-lg">Richiedi sito</button>
+								<span>Cliccando sul pulsante accetti tutti i Termini di utilizzo</span>
+							</div>
+						</div>
+					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5 want-more-left">
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">4) Richiedi il tuo nuovo sito web</h2>
+						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
+						<!-- Start: More Features -->
+						<div class="more-features">
+							<!-- Start: Features 01 -->
+							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
+								<div class="features-cont">
+									<h6>Clicca sul pulsante "Richiedi sito" per richiedere il tuo sito GRATIS*. Verrai ricontattato/a per la fase successiva: l'invio del materiale (testi e immagini).</h6>
+								</div>
+							</div>
+							<!-- End: Features 01 -->
+						</div>
+						<!-- Start: More Features -->
 					</div>
 					<!-- End: Right Container -->
 				</div>
@@ -299,33 +339,32 @@
 	</form>
 	<!-- Want More Area End -->
 
-				<!-- text block -->
-				<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-					<h4>Non lasciarti sfuggire questa occasione</h4>
-				</div>
+	<!-- text block -->
+	<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+		<h4>Non lasciarti sfuggire questa occasione</h4>
+	</div>
 
 	<!-- Services Area Start -->
 	<section class="services-main" id="services">
 		<div class="container">
-			<h4>Termini e Condizioni dell'offerta</h4>
+			<h4>*Termini e Condizioni dell'offerta</h4>
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Tutto senza impegno: è possibile sospendere il servizio in qualsiasi momento.</div>
 			Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online | Saranno presenti dei banner pubblicitari | I testi, il logo e le immagini dovranno essere fornite da te | E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli
 		</div>
 	</section>
 
--                               <!-- text block -->
--                               <div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
--                                       <h4>Termini e Condizioni dell'offerta</h4>
--                                       <hr>
--                                       <ul>
--                                               <li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online</li>
--                                               <li>Saranno presenti dei banner pubblicitari</li>
--                                               <li>I testi, il logo e le immagini dovranno essere fornite da te</li>
--                                               <li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
--                                       </ul>
--                               </div>
-
-
+       <!-- text block -->
+       <div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
+	       <h4>Termini e Condizioni dell'offerta</h4>
+	       <hr>
+	       <ul>
+		       <li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
+		       <li>Saranno presenti dei banner e popup pubblicitari</li>
+		       <li>I testi, le immagini e l'eventuale logo, dovranno essere forniti da te</li>
+		       <li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
+		       <li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>
+	       </ul>
+       </div>
 {% endblock %}
 {% block extra_js %}
 {% endblock extra_js %}
