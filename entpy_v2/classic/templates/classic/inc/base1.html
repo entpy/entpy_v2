@@ -1,0 +1,14 @@
+{% extends "classic/inc/base.html" %}
+{% load staticfiles static %}
+
+{% block top_header1 %}
+	<div class="fh5co-hero">
+		<div class="fh5co-overlay"></div>
+		<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5">
+			<div class="desc animate-box">
+				<h2>{% block page_title %}{% endblock %}</h2>
+				<span>{% block page_subtitle %}{% endblock %}</span>
+			</div>
+		</div>
+	</div>
+{% endblock top_header1 %}

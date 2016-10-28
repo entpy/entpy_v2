@@ -1,0 +1,39 @@
+{% extends "classic/inc/base2.html" %}
+{% load staticfiles static %}
+
+{# navigazione attiva #}
+{% block about_navigation_active %}active{% endblock %}
+
+{# titolo e sottotitolo della pagina #}
+{% block page_title %}Chi <strong>Siamo</strong>{% endblock %}
+{% block page_subtitle %}Lorem ipsum dolor sit amet, consectetur adipiscing elit{% endblock %}
+
+{# contenuto della pagina #}
+{% block page_content %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+					<h3>Titolo sezione1</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row row-bottom-padded-md">
+				<div class="col-md-12 animate-box">
+					<figure>
+						<img src="{% static "classic/images/about-image.jpg" %}" alt="Chi Siamo" class="img-responsive">
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 animate-box">
+					<h3>Titolo paragrafo1</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rerum perspiciatis, debitis pariatur atque vitae sed blanditiis nobis sint, reprehenderit quas, natus corrupti! Ipsum cum possimus corporis aut architecto! Delectus enim adipisci quidem possimus voluptates! Aut ut aliquid molestias laudantium.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
