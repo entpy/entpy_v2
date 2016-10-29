@@ -4,7 +4,12 @@
 {% block description %}Abbiamo le idee giuste per te. Il preventivo è completamente gratuito. Richiedi le informazioni che preferisci, ti risponderemo nel più breve tempo possibile.{% endblock %}
 
 {# extra css #}
-{% block extra_css %}<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">{% endblock %}
+{% block extra_css %}
+<link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">
+<style>
+    .nav-main, .toggle-btn { display: none; }
+</style>
+{% endblock %}
 
 {# section title #}
 {% block section_title %}Il tuo sito web GRATIS*{% endblock %}
@@ -26,7 +31,7 @@
 	    .want-more-main-right-1-4, .want-more-main-right-3-4 { background-color: #D6D6D6; }
 	    .want-more-main-right-2-4, .want-more-main-right-4-4 { background-color: #C1C1C1; }
 	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2, .want-more-main-right-4-4 h2 { color: #222!important; }
-	    .want-more-main-right-1-4 h6, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
+	    .want-more-main-right-1-4 h6, .want-more-main-right-1-4 h3, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
 	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr, .want-more-main-right-4-4 hr { background-color: #222; }
 	</style>
 	<!-- About Area Start -->
@@ -206,7 +211,7 @@
 								<div class="caption">
 									<h3>Classico</h3>
 									<p>Un tema semplice con un layout ben strutturato basato su 4 pagine</p>
-									<p><a href="#" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
+									<p><a href="/classic/#" target="_blank" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
 								</div>
 							</div>
 						</div>
@@ -216,7 +221,7 @@
 								<div class="caption">
 									<h3>Moderno</h3>
 									<p>Un tema moderno basato su una singola pagina a scorrimento verticale</p>
-									<p><a href="#" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
+									<p><a href="/simple/" target="_blank" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
 								</div>
 							</div>
 						</div>
@@ -309,9 +314,9 @@
 					<!-- Start: Left Container -->
 					<div class="col-md-5">
 						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
+							<div class="col-ms-12 text-center">
 								<button type="submit" class="btn btn-primary btn-lg">Richiedi sito</button>
-								<span>Cliccando sul pulsante accetti tutti i Termini di utilizzo</span>
+								<div>Cliccando sul pulsante accetti tutti i <a href="#terms_of_use">Termini di utilizzo</a></div>
 							</div>
 						</div>
 					</div>
@@ -339,32 +344,20 @@
 	</form>
 	<!-- Want More Area End -->
 
-	<!-- text block -->
-	<div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-		<h4>Non lasciarti sfuggire questa occasione</h4>
-	</div>
-
 	<!-- Services Area Start -->
-	<section class="services-main" id="services">
+	<section class="services-main" id="terms_of_use">
 		<div class="container">
 			<h4>*Termini e Condizioni dell'offerta</h4>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Tutto senza impegno: è possibile sospendere il servizio in qualsiasi momento.</div>
-			Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online | Saranno presenti dei banner pubblicitari | I testi, il logo e le immagini dovranno essere fornite da te | E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli
+			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Tutto senza impegno</div>
+			<ul class="text-left">
+				<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
+				<li>Saranno presenti dei banner e popup pubblicitari</li>
+				<li>I testi, le immagini e l'eventuale logo, dovranno essere forniti da te</li>
+				<li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
+				<li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>
+			</ul>
 		</div>
 	</section>
-
-       <!-- text block -->
-       <div class="col-xs-12 story-cont animated" data-animation="fadeInUp" data-animation-delay="200">
-	       <h4>Termini e Condizioni dell'offerta</h4>
-	       <hr>
-	       <ul>
-		       <li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
-		       <li>Saranno presenti dei banner e popup pubblicitari</li>
-		       <li>I testi, le immagini e l'eventuale logo, dovranno essere forniti da te</li>
-		       <li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
-		       <li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>
-	       </ul>
-       </div>
 {% endblock %}
 {% block extra_js %}
 {% endblock extra_js %}
