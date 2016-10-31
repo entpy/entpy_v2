@@ -83,6 +83,17 @@ $(document).ready(function(){
 			not_scroll = false;
 		}
 	});
+
+	// function to zoom an image
+	$(document).on("click", ".zoomImgAction", function(){
+		$(".modal-title").html($(this).prop("alt"));
+		$(".modal-body").html('<img class="zoom_image" src="' + $(this).prop("src") + '" alt="' + $(this).prop("alt") + '">');
+		$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a>');
+
+		$(".modal").modal('show');
+
+		return false;
+	});
 });
 
 		/* responsiveCarousel plugin */

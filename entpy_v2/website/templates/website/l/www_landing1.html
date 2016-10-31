@@ -33,6 +33,7 @@
 	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2, .want-more-main-right-4-4 h2 { color: #222!important; }
 	    .want-more-main-right-1-4 h6, .want-more-main-right-1-4 h3, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
 	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr, .want-more-main-right-4-4 hr { background-color: #222; }
+	    .selected_theme_icon { color: green; margin-left: 5px; font-size: 22px; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -204,24 +205,36 @@
 					</div>
 					<!-- End: Left Container -->
 					<!-- Start: Right Container -->
-					<div class="col-md-offset-2 col-md-5">
+					<div class="col-md-offset-1 col-md-6">
 						<div class="col-md-6">
 							<div class="thumbnail">
-								<img src="..." alt="...">
+								<img class="zoomImgAction" src="{% static "website/img/classic_example.png" %}" alt="Classico">
 								<div class="caption">
 									<h3>Classico</h3>
 									<p>Un tema semplice con un layout ben strutturato basato su 4 pagine</p>
-									<p><a href="/classic/#" target="_blank" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
+									<p>
+										<div class="text-center">
+											<a href="/classic/#" target="_blank" role="button">Anteprima</a>
+										</div>
+										<div class="text-center">
+											<a href="#" class="btn btn-default selectThemeClickAction" data-theme-name="classic" role="button">Seleziona</a><span class="selectedTheme selectedThemeClassic"></span></p>
+										</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="thumbnail">
-								<img src="..." alt="...">
+								<img class="zoomImgAction" src="{% static "website/img/modern_example.png" %}" alt="Moderno">
 								<div class="caption">
 									<h3>Moderno</h3>
 									<p>Un tema moderno basato su una singola pagina a scorrimento verticale</p>
-									<p><a href="/simple/" target="_blank" role="button">Anteprima</a> <a href="#" class="btn btn-default" role="button">Seleziona</a></p>
+									<p>
+										<div class="text-center">
+											<a href="/simple/" target="_blank" role="button">Anteprima</a>
+										</div>
+										<div class="text-center">
+											<a href="#" class="btn btn-default selectThemeClickAction" data-theme-name="modern" role="button">Seleziona</a><span class="selectedTheme selectedThemeModern"></span></p>
+										</div>
 								</div>
 							</div>
 						</div>
@@ -234,15 +247,7 @@
 			<div class="container">
 				<div class="row clearfix">
 					<!-- Start: Left Container -->
-					<div class="col-md-5">
-						<div class="input-group input-group-lg">
-							<input type="text" class="form-control" placeholder="il-tuo-dominio" aria-describedby="sizing-addon1">
-							<span class="input-group-addon">.entpy.com</span>
-						</div>
-					</div>
-					<!-- End: Left Container -->
-					<!-- Start: Right Container -->
-					<div class="col-md-offset-2 col-md-5 want-more-left">
+					<div class="col-md-5 want-more-left">
 						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">2) Seleziona il tuo dominio</h2>
 						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
 						<!-- Start: More Features -->
@@ -256,6 +261,14 @@
 							<!-- End: Features 01 -->
 						</div>
 						<!-- Start: More Features -->
+					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5">
+						<div class="input-group input-group-lg">
+							<input type="text" class="form-control" placeholder="il-tuo-dominio" aria-describedby="sizing-addon1">
+							<span class="input-group-addon">.entpy.com</span>
+						</div>
 					</div>
 					<!-- End: Right Container -->
 				</div>
@@ -312,17 +325,7 @@
 			<div class="container">
 				<div class="row clearfix">
 					<!-- Start: Left Container -->
-					<div class="col-md-5">
-						<div class="form-group">
-							<div class="col-ms-12 text-center">
-								<button type="submit" class="btn btn-primary btn-lg">Richiedi sito</button>
-								<div>Cliccando sul pulsante accetti tutti i <a href="#terms_of_use">Termini di utilizzo</a></div>
-							</div>
-						</div>
-					</div>
-					<!-- End: Left Container -->
-					<!-- Start: Right Container -->
-					<div class="col-md-offset-2 col-md-5 want-more-left">
+					<div class="col-md-5 want-more-left">
 						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">4) Richiedi il tuo nuovo sito web</h2>
 						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
 						<!-- Start: More Features -->
@@ -337,6 +340,16 @@
 						</div>
 						<!-- Start: More Features -->
 					</div>
+					<!-- End: Left Container -->
+					<!-- Start: Right Container -->
+					<div class="col-md-offset-2 col-md-5">
+						<div class="form-group">
+							<div class="col-ms-12 text-center">
+								<button type="submit" class="btn btn-primary btn-lg">Richiedi sito</button>
+								<div>Cliccando sul pulsante accetti tutti i <a href="#terms_of_use">Termini di utilizzo</a></div>
+							</div>
+						</div>
+					</div>
 					<!-- End: Right Container -->
 				</div>
 			</div>
@@ -348,7 +361,6 @@
 	<section class="services-main" id="terms_of_use">
 		<div class="container">
 			<h4>*Termini e Condizioni dell'offerta</h4>
-			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="400">Tutto senza impegno</div>
 			<ul class="text-left">
 				<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
 				<li>Saranno presenti dei banner e popup pubblicitari</li>
@@ -360,4 +372,19 @@
 	</section>
 {% endblock %}
 {% block extra_js %}
+<script>
+	$(document).ready(function(){
+		$(document).on("click", ".selectThemeClickAction", function(){
+			$(".selectedTheme").html("");
+			var themeName = $(this).data("themeName");
+			if (themeName == "modern") {
+				$(".selectedThemeModern").html('<i class="selected_theme_icon fa fa-check" aria-hidden="true"></i>');
+			} else if ((themeName == "classic")) {
+				$(".selectedThemeClassic").html('<i class="selected_theme_icon fa fa-check" aria-hidden="true"></i>');
+			}
+
+			return false;
+		});
+	});
+</script>
 {% endblock extra_js %}
