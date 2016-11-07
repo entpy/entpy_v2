@@ -534,9 +534,10 @@ figure {
 }
 
 .services {
-  background: #66D37E;
+  background: #fff;
   padding: 40px 20px 20px 20px;
   margin-bottom: 30px;
+  box-shadow: 0 0 10px -7px black;
 }
 .services span {
   margin-bottom: 30px;
@@ -550,13 +551,11 @@ figure {
 .services h3 {
   font-size: 20px;
   font-weight: 400;
-  color: #fff;
-  color: #FBFFA3;
+  color: #ec9d00;
 }
 .services p {
   font-size: 16px;
-  color: #C6E872;
-  color: rgba(255, 255, 255, 0.8);
+  color: #333;
 }
 
 .feature-left {
@@ -1059,7 +1058,7 @@ figure {
 }
 
 #footer {
-  background: #66D37E;
+  background: #ec9d00;
   padding: 60px 0 40px;
 }
 #footer p {
