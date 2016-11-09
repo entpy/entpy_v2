@@ -2,6 +2,7 @@
 
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.sites.models import Site
 from django.conf import settings
 import logging, sys
 
@@ -16,7 +17,7 @@ class WebsiteData(models.Model):
     id_website_data = models.AutoField(primary_key=True)
     key = models.CharField("Key", max_length=500)
     val = models.TextField("Val", null=True)
-    site = models.ForeignKey(Site)
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "WebsiteData"
@@ -25,3 +26,9 @@ class WebsiteData(models.Model):
     # On Python 3: def __str__(self):
     def __unicode__(self):
         return str(self.email)
+
+    # TODO
+    def get_all_keys_about_site(site_id):
+        """Function to retrieve a dictionary with all keys about a site id"""
+
+        return False
