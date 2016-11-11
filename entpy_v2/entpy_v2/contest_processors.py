@@ -32,6 +32,7 @@ def common_contest_processors(request):
         website_key_val_dict = WebsiteData_obj.get_all_keys_about_site(site_domain=current_site)
 
         # TODO: capire come fare
+        # http://stackoverflow.com/questions/18322262/how-to-setup-custom-middleware-in-django
         # setto il corretto urlconfig come ROOT
         #if current_site == "127.0.0.1:8000":
         set_urlconf("simple.urls")
