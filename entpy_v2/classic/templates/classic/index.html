@@ -1,12 +1,12 @@
 {% extends "classic/inc/base1.html" %}
-{% load staticfiles static %}
+{% load staticfiles static custom_tags %}
 
 {# navigazione attiva #}
 {% block home_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}Lorem <strong>ipsum</strong> dolor sit amet{% endblock %}
-{% block page_subtitle %}Lorem ipsum dolor sit amet, consectetur adipiscing elit{% endblock %}
+{% block page_title %}{{ website_key_val_dict|get_item:"classic_index_title" | safe }}{% endblock %}
+{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_index_subtitle" | safe }}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
@@ -14,31 +14,7 @@
 	<div id="fh5co-features">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<div class="feature-left">
-						<div>
-							<h3>Titolo1</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-						</div>
-					</div>
-
-				</div>
-				<div class="col-md-4">
-					<div class="feature-left">
-						<div>
-							<h3>Titolo2</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="feature-left">
-						<div>
-							<h3>Titolo3</h3>
-							<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-						</div>
-					</div>
-				</div>
+				{{ website_key_val_dict|get_item:"classic_index_first_content" | safe }}
 			</div>
 		</div>
 	</div>
@@ -47,37 +23,18 @@
 		<div class="container">
 			<div class="row row-bottom-padded-md">
 				<div class="col-md-12 text-center heading-section">
-					<h3>Titolo sezione1</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p>
+					<h3>{{ website_key_val_dict|get_item:"classic_index_section_one_title" | safe }}</h3>
+					<p>{{ website_key_val_dict|get_item:"classic_index_section_one_content" | safe }}</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center animate-box">
-					<p><img src="{% static "classic/images/macbook.png" %}" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
+					<p><img src="{% static "classic/images/macbook.png" %}" alt="Image" class="img-responsive"></p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="feature-text">
-						<h3><span class="number">01.</span> Titolo1</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="feature-text">
-						<h3><span class="number">02.</span> Titolo2</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="feature-text">
-						<h3><span class="number">03.</span> Titolo3</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p>
-					</div>
-				</div>
+				{{ website_key_val_dict|get_item:"classic_index_second_content" | safe }}
 			</div>
-
-			
 		</div>
 	</div>
 
@@ -85,38 +42,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-					<h3>Titolo sezione2</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-				</div>
-			</div>
-			<div class="row row-bottom-padded-md">
-				<div class="col-md-12">
-					<ul id="fh5co-portfolio-list">
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url({% static "classic/images/work-5.jpg" %}); ">
-							<div class="color-3">
-								<div class="case-studies-summary">
-									<span>Titolo1</span>
-									<h2>Testo immagine1</h2>
-								</div>
-							</div>
-						</li>
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url({% static "classic/images/work-6.jpg" %}); ">
-							<div class="color-4">
-								<div class="case-studies-summary">
-									<span>Titolo2</span>
-									<h2>Testo immagine2</h2>
-								</div>
-							</div>
-						</li>
-						<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url({% static "classic/images/work-1.jpg" %}); ">
-							<div class="color-4">
-								<div class="case-studies-summary">
-									<span>Titolo3</span>
-									<h2>Testo immagine3</h2>
-								</div>
-							</div>
-						</li>
-					</ul>		
+					<h3>{{ website_key_val_dict|get_item:"classic_index_section_two_title" | safe }}</h3>
+					<p>{{ website_key_val_dict|get_item:"classic_index_section_two_content" | safe }}</p>
 				</div>
 			</div>
 		</div>

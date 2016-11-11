@@ -1,4 +1,5 @@
 {% load staticfiles static %}
+{% load custom_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -43,7 +44,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{% static "classic/css/animate.css" %}">
 	<!-- Icomoon Icon Fonts-->
@@ -54,7 +55,6 @@
 	<link rel="stylesheet" href="{% static "classic/css/superfish.css" %}">
 
 	<link rel="stylesheet" href="{% static "classic/css/style.css" %}">
-
 
 	<!-- Modernizr JS -->
 	<script src="{% static "classic/js/modernizr-2.6.2.min.js" %}"></script>
@@ -74,7 +74,7 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="/classic/">Classico</a></h1>
+						<h1 id="fh5co-logo"><a href="/classic/">{{ website_key_val_dict|get_item:"classic_base_site_name" | safe }}</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
@@ -100,11 +100,14 @@
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
-								<a href="#"><i class="icon-twitter2"></i></a>
-								<a href="#"><i class="icon-facebook2"></i></a>
-								<a href="#"><i class="icon-instagram"></i></a>
+								{% if website_key_val_dict|get_item:"classic_base_twitter_page_url" %}
+									<a target="_blank" href="{{ website_key_val_dict|get_item:"classic_base_twitter_page_url" | safe }}"><i class="icon-twitter2"></i></a>
+								{% endif %}
+								{% if website_key_val_dict|get_item:"classic_base_facebook_page_url" %}
+									<a target="_blank" href="{{ website_key_val_dict|get_item:"classic_base_facebook_page_url" | safe }}"><i class="icon-facebook2"></i></a>
+								{% endif %}
 							</p>
-							<p>2016 | <a href="http://www.entpy.com">Entpy Software</a>. <br>Made with <i class="icon-heart3"></i></p>
+							<p>2016 | <a target="_blank" href="http://www.entpy.com">Entpy Software</a>. <br>Made with <i class="icon-heart3"></i></p>
 						</div>
 					</div>
 				</div>

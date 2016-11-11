@@ -1,33 +1,30 @@
 {% extends "classic/inc/base2.html" %}
-{% load staticfiles static %}
+{% load staticfiles static custom_tags %}
 
 {# navigazione attiva #}
 {% block contact_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}Contatti{% endblock %}
-{% block page_subtitle %}Lorem ipsum dolor sit amet, consectetur adipiscing elit{% endblock %}
+{% block page_title %}{{ website_key_val_dict|get_item:"classic_contacts_title" | safe }}{% endblock %}
+{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_contacts_subtitle" | safe }}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
 	<style>
-		#map_canvas{
-			width: 100%;
-			height: 404px;
-		}
+		#map_canvas{ width: 100%; height: 404px; }
 	</style>
 	<div id="fh5co-contact" class="animate-box">
 		<div class="container">
 			<form action="#">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="section-title">Contatti</h3>
-						<p>In una terra lontana, dietro le montagne Parole, lontani dalle terre di Vocalia e Consonantia, vivono i testi casuali. Vivono isolati nella cittadina di Lettere, sulle coste del Semantico, un immenso oceano linguistico. Un piccolo ruscello chiamato Devoto Oli attraversa quei luoghi, rifornendoli di tutte le regolalie di cui hanno bisogno.</p>
+						<h3 class="section-title">{{ website_key_val_dict|get_item:"classic_contacts_section_one_title" | safe }}</h3>
+						<p>{{ website_key_val_dict|get_item:"classic_contacts_section_one_content" | safe }}</p>
 						<ul class="contact-info">
-							<li><i class="icon-location-pin"></i>Indirizzo del negozio</li>
-							<li><i class="icon-phone2"></i>+39 123456789</li>
-							<li><i class="icon-mail"></i><a href="#">tuaemail@mail.com</a></li>
-							<li><i class="icon-clock"></i>Lunedì-Venerdì 9.00-19.00</li>
+							<li><i class="icon-location-pin"></i>{{ website_key_val_dict|get_item:"classic_contacts_address1" | safe }}</li>
+							<li><i class="icon-phone2"></i>{{ website_key_val_dict|get_item:"classic_contacts_phone1" | safe }}</li>
+							<li><i class="icon-mail"></i><a href="mailto:{{ website_key_val_dict|get_item:"classic_contacts_email1" | safe }}">{{ website_key_val_dict|get_item:"classic_contacts_email1" | safe }}</a></li>
+							<li><i class="icon-clock"></i>{{ website_key_val_dict|get_item:"classic_contacts_timetables1" | safe }}</li>
 						</ul>
 					</div>
 				</div>
@@ -49,7 +46,7 @@
 			// Google Map
 			var zoom = $('#map_canvas').gmap('option', 'zoom');
 				$('#map_canvas').gmap().bind('init', function(ev, map) {
-				$('#map_canvas').gmap('addMarker', {'position': '45.0711813,7.6850388', 'bounds': true});
+				$('#map_canvas').gmap('addMarker', {'position': '{{ website_key_val_dict|get_item:"classic_contacts_section_one_maps_position" | safe }}', 'bounds': true});
 				$('#map_canvas').gmap('option', 'zoom', 15);
 			});
 		});

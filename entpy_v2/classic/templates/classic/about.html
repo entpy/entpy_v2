@@ -1,12 +1,12 @@
 {% extends "classic/inc/base2.html" %}
-{% load staticfiles static %}
+{% load staticfiles static custom_tags %}
 
 {# navigazione attiva #}
 {% block about_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}Chi <strong>Siamo</strong>{% endblock %}
-{% block page_subtitle %}Lorem ipsum dolor sit amet, consectetur adipiscing elit{% endblock %}
+{% block page_title %}{{ website_key_val_dict|get_item:"classic_about_title" | safe }}{% endblock %}
+{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_about_subtitle" | safe }}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
@@ -14,8 +14,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-					<h3>Titolo sezione1</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+					<h3>{{ website_key_val_dict|get_item:"classic_about_section_one_title" | safe }}</h3>
+					<p>{{ website_key_val_dict|get_item:"classic_about_section_one_content" | safe }}</p>
 				</div>
 			</div>
 		</div>
@@ -29,9 +29,9 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 animate-box">
-					<h3>Titolo paragrafo1</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rerum perspiciatis, debitis pariatur atque vitae sed blanditiis nobis sint, reprehenderit quas, natus corrupti! Ipsum cum possimus corporis aut architecto! Delectus enim adipisci quidem possimus voluptates! Aut ut aliquid molestias laudantium.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<h3>{{ website_key_val_dict|get_item:"classic_about_section_two_title" | safe }}</h3>
+					<p>{{ website_key_val_dict|get_item:"classic_about_section_two_content_one" | safe }}</p>
+					<p>{{ website_key_val_dict|get_item:"classic_about_section_two_content_two" | safe }}</p>
 				</div>
 			</div>
 		</div>

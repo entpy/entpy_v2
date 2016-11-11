@@ -25,10 +25,9 @@ class WebsiteData(models.Model):
 
     # On Python 3: def __str__(self):
     def __unicode__(self):
-        return str(self.email)
+        return str(self.site) + " -> " + str(self.key)
 
     # TODO
-    def get_all_keys_about_site(site_id):
+    def get_all_keys_about_site(self, site_domain):
         """Function to retrieve a dictionary with all keys about a site id"""
-
-        return False
+        return dict(WebsiteData.objects.filter(site__domain=site_domain).values_list('key','val'))
