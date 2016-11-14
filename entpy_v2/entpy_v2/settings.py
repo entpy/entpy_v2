@@ -54,6 +54,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+     # Now we add here our custom middleware
+     'entpy_v2.middleware.manage_site_urls.ManageSiteUrls',
 ]
 
 ROOT_URLCONF = 'entpy_v2.urls'

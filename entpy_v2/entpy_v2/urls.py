@@ -44,4 +44,8 @@ urlpatterns = [
     url(r'^classic/', include('classic.urls')),
     # simple template
     url(r'^simple/', include('simple.urls')),
+
+    # gestione dei temi
+    url(r'^website_data/', include('website_data.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
