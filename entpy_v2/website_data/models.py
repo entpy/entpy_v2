@@ -21,6 +21,14 @@ class Themes(models.Model):
     def __unicode__(self):
         return str(self.name)
 
+    class Meta:
+        verbose_name = "Tema"
+        verbose_name_plural = "Temi"
+
+    def get_all_list(self):
+        """Function to retrieve all themes"""
+        return list(Themes.objects.all())
+
 class ThemeKeys(models.Model):
     id_key = models.AutoField(primary_key=True)
     name = models.CharField(max_length=500)
@@ -30,9 +38,23 @@ class ThemeKeys(models.Model):
     def __unicode__(self):
         return str(self.theme.name) + " " + str(self.name)
 
+    class Meta:
+        verbose_name = "Chiave del tema"
+        verbose_name_plural = "Chiavi dei temi"
+
     def get_all_keys(self):
-        """Function to retrieve all saved keys"""
+        """Function to retrieve all keys"""
         return list(ThemeKeys.objects.all())
+
+    def get_obj_by_name(self, key_name):
+        return_var = False
+
+        try:
+            return_var = ThemeKeys.objects.get(name=key_name)
+        except ThemeKeys.DoesNotExist:
+            pass
+
+        return return_var
 
     # TODO
     def create_default_keys(self):
@@ -96,6 +118,7 @@ class ThemeKeys(models.Model):
                 'classic_base_twitter_page_url',
                 'classic_base_facebook_page_url',
                 'classic_base_site_name',
+                'root_urlconf',
             ],
             # simple theme
             "simple" : []
@@ -110,14 +133,42 @@ class WebsiteData(models.Model):
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "WebsiteData"
-        verbose_name_plural = "WebsiteData"
+        verbose_name = "Valore chiave"
+        verbose_name_plural = "Valori chiavi"
 
     # On Python 3: def __str__(self):
     def __unicode__(self):
         return str(self.site) + " -> " + str(self.key.name)
 
-    # TODO
     def get_all_keys_about_site(self, site_domain):
         """Function to retrieve a dictionary with all keys about a site id"""
-        return dict(WebsiteData.objects.filter(site__domain=site_domain).values_list('key','val'))
+        return dict(WebsiteData.objects.filter(site__domain=site_domain).values_list('key__name','val'))
+
+    # TODO
+    def set_all_keys_about_site(self, site_id, post):
+        """Function to set all keys about a site starting from a POST dictionary"""
+        ThemeKeys_obj = ThemeKeys()
+
+        Site_obj = Site.objects.get(pk=site_id)
+        # logger.info("valori da salvare per il sito '" + str(site_id) + "': " + str(post))
+
+        if post:
+            for key, val in post.iteritems():
+                ThemeKeys_saved_obj = ThemeKeys_obj.get_obj_by_name(key_name=key)
+                if ThemeKeys_saved_obj:
+                    logger.info("chiave: " + str(key))
+                    logger.info("valore: " + str(val))
+                    logger.info("===")
+                    try: 
+                        # modifico l'oggetto già presente
+                        WebsiteData_obj = WebsiteData.objects.get(key=ThemeKeys_saved_obj, site=Site_obj)
+                    except WebsiteData.DoesNotExist:
+                        # creo l'oggetto
+                        WebsiteData_obj = WebsiteData()
+                        pass
+                    WebsiteData_obj.key = ThemeKeys_saved_obj
+                    WebsiteData_obj.val = val
+                    WebsiteData_obj.site = Site_obj
+                    WebsiteData_obj.save()
+
+        return True

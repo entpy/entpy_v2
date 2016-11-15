@@ -29,6 +29,9 @@ class ManageSiteUrls(object):
             # http://stackoverflow.com/questions/18322262/how-to-setup-custom-middleware-in-django
             # settando request.urlconf, sovrascrivo il valore di ROOT_URLCONF
             # scritto in settings.py
+
+            # TODO: root_urlconf inserirlo in un oggetto a parte che mappa i
+            # siti con i temi utilizzati.
             if website_key_val_dict.get("root_urlconf") == "classic" or website_key_val_dict.get("root_urlconf") == "simple":
                 # il sito è attivo ed utilizza le app 'classic' o 'simple'
                 request.urlconf = str(website_key_val_dict.get("root_urlconf")) + ".urls"
