@@ -4,20 +4,36 @@
 {% block extrastyle %}
 {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+<style>
+	.tinymce_container { display: inline-block; text-align: left; }
+</style>
 {% endblock %}
 
 {% block content %}
+<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+<script>
+	tinymce.init({
+		selector: '.tinymce_textarea',
+		width: 600,
+		height: 200,
+		plugins: 'code preview',
+		toolbar: 'preview undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code',
+		menubar: false  // removes the menubar
+	});
+</script>
 <div id="content-main">
 	<form action="" method="post">
 		{% csrf_token %}
 		<input type="hidden" name="code_validator_form" value="1" />
 
-		<fieldset class="col-md-12">
+		<fieldset class="module aligned">
 			{% for field in form %}
-				<div class="form-group {% if field.errors %}has-error{% endif %}" >
-					<label for="{{ field.id_for_label }}" class="col-md-4 control-label">{{ field.label }} {% if field.field.required %}*{% endif %}</label>
-					<div class="col-md-7">
-						<textarea name="{{ field.name }}" class="form-control" id="{{ field.id_for_label }}" placeholder="{{ field.field.widget.attrs.placeholder }}">{% if post|get_item:field.name %}{{ post|get_item:field.name }}{% endif %}</textarea>
+				<div class="form-row {% if field.errors %}has-error{% endif %}" >
+					<div>
+						<label for="{{ field.id_for_label }}">{{ field.label }} {% if field.field.required %}*{% endif %}</label>
+						<div class="tinymce_container">
+							<textarea name="{{ field.name }}" class="vLargeTextField tinymce_textarea" id="{{ field.id_for_label }}" rows="10" cols="40" placeholder="{{ field.field.widget.attrs.placeholder }}">{% if post|get_item:field.name %}{{ post|get_item:field.name }}{% endif %}</textarea>
+						</div>
 					</div>
 				</div>
 			{% endfor %}

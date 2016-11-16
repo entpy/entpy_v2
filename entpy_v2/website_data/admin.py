@@ -17,6 +17,7 @@ class WebsiteDataAdmin(admin.ModelAdmin):
         urls = super(WebsiteDataAdmin, self).get_urls()
         my_urls = [
             url(r'^edit-site/(?:(?P<site_id>\d+)/)$', self.admin_site.admin_view(self.edit_site)),
+            url(r'^create-defaults/$', self.admin_site.admin_view(self.create_defaults)),
         ]
 
         # return custom URLs with default URLs
@@ -56,7 +57,28 @@ class WebsiteDataAdmin(admin.ModelAdmin):
 
         return render(request, 'admin/custom_view/edit_site.html', context)
 
+    def create_defaults(self, request):
+        """Function to create default keys and themes"""
+        ThemeKeys_obj = ThemeKeys()
+        ThemeKeys_obj.create_default_keys()
+
+        WebsitePreferenceKeys_obj = WebsitePreferenceKeys()
+        WebsitePreferenceKeys_obj.create_default_keys()
+
+        context = {
+            'title': "Creazione chiavi e temi di default",
+            'opts': self.model._meta,
+            'app_label': self.model._meta.app_label,
+            'has_permission': request.user.is_superuser,
+            'site_url': '/',
+        }
+
+        messages.add_message(request, messages.SUCCESS, 'Valori di default creati con successo.')
+
+        return render(request, 'admin/custom_view/create_defaults.html', context)
+
 # Register your models here.
 admin.site.register(Themes)
 admin.site.register(ThemeKeys)
+admin.site.register(WebsitePreferences)
 admin.site.register(WebsiteData, WebsiteDataAdmin)

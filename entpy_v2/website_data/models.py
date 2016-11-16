@@ -56,7 +56,6 @@ class ThemeKeys(models.Model):
 
         return return_var
 
-    # TODO
     def create_default_keys(self):
         """Function to create default keys"""
         keys_list = self.get_defaults_keys()
@@ -118,7 +117,6 @@ class ThemeKeys(models.Model):
                 'classic_base_twitter_page_url',
                 'classic_base_facebook_page_url',
                 'classic_base_site_name',
-                'root_urlconf',
             ],
             # simple theme
             "simple" : []
@@ -172,3 +170,46 @@ class WebsiteData(models.Model):
                     WebsiteData_obj.save()
 
         return True
+
+class WebsitePreferenceKeys(models.Model):
+    id_website_preference_key = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        verbose_name = "Chiave preferenza sito"
+        verbose_name_plural = "Chiavi preferenza sito"
+
+    # On Python 3: def __str__(self):
+    def __unicode__(self):
+        return str(self.name)
+
+    def create_default_keys(self):
+        """Function to create default keys"""
+        keys_list = ['root_urlconf',]
+
+        for key_name in keys_list:
+            # creo l'eventuale chiave
+                if not WebsitePreferenceKeys.objects.filter(name=key_name).exists():
+                    WebsitePreferenceKeys_obj = WebsitePreferenceKeys()
+                    WebsitePreferenceKeys_obj.name = key_name
+                    WebsitePreferenceKeys_obj.save()
+
+        return True
+
+class WebsitePreferences(models.Model):
+    id_website_preference = models.AutoField(primary_key=True)
+    key = models.ForeignKey(WebsitePreferenceKeys)
+    val = models.CharField(max_length=200)
+    site = models.OneToOneField(Site, related_name='site_preferences')
+
+    class Meta:
+        verbose_name = "Preferenza sito"
+        verbose_name_plural = "Preferenze sito"
+
+    # On Python 3: def __str__(self):
+    def __unicode__(self):
+        return str(self.site.domain) + " -> key: " + str(self.key)+ " | val: " + str(self.val)
+
+    def get_preferences_about_site(self, site_domain):
+        """Function to retrieve all preferences about a site"""
+        return dict(WebsitePreferences.objects.filter(site__domain=site_domain).values_list('key__name','val'))
