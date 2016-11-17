@@ -18,10 +18,19 @@
 		height: 200,
 		plugins: 'code preview',
 		toolbar: 'preview undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code',
+		forced_root_block : false,
 		menubar: false  // removes the menubar
 	});
 </script>
 <div id="content-main">
+	<form action="" method="post">
+		{% csrf_token %}
+		{{ form }}
+		<div class="submit-row">
+			<input type="submit" name="_save" class="default" value="Salva">
+		</div>
+	</form>
+	{% comment %}
 	<form action="" method="post">
 		{% csrf_token %}
 		<input type="hidden" name="code_validator_form" value="1" />
@@ -43,5 +52,6 @@
 			<input type="submit" name="_save" class="default" value="Salva">
 		</div>
 	</form>
+	{% endcomment %}
 </div>
 {% endblock %}

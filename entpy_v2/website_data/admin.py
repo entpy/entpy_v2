@@ -81,4 +81,5 @@ class WebsiteDataAdmin(admin.ModelAdmin):
 admin.site.register(Themes)
 admin.site.register(ThemeKeys)
 admin.site.register(WebsitePreferences)
+admin.site.register(WebsitePreferenceKeys)
 admin.site.register(WebsiteData, WebsiteDataAdmin)

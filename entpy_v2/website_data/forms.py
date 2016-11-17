@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
+from django.contrib import admin
 from website_data.models import *
 
 class EditTextSiteForm(forms.Form):
@@ -22,4 +23,7 @@ class EditTextSiteForm(forms.Form):
                     self.fields[key_name] = forms.CharField(
                         label=key_name,
                         required=False,
-                        widget=forms.TextInput(attrs={"theme_name" : theme})) 
+                        widget=forms.Textarea(attrs={"placeholder" : key_name, "theme_name" : theme})) 
+
+class PersonAdmin(admin.ModelAdmin):
+    form = EditTextSiteForm
