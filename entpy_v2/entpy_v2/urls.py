@@ -45,7 +45,10 @@ urlpatterns = [
     # simple template
     url(r'^simple/', include('simple.urls')),
 
+    # upload image
+    url(r'^upload_image/', include('upload_image_box.urls', namespace="upload_image_box")),
+
     # gestione dei temi
     # url(r'^website_data/', include('website_data.urls')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.MEDIA_URL_TMP, document_root=settings.MEDIA_ROOT)

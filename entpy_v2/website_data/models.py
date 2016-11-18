@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.sites.models import Site
 from django.conf import settings
+from upload_image_box.models import cropUploadedImages 
 import logging, sys
 
 # force utf8 read data
@@ -213,3 +214,16 @@ class WebsitePreferences(models.Model):
     def get_preferences_about_site(self, site_domain):
         """Function to retrieve all preferences about a site"""
         return dict(WebsitePreferences.objects.filter(site__domain=site_domain).values_list('key__name','val'))
+
+class SiteImages(models.Model):
+    image_id = models.OneToOneField(cropUploadedImages, primary_key=True)
+    site = models.ForeignKey(Site)
+    image_code = models.CharField(max_length=100)
+    upload_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Immagine sito"
+        verbose_name_plural = "Immagini sito"
+
+    def __unicode__(self):
+        return self.image_id.image.url
