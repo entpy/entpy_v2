@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'simple',
     'website_data',
     'upload_image_box',
+    # 'froala_editor',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -5,44 +5,28 @@
 {% block service_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{{ website_key_val_dict|get_item:"classic_services_title" | safe }}{% endblock %}
-{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_services_subtitle" | safe }}{% endblock %}
+{% block page_title %}{% if website_key_val_dict|get_item:"classic_services_title" %}{{ website_key_val_dict|get_item:"classic_services_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_title_default" | safe }}{% endif %}{% endblock %}
+{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_services_subtitle" %}{{ website_key_val_dict|get_item:"classic_services_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_subtitle_default" | safe }}{% endif %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
 	<div id="fh5co-services-section" class="fh5co-section-gray">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-					<h3>{{ website_key_val_dict|get_item:"classic_services_section_one_title" | safe }}</h3>
-					<p>{{ website_key_val_dict|get_item:"classic_services_section_one_content" | safe }}</p>
-				</div>
+			<div class="row froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_services_block1" %}{{ website_key_val_dict|get_item:"classic_services_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block1_default" | safe }}{% endif %}
 			</div>
 		</div>
 		<div class="container">
-			<div class="row text-center">
-				{{ website_key_val_dict|get_item:"classic_services_blocks" | safe }}
+			<div class="row text-center froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_services_block2" %}{{ website_key_val_dict|get_item:"classic_services_block2" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block2_default" | safe }}{% endif %}
 			</div>
 		</div>
 	</div>
 
 	<div id="fh5co-services">
 		<div class="container">
-			<div class="row row-bottom-padded-lg" >
-				<div class="col-md-3 service-bg service-1"></div>
-				<div class="col-md-8 col-md-push-1">
-					<h2>{{ website_key_val_dict|get_item:"classic_services_first_service_title" | safe }}</h2>
-					<p>{{ website_key_val_dict|get_item:"classic_services_first_service_content" | safe }}</p>
-					{{ website_key_val_dict|get_item:"classic_services_first_service_list" | safe }}
-				</div>
-			</div>
-			<div class="row row-bottom-padded-lg">
-				<div class="col-md-3 col-md-push-8 service-bg service-2"></div>
-				<div class="col-md-7 col-md-pull-3">
-					<h2>{{ website_key_val_dict|get_item:"classic_services_second_service_title" | safe }}</h2>
-					<p>{{ website_key_val_dict|get_item:"classic_services_second_service_content" | safe }}</p>
-					{{ website_key_val_dict|get_item:"classic_services_second_service_list" | safe }}
-				</div>
+			<div class="row row-bottom-padded-lg froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_services_block3" %}{{ website_key_val_dict|get_item:"classic_services_block3" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block3_default" | safe }}{% endif %}
 			</div>
 		</div>
 	</div>

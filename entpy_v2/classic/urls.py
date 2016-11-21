@@ -20,7 +20,8 @@ import classic.views, simple.views
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^$', classic.views.index, name='index'),
-    url(r'^chi-siamo/$', classic.views.about, name='about'),
-    url(r'^servizi/$', classic.views.services, name='services'),
-    url(r'^contatti/$', classic.views.contacts, name='contacts'),
+    url(r'^chi-siamo/(?:(?P<action>[a-z0-9]+)/)?$', classic.views.about, name='about'),
+    url(r'^servizi/(?:(?P<action>[a-z0-9]+)/)?$', classic.views.services, name='services'),
+    url(r'^contatti/(?:(?P<action>[a-z0-9]+)/)?$', classic.views.contacts, name='contacts'),
+    url(r'^(?:(?P<action>[a-z0-9]+)/)?$', classic.views.index, name='index'),
 ]

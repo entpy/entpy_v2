@@ -6,21 +6,41 @@ from django.core.mail import send_mail
 from django.http import HttpResponse, Http404
 
 @ensure_csrf_cookie
-def index(request):
+def index(request, action = False):
     """Index view"""
-    return render(request, 'classic/index.html', {})
+    context = {}
+    if action == "edit":
+        context = {
+            'edit': True,
+        }
+    return render(request, 'classic/index.html', context)
 
 @ensure_csrf_cookie
-def about(request):
+def about(request, action = False):
     """About view"""
-    return render(request, 'classic/about.html', {})
+    context = {}
+    if action == "edit":
+        context = {
+            'edit': True,
+        }
+    return render(request, 'classic/about.html', context)
 
 @ensure_csrf_cookie
-def services(request):
+def services(request, action = False):
     """Services view"""
-    return render(request, 'classic/services.html', {})
+    context = {}
+    if action == "edit":
+        context = {
+            'edit': True,
+        }
+    return render(request, 'classic/services.html', context)
 
 @ensure_csrf_cookie
-def contacts(request):
+def contacts(request, action = False):
     """Contacts view"""
-    return render(request, 'classic/contacts.html', {})
+    context = {}
+    if action == "edit":
+        context = {
+            'edit': True,
+        }
+    return render(request, 'classic/contacts.html', context)

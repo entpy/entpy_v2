@@ -5,46 +5,38 @@
 {% block home_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{{ website_key_val_dict|get_item:"classic_index_title" | safe }}{% endblock %}
-{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_index_subtitle" | safe }}{% endblock %}
+{% block page_title %}{% if website_key_val_dict|get_item:"classic_index_title" %}{{ website_key_val_dict|get_item:"classic_index_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_title_default" | safe }}{% endif %}{% endblock %}
+{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_index_subtitle" %}{{ website_key_val_dict|get_item:"classic_index_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_subtitle_default" | safe }}{% endif %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
 	<!-- end:header-top -->
 	<div id="fh5co-features">
 		<div class="container">
-			<div class="row">
-				{{ website_key_val_dict|get_item:"classic_index_first_content" | safe }}
+			<div class="row froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_index_block1" %}{{ website_key_val_dict|get_item:"classic_index_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_block1_default" | safe }}{% endif %}
 			</div>
 		</div>
 	</div>
 
 	<div id="fh5co-feature-product" class="fh5co-section-gray">
 		<div class="container">
-			<div class="row row-bottom-padded-md">
-				<div class="col-md-12 text-center heading-section">
-					<h3>{{ website_key_val_dict|get_item:"classic_index_section_one_title" | safe }}</h3>
-					<p>{{ website_key_val_dict|get_item:"classic_index_section_one_content" | safe }}</p>
-				</div>
+			<div class="row row-bottom-padded-md froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_index_block2" %}{{ website_key_val_dict|get_item:"classic_index_block2" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_block2_default" | safe }}{% endif %}
 			</div>
-			<div class="row">
-				<div class="col-md-12 text-center animate-box">
-					<p><img src="{% static "classic/images/macbook.png" %}" alt="Image" class="img-responsive"></p>
-				</div>
+			<div class="row froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_index_block3" %}{{ website_key_val_dict|get_item:"classic_index_block3" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_block3_default" | safe }}{% endif %}
 			</div>
-			<div class="row">
-				{{ website_key_val_dict|get_item:"classic_index_second_content" | safe }}
+			<div class="row froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_index_block4" %}{{ website_key_val_dict|get_item:"classic_index_block4" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_block4_default" | safe }}{% endif %}
 			</div>
 		</div>
 	</div>
 
 	<div id="fh5co-portfolio">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-					<h3>{{ website_key_val_dict|get_item:"classic_index_section_two_title" | safe }}</h3>
-					<p>{{ website_key_val_dict|get_item:"classic_index_section_two_content" | safe }}</p>
-				</div>
+			<div class="row froala-editor-html">
+				{% if website_key_val_dict|get_item:"classic_index_block5" %}{{ website_key_val_dict|get_item:"classic_index_block5" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_index_block5_default" | safe }}{% endif %}
 			</div>
 		</div>
 	</div>

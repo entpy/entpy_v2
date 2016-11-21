@@ -5,8 +5,8 @@
 {% block contact_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{{ website_key_val_dict|get_item:"classic_contacts_title" | safe }}{% endblock %}
-{% block page_subtitle %}{{ website_key_val_dict|get_item:"classic_contacts_subtitle" | safe }}{% endblock %}
+{% block page_title %}{% if website_key_val_dict|get_item:"classic_contacts_title" %}{{ website_key_val_dict|get_item:"classic_contacts_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_title_default" | safe }}{% endif %}{% endblock %}
+{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_contacts_subtitle" %}{{ website_key_val_dict|get_item:"classic_contacts_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_subtitle_default" | safe }}{% endif %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
@@ -16,17 +16,8 @@
 	<div id="fh5co-contact" class="animate-box">
 		<div class="container">
 			<form action="#">
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="section-title">{{ website_key_val_dict|get_item:"classic_contacts_section_one_title" | safe }}</h3>
-						<p>{{ website_key_val_dict|get_item:"classic_contacts_section_one_content" | safe }}</p>
-						<ul class="contact-info">
-							<li><i class="icon-location-pin"></i>{{ website_key_val_dict|get_item:"classic_contacts_address1" | safe }}</li>
-							<li><i class="icon-phone2"></i>{{ website_key_val_dict|get_item:"classic_contacts_phone1" | safe }}</li>
-							<li><i class="icon-mail"></i><a href="mailto:{{ website_key_val_dict|get_item:"classic_contacts_email1" | safe }}">{{ website_key_val_dict|get_item:"classic_contacts_email1" | safe }}</a></li>
-							<li><i class="icon-clock"></i>{{ website_key_val_dict|get_item:"classic_contacts_timetables1" | safe }}</li>
-						</ul>
-					</div>
+				<div class="row froala-editor-html">
+					{% if website_key_val_dict|get_item:"classic_contacts_block1" %}{{ website_key_val_dict|get_item:"classic_contacts_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_block1_default" | safe }}{% endif %}
 				</div>
 			</form>
 			<!-- END fh5co-contact -->
@@ -46,7 +37,7 @@
 			// Google Map
 			var zoom = $('#map_canvas').gmap('option', 'zoom');
 				$('#map_canvas').gmap().bind('init', function(ev, map) {
-				$('#map_canvas').gmap('addMarker', {'position': '{{ website_key_val_dict|get_item:"classic_contacts_section_one_maps_position" | safe }}', 'bounds': true});
+				$('#map_canvas').gmap('addMarker', {'position': '{% if website_key_val_dict|get_item:"classic_contacts_maps_position" %}{{ website_key_val_dict|get_item:"classic_contacts_maps_position" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_maps_position_default" | safe }}{% endif %}', 'bounds': true});
 				$('#map_canvas').gmap('option', 'zoom', 15);
 			});
 		});

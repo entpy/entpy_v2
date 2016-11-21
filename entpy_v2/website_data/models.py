@@ -80,41 +80,28 @@ class ThemeKeys(models.Model):
         keys_list = {
             # classic theme
             "classic" : [
+                # valori effettivi
                 'classic_index_title',
                 'classic_index_subtitle',
-                'classic_index_first_content',
-                'classic_index_section_one_title',
-                'classic_index_section_one_content',
-                'classic_index_second_content',
-                'classic_index_section_two_title',
-                'classic_index_section_two_content',
+                'classic_index_block1',
+                'classic_index_block2',
+                'classic_index_block3',
+                'classic_index_block4',
+                'classic_index_block5',
                 'classic_about_title',
                 'classic_about_subtitle',
-                'classic_about_section_one_title',
-                'classic_about_section_one_content',
-                'classic_about_section_two_title',
-                'classic_about_section_two_content_one',
-                'classic_about_section_two_content_two',
+                'classic_about_block1',
+                'classic_about_block2',
+                'classic_about_block3',
                 'classic_services_title',
                 'classic_services_subtitle',
-                'classic_services_section_one_title',
-                'classic_services_section_one_content',
-                'classic_services_blocks',
-                'classic_services_first_service_title',
-                'classic_services_first_service_content',
-                'classic_services_first_service_list',
-                'classic_services_second_service_title',
-                'classic_services_second_service_content',
-                'classic_services_second_service_list',
+                'classic_services_block1',
+                'classic_services_block2',
+                'classic_services_block3',
                 'classic_contacts_title',
                 'classic_contacts_subtitle',
-                'classic_contacts_section_one_title',
-                'classic_contacts_section_one_content',
-                'classic_contacts_address1',
-                'classic_contacts_phone1',
-                'classic_contacts_email1',
-                'classic_contacts_timetables1',
-                'classic_contacts_section_one_maps_position',
+                'classic_contacts_block1',
+                'classic_contacts_maps_position',
                 'classic_base_twitter_page_url',
                 'classic_base_facebook_page_url',
                 'classic_base_site_name',
@@ -171,6 +158,36 @@ class WebsiteData(models.Model):
                     WebsiteData_obj.save()
 
         return True
+
+    def get_defaults_key_values(self):
+        """Function to retrieve all key defaults as dictionary"""
+        return {
+            # valori di default
+            'classic_index_title_default' : 'Titolo pagina',
+            'classic_index_subtitle_default' : 'Sottotitolo pagina',
+            'classic_index_block1_default' : '<div><div class="col-md-4"><div class="feature-left"><div><h3>Titolo1</h3><p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p></div></div></div><div class="col-md-4"><div class="feature-left"><div><h3>Titolo2</h3><p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p></div></div></div><div class="col-md-4"><div class="feature-left"><div><h3>Titolo3</h3><p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p></div></div></div></div>',
+            'classic_index_block2_default' : '<div class="col-md-12 text-center heading-section"><h3>Titolo sezione1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p></div>',
+            'classic_index_block3_default' : '<div class="col-md-12 text-center animate-box"><p><img src="{% static "classic/images/macbook.png" %}" alt="Home page image" class="img-responsive"></p></div>',
+            'classic_index_block4_default' : '<div><div class="col-md-4"><div class="feature-text"><h3><span class="number">01.</span> Titolo1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p></div></div><div class="col-md-4"><div class="feature-text"><h3><span class="number">02.</span> Titolo2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p></div></div><div class="col-md-4"><div class="feature-text"><h3><span class="number">03.</span> Titolo3</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut lectus vestibulum, fringilla tellus in, lacinia ligula. Vivamus id odio maximus, semper justo suscipit, convallis diam.</p></div></div></div>',
+            'classic_index_block5_default' : '<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box fadeInUp animated"><h3>[editami qui...]</h3><p>[editami qui...]</p></div>',
+            'classic_about_title_default' : 'Titolo pagina',
+            'classic_about_subtitle_default' : 'Sottotitolo pagina',
+            'classic_about_block1_default' : '<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box fadeInUp animated"><h3>[editami qui...]</h3><p>[editami qui...]</p></div>',
+            'classic_about_block2_default' : '',
+            'classic_about_block3_default' : '<div class="col-md-8 col-md-offset-2 animate-box"><h3>Titolo paragrafo1</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rerum perspiciatis, debitis pariatur atque vitae sed blanditiis nobis sint, reprehenderit quas, natus corrupti! Ipsum cum possimus corporis aut architecto! Delectus enim adipisci quidem possimus voluptates! Aut ut aliquid molestias laudantium.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div>',
+            'classic_services_title_default' : 'Titolo pagina',
+            'classic_services_subtitle_default' : 'Sottotitolo pagina',
+            'classic_services_block1_default' : '<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box"><h3>Cosa Facciamo</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div>',
+            'classic_services_block2_default' : '<div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco1</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div><div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco2</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div><div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco3</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div><div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco4</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div><div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco5</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div><div class="col-md-4 col-sm-4"><div class="services animate-box"><h3>Titolo blocco6</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p></div></div>',
+            'classic_services_block3_default' : '<div class="col-md-12"><div class="col-md-3 service-bg service-1"></div><div class="col-md-8 col-md-push-1"><h2>Titolo paragrafo1</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quae modi earum eligendi eaque quis laudantium aperiam sunt atque recusandae, fugiat veritatis repellendus incidunt nostrum voluptatibus. Eveniet ex magnam repellat sunt molestiae, quibusdam culpa dignissimos recusandae voluptatum necessitatibus provident commodi?</p><ul><li>Nome servizio1</li><li>Nome servizio2</li><li>Nome servizio3</li><li>Nome servizio4</li></ul></div></div><div class="col-md-12"><div class="col-md-3 col-md-push-8 service-bg service-2"></div><div class="col-md-7 col-md-pull-3"><h2>Titolo paragrafo2</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quae modi earum eligendi eaque quis laudantium aperiam sunt atque recusandae, fugiat veritatis repellendus incidunt nostrum voluptatibus. Eveniet ex magnam repellat sunt molestiae, quibusdam culpa dignissimos recusandae voluptatum necessitatibus provident commodi?</p><ul><li>Nome servizio5</li><li>Nome servizio6</li><li>Nome servizio7</li><li>Nome servizio8</li></ul></div></div>',
+            'classic_contacts_title_default' : 'Titolo pagina',
+            'classic_contacts_subtitle_default' : 'Sottotitolo pagina',
+            'classic_contacts_block1_default' : '<div class="col-md-12"><h3 class="section-title">Contatti</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p><ul class="contact-info"><li><i class="icon-location-pin"></i>Indirizzo del negozio</li><li><i class="icon-phone2"></i>+39 123456789</li><li><i class="icon-mail"></i><a href="mailto:tuaemail@mail.com">tuaemail@mail.com</a></li><li><i class="icon-clock"></i>Lunedì-Venerdì 9.00-19.00</li></ul></div>',
+            'classic_contacts_maps_position_default' : '45.0711813,7.6828501,17',
+            'classic_base_twitter_page_url_default' : '',
+            'classic_base_facebook_page_url_default' : '',
+            'classic_base_site_name_default' : '',
+        }
 
 class WebsitePreferenceKeys(models.Model):
     id_website_preference_key = models.AutoField(primary_key=True)
