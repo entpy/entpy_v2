@@ -5,8 +5,8 @@
 {% block contact_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{% if website_key_val_dict|get_item:"classic_contacts_title" %}{{ website_key_val_dict|get_item:"classic_contacts_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_title_default" | safe }}{% endif %}{% endblock %}
-{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_contacts_subtitle" %}{{ website_key_val_dict|get_item:"classic_contacts_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_subtitle_default" | safe }}{% endif %}{% endblock %}
+{% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_title" edit %}{% endblock %}
+{% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_subtitle" edit %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
@@ -17,7 +17,7 @@
 		<div class="container">
 			<form action="#">
 				<div class="row froala-editor-html">
-					{% if website_key_val_dict|get_item:"classic_contacts_block1" %}{{ website_key_val_dict|get_item:"classic_contacts_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_block1_default" | safe }}{% endif %}
+					{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_block1" edit %}
 				</div>
 			</form>
 			<!-- END fh5co-contact -->
@@ -31,13 +31,12 @@
 	<!-- Google map -->
 	<script src="//maps.googleapis.com/maps/api/js"></script>
 	<script src="{% static "classic/js/jquery.ui.map.js" %}"></script>
-
 	<script>
 		$(document).ready(function(){
 			// Google Map
 			var zoom = $('#map_canvas').gmap('option', 'zoom');
 				$('#map_canvas').gmap().bind('init', function(ev, map) {
-				$('#map_canvas').gmap('addMarker', {'position': '{% if website_key_val_dict|get_item:"classic_contacts_maps_position" %}{{ website_key_val_dict|get_item:"classic_contacts_maps_position" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_contacts_maps_position_default" | safe }}{% endif %}', 'bounds': true});
+				$('#map_canvas').gmap('addMarker', {'position': '{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "contacts_maps_position" edit %}', 'bounds': true});
 				$('#map_canvas').gmap('option', 'zoom', 15);
 			});
 		});

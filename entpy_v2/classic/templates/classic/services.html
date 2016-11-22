@@ -5,20 +5,20 @@
 {% block service_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{% if website_key_val_dict|get_item:"classic_services_title" %}{{ website_key_val_dict|get_item:"classic_services_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_title_default" | safe }}{% endif %}{% endblock %}
-{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_services_subtitle" %}{{ website_key_val_dict|get_item:"classic_services_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_subtitle_default" | safe }}{% endif %}{% endblock %}
+{% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_title" edit %}{% endblock %}
+{% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_subtitle" edit %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
 	<div id="fh5co-services-section" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row froala-editor-html">
-				{% if website_key_val_dict|get_item:"classic_services_block1" %}{{ website_key_val_dict|get_item:"classic_services_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block1_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block1" edit %}
 			</div>
 		</div>
 		<div class="container">
 			<div class="row text-center froala-editor-html">
-				{% if website_key_val_dict|get_item:"classic_services_block2" %}{{ website_key_val_dict|get_item:"classic_services_block2" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block2_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block2" edit %}
 			</div>
 		</div>
 	</div>
@@ -26,7 +26,7 @@
 	<div id="fh5co-services">
 		<div class="container">
 			<div class="row row-bottom-padded-lg froala-editor-html">
-				{% if website_key_val_dict|get_item:"classic_services_block3" %}{{ website_key_val_dict|get_item:"classic_services_block3" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_services_block3_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block3" edit %}
 			</div>
 		</div>
 	</div>

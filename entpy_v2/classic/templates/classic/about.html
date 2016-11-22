@@ -5,28 +5,23 @@
 {% block about_navigation_active %}active{% endblock %}
 
 {# titolo e sottotitolo della pagina #}
-{% block page_title %}{% if website_key_val_dict|get_item:"classic_about_title" %}{{ website_key_val_dict|get_item:"classic_about_title" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_about_title_default" | safe }}{% endif %}{% endblock %}
-{% block page_subtitle %}{% if website_key_val_dict|get_item:"classic_about_subtitle" %}{{ website_key_val_dict|get_item:"classic_about_subtitle" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_about_subtitle_default" | safe }}{% endif %}{% endblock %}
+{% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_title" edit %}{% endblock %}
+{% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_subtitle" edit %}{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
 	<div id="fh5co-about">
 		<div class="container">
 			<div class="row froala-editor-html">
-				{% if website_key_val_dict|get_item:"classic_about_block1" %}{{ website_key_val_dict|get_item:"classic_about_block1" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_about_block1_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block1" edit %}
 			</div>
 		</div>
 		<div class="container">
 			<div class="row row-bottom-padded-md froala-editor-html">
-				<div class="col-md-12 animate-box">
-					<figure>
-						<img src="{% static "classic/images/about-image.jpg" %}" alt="Chi Siamo" class="img-responsive">
-					</figure>
-				</div>
-				{% if website_key_val_dict|get_item:"classic_about_block2" %}{{ website_key_val_dict|get_item:"classic_about_block2" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_about_block2_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block2" edit %}
 			</div>
 			<div class="row froala-editor-html" >
-				{% if website_key_val_dict|get_item:"classic_about_block3" %}{{ website_key_val_dict|get_item:"classic_about_block3" | safe }}{% else %}{{ default_key_val_dict|get_item:"classic_about_block3_default" | safe }}{% endif %}
+				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block3" edit %}
 			</div>
 		</div>
 	</div>

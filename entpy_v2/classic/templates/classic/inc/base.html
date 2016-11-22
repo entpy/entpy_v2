@@ -67,12 +67,7 @@
 	<![endif]-->
 
 	{% if edit %}
-		<!-- Include Editor style. -->
-		<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
-		<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/froala_style.min.css' rel='stylesheet' type='text/css' />
-		<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/plugins/table.min.css' rel='stylesheet' type='text/css' />
-		<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/plugins/code_view.min.css' rel='stylesheet' type='text/css' />
-		<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/css/plugins/colors.min.css ' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="{% static "website_data/css/edit_site.css" %}">
 	{% endif %}
 
 	{% block extra_css %}{% endblock %}
@@ -86,7 +81,7 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="/{% if edit %}edit/{% endif %}">{{ website_key_val_dict|get_item:"classic_base_site_name" | safe }}</a></h1>
+						<h1 id="fh5co-logo"><a href="/{% if edit %}edit/{% endif %}">{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "site_name" edit %}</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
@@ -112,11 +107,13 @@
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">
-								{% if website_key_val_dict|get_item:"classic_base_twitter_page_url" %}
-									<a target="_blank" href="{{ website_key_val_dict|get_item:"classic_base_twitter_page_url" | safe }}"><i class="icon-twitter2"></i></a>
+								{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "twitter_page_url" edit as twitter_url %}
+								{% if twitter_url %}
+									<a target="_blank" href="{{ twitter_url }}"><i class="icon-twitter2"></i></a>
 								{% endif %}
-								{% if website_key_val_dict|get_item:"classic_base_facebook_page_url" %}
-									<a target="_blank" href="{{ website_key_val_dict|get_item:"classic_base_facebook_page_url" | safe }}"><i class="icon-facebook2"></i></a>
+								{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "facebook_page_url" edit as facebook_url %}
+								{% if facebook_url %}
+									<a target="_blank" href="{{ facebook_url }}"><i class="icon-facebook2"></i></a>
 								{% endif %}
 							</p>
 							<p>2016 | <a target="_blank" href="http://www.entpy.com">Entpy Software</a>. <br>Made with <i class="icon-heart3"></i></p>
@@ -147,43 +144,13 @@
 	<script src="{% static "classic/js/superfish.js" %}"></script>
 
 	{% if edit %}
-		<!-- Include JS file. -->
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/froala_editor.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/code_beautifier.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/code_view.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/align.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/code_view.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/colors.min.js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.3.5/js/plugins/font_size.min.js'></script>
+		<script src="{% static "website_data/js/edit_site.js" %}"></script>
 	{% endif %}
 
 	<!-- Main JS -->
 	<script src="{% static "classic/js/main.js" %}"></script>
 
 	{% block extra_js %}{% endblock %}
-
-	{% if edit %}
-		<script>
-			$('.froala-editor-html').froalaEditor({
-				toolbarInline: true,
-				charCounterCount: true,
-				toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-				codeMirror: true,
-				toolbarVisibleWithoutSelection: true,
-				htmlAllowedEmptyTags : ['textarea', 'a', 'iframe', 'object', 'video', 'style', 'script', '.fa', 'i'],
-			});
-
-			$('.froala-editor-inline').froalaEditor({
-				// toolbarInline: true,
-				charCounterCount: true,
-				editInPopup: true,
-				toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
-				codeMirror: true,
-				toolbarVisibleWithoutSelection: true,
-				htmlAllowedEmptyTags : ['textarea', 'a', 'iframe', 'object', 'video', 'style', 'script', '.fa', 'i'],
-			});
-		</script>
-	{% endif %}
 	</body>
 </html>
 
