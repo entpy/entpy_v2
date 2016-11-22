@@ -8,19 +8,23 @@
 {% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_title" edit %}{% endblock %}
 {% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_subtitle" edit %}{% endblock %}
 
+{# per poter salvare via ajax il contenuto dei blocchi #}
+{% block page_title_block_code %}classic_about_title{% endblock %}
+{% block page_subtitle_block_code %}classic_about_subtitle{% endblock %}
+
 {# contenuto della pagina #}
 {% block page_content %}
 	<div id="fh5co-about">
 		<div class="container">
-			<div class="row froala-editor-html">
+			<div class="row froala-editor-html blockToSaveAction" data-block-code="classic_about_block1">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block1" edit %}
 			</div>
 		</div>
 		<div class="container">
-			<div class="row row-bottom-padded-md froala-editor-html">
+			<div class="row row-bottom-padded-md froala-editor-html blockToSaveAction" data-block-code="classic_about_block2">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block2" edit %}
 			</div>
-			<div class="row froala-editor-html" >
+			<div class="row froala-editor-html blockToSaveAction" data-block-code="classic_about_block3">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_about_block3" edit %}
 			</div>
 		</div>

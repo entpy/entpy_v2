@@ -71,4 +71,36 @@ $(document).ready(function(){
 		toolbarVisibleWithoutSelection: true,
 		htmlAllowedEmptyTags : ['textarea', 'a', 'iframe', 'object', 'video', 'style', 'script', '.fa', 'i'],
 	});
+
+	// click per salvare le modifiche della pagina
+	$(document).on("click", ".savePageBlockAction", function(){
+		savePageBlocks();
+
+		return false;
+	});
+
+	// aggiungo la barra di editing
+	addEditingBar();
 });
+
+// Funzione per aggiungere la barra di editing al sito
+function addEditingBar() {
+	$("body").append('<div class="editing_bar_container"></div>');
+	$(".editing_bar_container").html('<div class="editing_bar_inner_container"></div>');
+	$(".editing_bar_inner_container").html('<div class="editing_button_container"><a class="savePageBlockAction btn btn-default" href="#">Salva modifiche</a></div>');
+
+	return true;
+}
+
+// TODO
+// Funzione per salvare tutti i blocchi nella pagina
+// itero su tutti gli elementi che hanno la classe "blockToSaveAction" e salvo il contenuto
+// nel relativo "data-block-code" del sito con il dominio corrente
+function savePageBlocks() {
+	$(".blockToSaveAction").each(function() {
+		var key = $(this).data("blockCode");
+		var val = $(this).html();
+
+		console.log(key + " " + val);
+	});
+}

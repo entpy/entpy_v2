@@ -8,16 +8,20 @@
 {% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_title" edit %}{% endblock %}
 {% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_subtitle" edit %}{% endblock %}
 
+{# per poter salvare via ajax il contenuto dei blocchi #}
+{% block page_title_block_code %}classic_services_title{% endblock %}
+{% block page_subtitle_block_code %}classic_services_subtitle{% endblock %}
+
 {# contenuto della pagina #}
 {% block page_content %}
 	<div id="fh5co-services-section" class="fh5co-section-gray">
 		<div class="container">
-			<div class="row froala-editor-html">
+			<div class="row froala-editor-html blockToSaveAction" data-block-code="classic_services_block1">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block1" edit %}
 			</div>
 		</div>
 		<div class="container">
-			<div class="row text-center froala-editor-html">
+			<div class="row text-center froala-editor-html blockToSaveAction" data-block-code="classic_services_block2">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block2" edit %}
 			</div>
 		</div>
@@ -25,7 +29,7 @@
 
 	<div id="fh5co-services">
 		<div class="container">
-			<div class="row row-bottom-padded-lg froala-editor-html">
+			<div class="row row-bottom-padded-lg froala-editor-html blockToSaveAction" data-block-code="classic_services_block3">
 				{% get_theme_val website_key_val_dict default_key_val_dict "classic_services_block3" edit %}
 			</div>
 		</div>
