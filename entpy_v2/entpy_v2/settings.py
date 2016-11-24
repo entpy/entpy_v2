@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'simple',
     'website_data',
     'upload_image_box',
-    # 'froala_editor',
+    'django_ajax_action',
 ]
 
 MIDDLEWARE_CLASSES = [

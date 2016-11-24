@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from urlparse import urlparse
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ObjectDoesNotExist
@@ -25,20 +26,24 @@ class ManageSiteUrls(object):
             WebsitePreferences_obj = WebsitePreferences()
             website_preferences_dict = WebsitePreferences_obj.get_preferences_about_site(site_domain=current_site)
 
+            # se è una chiamata ajax non setto il valore di ROOT_URLCONF
+            current_url = urlparse(request.build_absolute_uri())
+            current_url_path = current_url.path
+            logger.info("url path: " + str(current_url_path))
+
             # identifico il ROOT_URLCONF da utilizzare
             # http://stackoverflow.com/questions/18322262/how-to-setup-custom-middleware-in-django
             # settando request.urlconf, sovrascrivo il valore di ROOT_URLCONF
             # scritto in settings.py
 
-            # TODO: root_urlconf inserirlo in un oggetto a parte che mappa i
-            # siti con i temi utilizzati.
-            if website_preferences_dict.get("root_urlconf") == "classic" or website_preferences_dict.get("root_urlconf") == "simple":
+            if (website_preferences_dict.get("root_urlconf") == "classic" or website_preferences_dict.get("root_urlconf") == "simple") and current_url_path != "/ajax/":
                 # il sito è attivo ed utilizza le app 'classic' o 'simple'
                 request.urlconf = str(website_preferences_dict.get("root_urlconf")) + ".urls"
             else:
                 # ROOT_URLCONF di default, (sto visitando entpy.com oppure un
-                # sito è scaduto e redirigo qui)
-                request.urlconf = settings.ROOT_URLCONF
+                # sito è scaduto e redirigo qui, oppure chiamata /ajax/)
+                # request.urlconf = settings.ROOT_URLCONF (è settato di default)
+                pass
 
         except ObjectDoesNotExist:
             logger.error("no site found with current domain: " + str(request.get_host()))

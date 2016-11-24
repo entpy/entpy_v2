@@ -6,11 +6,11 @@
 
 {# titolo e sottotitolo della pagina #}
 {% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_index_title" edit %}{% endblock %}
-{% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_index_title" edit %}{% endblock %}
+{% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_index_subtitle" edit %}{% endblock %}
 
 {# per poter salvare via ajax il contenuto dei blocchi #}
 {% block page_title_block_code %}classic_index_title{% endblock %}
-{% block page_subtitle_block_code %}classic_index_title{% endblock %}
+{% block page_subtitle_block_code %}classic_index_subtitle{% endblock %}
 
 {# contenuto della pagina #}
 {% block page_content %}
