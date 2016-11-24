@@ -289,6 +289,19 @@ var froalaEditorHtml = {
 	codeMirror: true,
 	toolbarVisibleWithoutSelection: true,
 	htmlAllowedEmptyTags : ['textarea', 'a', 'iframe', 'object', 'video', 'style', 'script', '.fa', 'i'],
+	// @@ image upload params @@
+	// Set the image upload parameter.
+        imageUploadParam: 'image_data',
+        // Set the image upload URL.
+        imageUploadURL: '/ajax/',
+        // Additional upload params.
+        imageUploadParams: {'ajax_action': 'upload_image', 'csrfmiddlewaretoken': readCsrftokenFromCookie()},
+        // Set request type.
+        imageUploadMethod: 'POST',
+        // Set max image size to 5MB.
+        imageMaxSize: 5 * 1024 * 1024,
+        // Allow to upload PNG and JPG.
+        imageAllowedTypes: ['jpeg', 'jpg', 'png']
 };
 
 var froalaEditorInline = {
@@ -311,7 +324,23 @@ function addEditingBar() {
 }
 
 $(document).ready(function(){
-	$('.froala-editor-html').froalaEditor(froalaEditorHtml);
+	$('.froala-editor-html').froalaEditor(froalaEditorHtml).on('froalaEditor.image.error', function (e, editor, error, response) {
+		// Bad link.
+		if (error.code == 1) { alert("Bad link"); }
+		// No link in upload response.
+		else if (error.code == 2) { alert("No link in upload response"); }
+		// Error during image upload.
+		else if (error.code == 3) { alert("Error during image upload"); }
+		// Parsing response failed.
+		else if (error.code == 4) { alert("Parsing response failed"); }
+		// Image too text-large.
+		else if (error.code == 5) { alert("Image too text-large"); }
+		// Invalid image type.
+		else if (error.code == 6) { alert("Invalid image type"); }
+		// Image can be uploaded only to same domain in IE 8 and IE 9.
+		else if (error.code == 7) { alert("Image can be uploaded only to same domain in IE 8 and IE 9"); }
+		// Response contains the original server response to the request if available.
+	});
 
 	$('.froala-editor-inline').froalaEditor(froalaEditorInline);
 
@@ -341,7 +370,24 @@ function destroy_html_editor() {
 
 // Function to init all html editors
 function init_html_editor() {
-	$('.froala-editor-html').froalaEditor(froalaEditorHtml);
+	$('.froala-editor-html').froalaEditor(froalaEditorHtml).on('froalaEditor.image.error', function (e, editor, error, response) {
+		// Bad link.
+		if (error.code == 1) { alert("Bad link"); }
+		// No link in upload response.
+		else if (error.code == 2) { alert("No link in upload response"); }
+		// Error during image upload.
+		else if (error.code == 3) { alert("Error during image upload"); }
+		// Parsing response failed.
+		else if (error.code == 4) { alert("Parsing response failed"); }
+		// Image too text-large.
+		else if (error.code == 5) { alert("Image too text-large"); }
+		// Invalid image type.
+		else if (error.code == 6) { alert("Invalid image type"); }
+		// Image can be uploaded only to same domain in IE 8 and IE 9.
+		else if (error.code == 7) { alert("Image can be uploaded only to same domain in IE 8 and IE 9"); }
+		// Response contains the original server response to the request if available.
+	});
+
 	$('.froala-editor-inline').froalaEditor(froalaEditorInline);
 
 	return true;

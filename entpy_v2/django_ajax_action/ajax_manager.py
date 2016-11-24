@@ -23,6 +23,7 @@ class ajaxManager():
     def __init__(self, request=None):
         # list of valid methods
         self.__valid_action_list += ('save_site_block',)
+        self.__valid_action_list += ('upload_image',)
 
         # retrieve action to perform
         self.ajax_action = request.POST.get("ajax_action")
@@ -114,6 +115,46 @@ class ajaxManager():
             success_flag = True
         else:
             msg = "Attenzione: la chiamata non è avvenuta dall'amministratore"
+
+        if success_flag:
+            data = {'success' : True}
+        else:
+            data = {'error' : True, 'msg' : msg}
+
+        # build JSON response
+        json_data_string = json.dumps(data)
+        self.set_json_response(json_response=json_data_string)
+
+        return True
+
+    # TODO:
+    # permettere l'upload solo se si è amministratori
+    def upload_image(self):
+        import base64
+        """Function to upload an image with html editor"""
+        logger.debug("ajax_function: @@upload_image@@")
+        logger.debug("parametri della chiamata: " + str(self.request.POST))
+        msg = ""
+        success_flag = False
+        image_data = self.request.FILES["image_data"]
+
+        with open('/tmp/name.jpg', 'wb+') as destination:
+            for chunk in image_data.chunks():
+                destination.write(chunk)
+
+        """
+        if self.request.user.is_superuser:
+            WebsiteData_obj = WebsiteData()
+
+            # current site id
+            current_site = get_current_site(self.request)
+
+            # salvo tutti i valori delle chiavi nel relativo sito
+            WebsiteData_obj.set_all_keys_about_site(site_id=current_site.id, post=self.request.POST)
+            success_flag = True
+        else:
+            msg = "Attenzione: la chiamata non è avvenuta dall'amministratore"
+        """
 
         if success_flag:
             data = {'success' : True}
