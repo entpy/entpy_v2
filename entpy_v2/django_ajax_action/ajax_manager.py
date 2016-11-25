@@ -130,7 +130,7 @@ class ajaxManager():
     # TODO:
     # permettere l'upload solo se si è amministratori
     def upload_image(self):
-        import base64
+        from django_images.models import uploadedImages
         """Function to upload an image with html editor"""
         logger.debug("ajax_function: @@upload_image@@")
         logger.debug("parametri della chiamata: " + str(self.request.POST))
@@ -138,9 +138,10 @@ class ajaxManager():
         success_flag = False
         image_data = self.request.FILES["image_data"]
 
-        with open('/tmp/name.jpg', 'wb+') as destination:
-            for chunk in image_data.chunks():
-                destination.write(chunk)
+        uploadedImages_obj = uploadedImages()
+        if image_data:
+            uploadedImages_obj.image = self.request.FILES["image_data"]
+            uploadedImages_obj.save()
 
         """
         if self.request.user.is_superuser:
