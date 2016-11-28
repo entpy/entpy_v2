@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'website_data',
     'upload_image_box',
     'django_ajax_action',
-    'django_images'
+    'django_images',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -141,25 +141,13 @@ class ajaxManager():
         uploadedImages_obj = uploadedImages()
         if image_data:
             uploadedImages_obj.image = self.request.FILES["image_data"]
+            uploadedImages_obj.site = get_current_site(self.request)
             uploadedImages_obj.save()
-
-        """
-        if self.request.user.is_superuser:
-            WebsiteData_obj = WebsiteData()
-
-            # current site id
-            current_site = get_current_site(self.request)
-
-            # salvo tutti i valori delle chiavi nel relativo sito
-            WebsiteData_obj.set_all_keys_about_site(site_id=current_site.id, post=self.request.POST)
+            # setto il JSON di risposta con il link dell'immagine uploadata
             success_flag = True
-        else:
-            msg = "Attenzione: la chiamata non è avvenuta dall'amministratore"
-        """
+            data = {'link' : uploadedImages_obj.image.url}
 
-        if success_flag:
-            data = {'success' : True}
-        else:
+        if not success_flag:
             data = {'error' : True, 'msg' : msg}
 
         # build JSON response

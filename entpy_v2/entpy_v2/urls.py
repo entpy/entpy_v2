@@ -57,4 +57,4 @@ urlpatterns = [
     # wrapper per gestire le azioni ajax
     url(r'^ajax/', include('django_ajax_action.urls', namespace="django_ajax_action")),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.MEDIA_URL_TMP, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # + static(settings.MEDIA_URL_TMP, document_root=settings.MEDIA_ROOT)
