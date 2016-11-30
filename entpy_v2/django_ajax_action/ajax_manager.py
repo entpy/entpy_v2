@@ -100,8 +100,8 @@ class ajaxManager():
         logger.debug("parametri della chiamata: " + str(self.request.POST))
         msg = ""
         success_flag = False
-        block_key = self.request.POST.get("block_key")
-        block_val = self.request.POST.get("block_val")
+        # block_key = self.request.POST.get("block_key")
+        # block_val = self.request.POST.get("block_val")
 
 
         if self.request.user.is_superuser:
@@ -145,7 +145,9 @@ class ajaxManager():
             uploadedImages_obj.save()
             # setto il JSON di risposta con il link dell'immagine uploadata
             success_flag = True
-            data = {'link' : uploadedImages_obj.image.url}
+            uploaded_image_url = uploadedImages_obj.image.url
+
+            data = {'link' : uploaded_image_url.replace("https", "http")}
 
         if not success_flag:
             data = {'error' : True, 'msg' : msg}

@@ -1105,10 +1105,6 @@ figure {
   border-color: transparent;
 }
 
-.js .animate-box {
-  opacity: 0;
-}
-
 #fh5co-wrapper {
   overflow-x: hidden;
   position: relative;
@@ -1380,9 +1376,16 @@ figure {
 
 /*# sourceMappingURL=style.css.map */
 .service-bg { background-position: center center; background-repeat: no-repeat; background-size: cover; margin: 0 0 3% 0; min-height: 400px; }
-.fh5co-cover { background-image: url(../images/cover_bg_1.jpg); }
+/*.fh5co-cover { background-image: url(../images/cover_bg_1.jpg); }
 .fh5co-cover_contacts { background-image: url(../images/cover_contacts_1.jpg); }
 .service-1 { background-image: url(../images/service-1.jpg); }
 .service-2 { background-image: url(../images/service-2.jpg); }
 .service-3 { background-image: url(../images/service-3.jpg); }
-.service-4 { background-image: url(../images/service-4.jpg); }
+.service-4 { background-image: url(../images/service-4.jpg); }*/
+.fh5co-hero { background-color: black; }
+.fh5co-hero .fh5co-overlay { overflow: hidden; opacity: 0.4; }
+.fh5co-hero .fh5co-overlay img { width: 100%; }
+
+.js .animate-box { opacity: 0 } /* per il plugin con i fantastici effetti a scomparsa */
+
+/* .fh5co-hero .fh5co-overlay.fr-box.fr-inline { overflow: visible; } */

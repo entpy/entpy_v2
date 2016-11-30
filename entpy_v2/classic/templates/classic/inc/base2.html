@@ -1,9 +1,11 @@
 {% extends "classic/inc/base.html" %}
-{% load staticfiles static %}
+{% load staticfiles static custom_tags %}
 
 {% block top_header1 %}
 	<div class="fh5co-hero fh5co-hero-2">
-		<div class="fh5co-overlay"></div>
+		<div class="fh5co-overlay froala-editor-html blockToSaveAction" data-block-code="classic_header_image2">
+			{% get_theme_val website_key_val_dict default_key_val_dict "classic_header_image2" edit %}
+		</div>
 		<div class="fh5co-cover fh5co-cover_2 text-center" data-stellar-background-ratio="0.5">
 			<div class="desc animate-box">
 				<div class="desc animate-box">

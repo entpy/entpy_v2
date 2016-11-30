@@ -401,7 +401,7 @@ function savePageBlocks() {
 	var keyValAjaxParams = "";
 	$(".blockToSaveAction").each(function() {
 		var block_key = $(this).data("blockCode");
-		var block_val = $(this).html();
+		var block_val = encodeURIComponent($(this).html());
 
 		// console.log(block_key + " " + block_val);
 		keyValAjaxParams += block_key + "=" + block_val + "&"
@@ -428,4 +428,3 @@ function savePageBlocks() {
 
 	return true;
 }
-

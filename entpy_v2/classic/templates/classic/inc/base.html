@@ -1,5 +1,4 @@
-{% load staticfiles static %}
-{% load custom_tags %}
+{% load staticfiles static custom_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -82,7 +81,7 @@
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-						<h1 id="fh5co-logo"><a href="/{% if edit %}edit/{% endif %}">{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "site_name" edit %}</a></h1>
+						<h1 id="fh5co-logo"><a href="/{% if edit %}edit/{% endif %}" class="froala-editor-inline blockToSaveAction" data-block-code="classic_site_title">{% get_theme_val website_key_val_dict default_key_val_dict "classic_site_title" edit %}</a></h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
@@ -139,7 +138,7 @@
 	<!-- Waypoints -->
 	<script src="{% static "classic/js/jquery.waypoints.min.js" %}"></script>
 	<!-- Stellar -->
-	<script src="{% static "classic/js/jquery.stellar.min.js" %}"></script>
+	{% comment %}<script src="{% static "classic/js/jquery.stellar.min.js" %}"></script>{% endcomment %}
 	<!-- Superfish -->
 	<script src="{% static "classic/js/hoverIntent.js" %}"></script>
 	<script src="{% static "classic/js/superfish.js" %}"></script>

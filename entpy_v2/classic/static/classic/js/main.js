@@ -31,10 +31,10 @@
 
 	};
 
-	// Parallax
-	var parallax = function() {
+	// Parallax -> buh??
+	/*var parallax = function() {
 		$(window).stellar();
-	};
+	};*/
 
 
 	// Offcanvas and cloning of the main menu
@@ -95,9 +95,7 @@
 		});
 	};
 
-
 	// Animations
-
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.animate-box').waypoint( function( direction ) {
@@ -123,12 +121,11 @@
 
 		} , { offset: '85%' } );
 	};
-	
 
 	// Document on load.
 	$(function(){
 		mainMenu();
-		parallax();
+		// parallax();
 		offcanvas();
 		mobileMenuOutsideClick();
 		contentWayPoint();

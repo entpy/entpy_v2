@@ -8,9 +8,9 @@
 {% block page_title %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_title" edit %}{% endblock %}
 {% block page_subtitle %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_subtitle" edit %}{% endblock %}
 
-{# titolo e sottotitolo della pagina #}
-{% block page_title_block_code %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_title" edit %}{% endblock %}
-{% block page_subtitle_block_code %}{% get_theme_val website_key_val_dict default_key_val_dict "classic_contacts_subtitle" edit %}{% endblock %}
+{# per poter salvare via ajax il contenuto dei blocchi #}
+{% block page_title_block_code %}classic_contacts_title{% endblock %}
+{% block page_subtitle_block_code %}classic_contacts_subtitle{% endblock %}
 
 {% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "contacts_maps_position" edit as map_position %}
 
