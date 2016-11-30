@@ -44,7 +44,7 @@
 			$(document).ready(function(){
 				// Google Map
 				var zoom = $('#map_canvas').gmap('option', 'zoom');
-					$('#map_canvas').gmap().bind('init', function(ev, map) {
+				$('#map_canvas').gmap().bind('init', function(ev, map) {
 					$('#map_canvas').gmap('addMarker', {'position': '{{ map_position }}', 'bounds': true});
 					$('#map_canvas').gmap('option', 'zoom', 15);
 				});
