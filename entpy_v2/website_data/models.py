@@ -194,11 +194,10 @@ class WebsitePreferenceKeys(models.Model):
     def get_keys_dictionary(self):
         """Function to return all preference keys with related default"""
         return {
-            'root_urlconf' : { 'default': None },
+            'root_urlconf' : { 'default': None }, # il nome del tema, es "classic", "simple", ecc...
             'contacts_maps_position' : { 'default': '45.0711813,7.6828501,17' },
             'twitter_page_url' : { 'default': 'http://www.entpy.com/tw' },
             'facebook_page_url' : { 'default': 'http://www.entpy.com/fb' },
-            'site_name' : { 'default': 'Il Mio Sito' },
         }
 
     def create_default_keys(self):
