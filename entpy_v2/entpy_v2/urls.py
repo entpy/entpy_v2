@@ -48,9 +48,6 @@ urlpatterns = [
     # html editor
     # url(r'^froala_editor/', include('froala_editor.urls')),
 
-    # upload image
-    url(r'^upload_image/', include('upload_image_box.urls', namespace="upload_image_box")),
-
     # gestione dei temi
     # url(r'^website_data/', include('website_data.urls')),
 

@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'classic',
     'simple',
     'website_data',
-    'upload_image_box',
     'django_ajax_action',
     'django_images',
     'storages',
