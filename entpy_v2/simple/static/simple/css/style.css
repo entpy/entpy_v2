@@ -1522,3 +1522,6 @@ textarea .form-control {
 	.slider_caption {margin-top: 34%;}  
 	
 }
+
+.slider_overlay { z-index: -1; }
+/*.slider_caption { position: relative; }*/

@@ -301,7 +301,8 @@ var froalaEditorHtml = {
         // Set max image size to 5MB.
         imageMaxSize: 5 * 1024 * 1024,
         // Allow to upload PNG and JPG.
-        imageAllowedTypes: ['jpeg', 'jpg', 'png']
+        imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+	htmlDoNotWrapTags: ['script', 'style', 'img']
 };
 
 var froalaEditorInline = {

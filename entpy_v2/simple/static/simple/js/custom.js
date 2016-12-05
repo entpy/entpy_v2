@@ -24,17 +24,15 @@
 **/
 
 jQuery(function($){
-
-
 	/* ----------------------------------------------------------- */
 	/*  1. Superslides Slider
 	/* ----------------------------------------------------------- */
 	jQuery('#slides').superslides({
-      animation: 'slide',
-      play: '5000'
-    });
-	
-	
+		// TODO: con edit fa casino perchè cambia schermata durante l'editing
+		// animation: 'slide',
+		// play: '5000'
+	});
+
 	/* ----------------------------------------------------------- */
 	/*  2. Fixed Top Menubar
 	/* ----------------------------------------------------------- */
@@ -64,13 +62,13 @@ jQuery(function($){
 	/*  5. Wow smooth animation
 	/* ----------------------------------------------------------- */
 
-	wow = new WOW(
+	/*wow = new WOW(
       {
         animateClass: 'animated',
         offset:       100
       }
     );
-    wow.init();
+    wow.init();*/
 
 
 	/* ----------------------------------------------------------- */
@@ -265,8 +263,9 @@ jQuery(function($){
 
 	//MENU SCROLLING WITH ACTIVE ITEM SELECTED
 
+	  // TODO: con edit fa casino
 	// Cache selectors
-	var lastId,
+	/*var lastId,
 	topMenu = $("#top-menu"),
 	topMenuHeight = topMenu.outerHeight()+13,
 	// All list items
@@ -309,7 +308,7 @@ jQuery(function($){
 	         .parent().removeClass("active")
 	         .end().filter("[href=#"+id+"]").parent().addClass("active");
 	   }           
-	})
+	})*/
 
 
 	/* ----------------------------------------------------------- */

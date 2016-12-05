@@ -1407,7 +1407,6 @@ figure {
 
 .page_main_content { background-color: white; position: relative; z-index: 1; }
 
-.fr-popup.fr-active { display: block; position: fixed; top: 300px !important; z-index: 99999 !important; }
 .js .animate-box { opacity: 0 } /* per il plugin con i fantastici effetti a scomparsa */
 
 /* .fh5co-hero .fh5co-overlay.fr-box.fr-inline { overflow: visible; } */

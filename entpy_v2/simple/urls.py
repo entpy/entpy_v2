@@ -19,5 +19,5 @@ import classic.views, simple.views
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^$', simple.views.index, name='index'),
+    url(r'^(?:(?P<action>[a-z0-9]+)/)?$', simple.views.index, name='index'),
 ]
