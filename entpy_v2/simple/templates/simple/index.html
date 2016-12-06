@@ -1,10 +1,13 @@
 {% extends "simple/inc/base.html" %}
 {% load staticfiles static custom_tags %}
 
+{# se i punti della mappa (latitudine-longitudine) sono settati, mostro la mappa #}
+{% get_theme_val preferences_key_val_dict default_preferences_key_val_dict "contacts_maps_position" edit as map_position %}
+
 {% block page_content %}
 <!-- BEGIN SLIDER AREA-->
 <div class="slider_area">
-	<!-- BEGIN SLIDER-->          
+	<!-- BEGIN SLIDER-->
 	<div id="slides">
 		<ul class="slides-container">
 			<!-- THE FIRST SLIDE-->
@@ -61,11 +64,11 @@
 			</a>
 		</nav>
 	</div>
-	<!-- END SLIDER-->          
+	<!-- END SLIDER-->
 </div>
 <!-- END SLIDER AREA -->
 </header>
-<!--=========== End HEADER SECTION ================--> 
+<!--=========== End HEADER SECTION ================-->
 <!--=========== BEGIN ABOUT SECTION ================-->
 <section id="about">
 	<div class="container">
@@ -121,27 +124,45 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<!-- BEGAIN CONTACT CONTENT -->
-			<div class="contact_content">
-				<!-- BEGAIN CONTACT MAP -->
-				<div class="col-xs-12">
-					<div class="contact_map">
-						<!-- BEGAIN GOOGLE MAP -->
-						<div id="map_canvas"></div>
+		{% if map_position %}
+			<div class="row">
+				<!-- BEGAIN CONTACT CONTENT -->
+				<div class="contact_content">
+					<!-- BEGAIN CONTACT MAP -->
+					<div class="col-xs-12">
+						<div class="contact_map">
+							<!-- BEGAIN GOOGLE MAP -->
+							<div id="map_canvas"></div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		{% endif %}
 	</div>
 </section>
 <!--=========== END CONTACT SECTION ================-->
 <!--=========== BEGAIN CONTACT FEATURE SECTION ================-->
 <section id="contactFeature">
-	<!-- SKILLS COUNTER OVERLAY -->
 	<div class="row froala-editor-html blockToSaveAction" data-block-code="simple_contacts_block1">
 		{% get_theme_val website_key_val_dict default_key_val_dict "simple_contacts_block1" edit %}
 	</div>
 </section>
 <!--=========== END CONTACT FEATURE SECTION ================-->
 {% endblock page_content %}
+
+{% block extra_js %}
+	{% if map_position %}
+		<!-- Google map -->
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script src="{% static "simple/js/jquery.ui.map.js" %}"></script>
+		<script>
+			$(document).ready(function(){
+				var zoom= $('#map_canvas').gmap('option', 'zoom');
+				$('#map_canvas').gmap().bind('init', function(ev, map) {
+					$('#map_canvas').gmap('addMarker', {'position': '{{ map_position }}', 'bounds': true});
+					$('#map_canvas').gmap('option', 'zoom', 15);
+				});
+			});
+		</script>
+	{% endif %}
+{% endblock extra_js %}

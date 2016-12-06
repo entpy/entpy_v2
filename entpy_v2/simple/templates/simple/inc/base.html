@@ -2,15 +2,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Basic Page Needs ================================================== -->
 		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</title>
-		<!-- Mobile Specific Metas ================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/png" href=""/>
-		<!-- CSS ================================================== -->       
+		<!-- <link rel="shortcut icon" type="image/png" href=""/> -->
+
 		<!-- Bootstrap css file-->
 		<link href="{% static "simple/css/bootstrap.min.css" %}" rel="stylesheet">
 		<!-- Font awesome css file-->
@@ -18,11 +17,11 @@
 		<!-- Superslide css file-->
 		<link rel="stylesheet" href="{% static "simple/css/superslides.css" %}">
 		<!-- Slick slider css file -->
-		<link href="{% static "simple/css/slick.css" %}" rel="stylesheet"> 
+		<link href="{% static "simple/css/slick.css" %}" rel="stylesheet">
 		<!-- smooth animate css file -->
-		<link rel="stylesheet" href="{% static "simple/css/animate.css" %}">  
+		<link rel="stylesheet" href="{% static "simple/css/animate.css" %}">
 		<!-- Elastic grid css file -->
-		<link rel="stylesheet" href="{% static "simple/css/elastic_grid.css" %}"> 
+		<link rel="stylesheet" href="{% static "simple/css/elastic_grid.css" %}">
 		<!-- Default Theme css file -->
 		<link id="orginal" href="{% static "simple/css/themes/yellow-theme.css" %}" rel="stylesheet">
 		<!-- Main structure css file -->
@@ -44,33 +43,32 @@
 		{% endif %}
 	</head>
 	<body>
-		<!-- BEGAIN PRELOADER -->
+		<!-- PRELOADER {{{ -->
 		<div id="preloader">
 			<div id="status"></div>
 		</div>
-		<!-- END PRELOADER -->
-		<!-- SCROLL TOP BUTTON -->
+		<!-- PRELOADER }}} -->
+		<!-- SCROLL TOP BUTTON {{{ -->
 		<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-		<!-- END SCROLL TOP BUTTON -->
-		<!--=========== BEGIN HEADER SECTION ================-->
+		<!-- SCROLL TOP BUTTON }}} -->
 		<header id="header">
-		<!-- BEGIN MENU -->
+		<!-- BEGIN MENU {{{ -->
 		<div class="menu_area">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
 						<!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
 						</button>
 						<!-- LOGO -->
-						<!-- TEXT BASED LOGO -->
-						<a class="navbar-brand froala-editor-html blockToSaveAction" href="/{% if edit %}edit/{% endif %}" data-block-code="simple_site_title">{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</a>
-						<!-- IMG BASED LOGO  -->
-						<!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> --> 
+						<!-- TEXT BASED LOGO {{{ -->
+						<a class="navbar-brand froala-editor-inline blockToSaveAction" href="/{% if edit %}edit/{% endif %}" data-block-code="simple_site_title">{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</a>
+						<!-- IMG BASED LOGO }}} -->
+						<!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> -->
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
@@ -80,16 +78,15 @@
 							<li><a href="#contact">Contattaci</a></li>
 						</ul>
 					</div>
-					<!--/.nav-collapse -->
 				</div>
 			</nav>
 		</div>
-		<!-- END MENU -->
+		<!-- END MENU }}} -->
 
 		{# page main content #}
 		{% block page_content %}{% endblock %}
 
-		<!--=========== BEGAIN FOOTER ================-->
+		<!-- FOOTER {{{ -->
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
@@ -119,28 +116,46 @@
 				</div>
 			</div>
 		</footer>
-		<!--=========== END FOOTER ================-->
-		<!-- Javascript Files ================================================== -->
+		<!-- FOOTER }}} -->
+
 		<!-- initialize jQuery Library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<!-- Google map -->
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script src="{% static "simple/js/jquery.ui.map.js" %}"></script>
 		<!-- For smooth animatin  -->
-		<script src="{% static "simple/js/wow.min.js" %}"></script> 
+		<script src="{% static "simple/js/wow.min.js" %}"></script>
 		<!-- Bootstrap js -->
 		<script src="{% static "simple/js/bootstrap.min.js" %}"></script>
 		<!-- superslides slider -->
 		<script src="{% static "simple/js/jquery.superslides.min.js" %}" type="text/javascript"></script>
 		<!-- slick slider -->
-		<script src="{% static "simple/js/slick.min.js" %}"></script>    
+		<script src="{% static "simple/js/slick.min.js" %}"></script>
 
 		{% if edit %}
 			{# inietto il js per l'editing in real time #}
 			<script src="{% static "website_data/js/edit_site.js" %}"></script>
+
+			<script>
+				$(document).ready(function(){
+					// Superslides Slider (senza animazione automatica per l'editing)
+					jQuery('#slides').superslides({});
+				});
+			</script>
+		{% else %}
+			<script>
+				$(document).ready(function(){
+					// Superslides Slider (con animazione automatica)
+					jQuery('#slides').superslides({animation: 'slide', play: '5000'});
+					// Effetti a dissolvenza (solo in modalità NON di editing)
+					wow = new WOW({ animateClass: 'animated', offset: 100 });
+					wow.init();
+					// Menu scrolling fluido tra le varie sezioni, about, serivizi, contatti (solo in modalità NON di editing)
+					var lastId,topMenu=$("#top-menu"),topMenuHeight=topMenu.outerHeight()+13,menuItems=topMenu.find("a"),scrollItems=menuItems.map(function(){var a=$($(this).attr("href"));if(a.length)return a});menuItems.click(function(a){var b=$(this).attr("href"),c="#"===b?0:$(b).offset().top-topMenuHeight+1;$("html, body").stop().animate({scrollTop:c},900),a.preventDefault()}),$(window).scroll(function(){var a=$(this).scrollTop()+topMenuHeight,b=scrollItems.map(function(){if($(this).offset().top<a)return this});b=b[b.length-1];var c=b&&b.length?b[0].id:"";lastId!==c&&(lastId=c,menuItems.parent().removeClass("active").end().filter("[href=#"+c+"]").parent().addClass("active"))});
+				});
+			</script>
 		{% endif %}
 
 		<!-- Custom js-->
 		<script src="{% static "simple/js/custom.js" %}"></script>
+
+		{% block extra_js %}{% endblock %}
 	</body>
 </html>

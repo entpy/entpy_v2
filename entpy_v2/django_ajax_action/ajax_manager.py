@@ -127,7 +127,6 @@ class ajaxManager():
 
         return True
 
-    # TODO:
     # permettere l'upload solo se si è amministratori
     def upload_image(self):
         from django_images.models import uploadedImages
@@ -138,16 +137,20 @@ class ajaxManager():
         success_flag = False
         image_data = self.request.FILES["image_data"]
 
-        uploadedImages_obj = uploadedImages()
-        if image_data:
-            uploadedImages_obj.image = self.request.FILES["image_data"]
-            uploadedImages_obj.site = get_current_site(self.request)
-            uploadedImages_obj.save()
-            # setto il JSON di risposta con il link dell'immagine uploadata
-            success_flag = True
-            uploaded_image_url = uploadedImages_obj.image.url
+        # TODO: check che funzioni l'if con il messaggio di errore (testare i vari casi)
+        if self.request.user.is_superuser:
+            uploadedImages_obj = uploadedImages()
+            if image_data:
+                uploadedImages_obj.image = self.request.FILES["image_data"]
+                uploadedImages_obj.site = get_current_site(self.request)
+                uploadedImages_obj.save()
+                # setto il JSON di risposta con il link dell'immagine uploadata
+                success_flag = True
+                uploaded_image_url = uploadedImages_obj.image.url
 
-            data = {'link' : uploaded_image_url.replace("https", "http")}
+                data = {'link' : uploaded_image_url.replace("https", "http")}
+        else:
+            msg = "Attenzione: la chiamata non è avvenuta dall'amministratore"
 
         if not success_flag:
             data = {'error' : True, 'msg' : msg}

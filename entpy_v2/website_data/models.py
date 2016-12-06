@@ -108,7 +108,7 @@ class ThemeKeys(models.Model):
             'classic_contacts_subtitle' : { 'theme' : classic_theme, 'default' : 'Sottotitolo pagina' },
             'classic_contacts_block1' : { 'theme' : classic_theme, 'default' : '<div class="col-md-12"><h3 class="section-title">Contatti</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p><ul class="contact-info"><li><i class="icon-location-pin"></i>Indirizzo del negozio</li><li><i class="icon-phone2"></i>+39 123456789</li><li><i class="icon-mail"></i><a href="mailto:tuaemail@mail.com">tuaemail@mail.com</a></li><li><i class="icon-clock"></i>Lunedì-Venerdì 9.00-19.00</li></ul></div>' },
             # simple theme
-            'simple_site_title' : { 'theme' : simple_theme, 'default' : 'M<span>oderno</span>' },
+            'simple_site_title' : { 'theme' : simple_theme, 'default' : 'Moderno' },
             'simple_header_image1' : { 'theme' : simple_theme, 'default' : '<img src="/static/simple/img/full-slide1.jpg" alt="img">' },
             'simple_header_image2' : { 'theme' : simple_theme, 'default' : '<img src="/static/simple/img/full-slide1.jpg" alt="img">' },
             'simple_header_image3' : { 'theme' : simple_theme, 'default' : '<img src="/static/simple/img/full-slide1.jpg" alt="img">' },
