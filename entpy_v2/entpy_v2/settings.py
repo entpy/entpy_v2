@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'website_data',
     'django_ajax_action',
     'django_images',
-    'storages',
+    # 'storages',
+    'django_s3_storage', # https://github.com/etianen/django-s3-storage
 ]
 
 MIDDLEWARE_CLASSES = [
