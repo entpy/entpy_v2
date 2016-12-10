@@ -196,7 +196,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Seleziona tra i due temi proposti "Classico" offre un modello di navigazione più tradizionale, con un contenuto per ogni pagina. "Moderno" è un tema basato su una singola pagina a scorrimento verticale.<br />Scegli quello che preferisci cliccando sul pulsante "Seleziona" (PS: puoi anche vedere un'anteprima del tema cliccando sul link "Anteprima").</h6>
+									<h6>Seleziona tra i due temi proposti "Classico" o "Moderno". Scegli quello che preferisci cliccando sul pulsante "Seleziona"<br /><br />PS: puoi anche vedere un'anteprima del tema cliccando sul link "Anteprima".</h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -266,7 +266,7 @@
 					<!-- Start: Right Container -->
 					<div class="col-md-offset-2 col-md-5">
 						<div class="input-group input-group-lg">
-							<input type="text" class="form-control" placeholder="il-tuo-dominio" aria-describedby="sizing-addon1">
+							<input type="text" class="form-control validatorInputDomain" placeholder="nomedominio *" aria-describedby="sizing-addon1">
 							<span class="input-group-addon">.entpy.com</span>
 						</div>
 					</div>
@@ -299,12 +299,12 @@
 						<!-- nome utente -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" placeholder="Il tuo nome" aria-describedby="basic-addon1">
+							<input type="text" class="form-control validatorInputName" placeholder="Il tuo nome *" aria-describedby="basic-addon1">
 						</div>
 						<!-- email utente -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-							<input type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+							<input type="email" class="form-control validatorInputEmail" placeholder="La tua email *" aria-describedby="basic-addon1">
 						</div>
 						<!-- nome attività -->
 						<div class="input-group input-group-lg">
@@ -345,7 +345,7 @@
 					<div class="col-md-offset-2 col-md-5">
 						<div class="form-group">
 							<div class="col-ms-12 text-center">
-								<button type="submit" class="btn btn-primary btn-lg">Richiedi sito</button>
+								<button type="submit" class="btn btn-primary btn-lg btnFormSubmitAction">Richiedi sito</button>
 								<div>Cliccando sul pulsante accetti tutti i <a href="#terms_of_use">Termini di utilizzo</a></div>
 							</div>
 						</div>
@@ -385,6 +385,63 @@
 
 			return false;
 		});
+
+		$(document).on("click", ".btnFormSubmitAction", function(){
+			// se il form è valido submitto il form
+			return validateForm();
+		});
 	});
+
+	// Function to validate the form
+	function validateForm() {
+		var returnVar = true;
+		var errorMsg = "Per proseguire è necessario controllare queste informazioni:\n\n";
+
+		// tolgo eventuali classi di errore
+		$(".validatorInputName").parent(".input-group").removeClass("has-error");
+		$(".validatorInputEmail").parent(".input-group").removeClass("has-error");
+		$(".validatorInputDomain").parent(".input-group").removeClass("has-error");
+
+		// tema selezionato
+		if (!$(".selectedThemeModern").html() && !$(".selectedThemeClassic").html()) {
+			// alert("Seleziona un tema");
+			errorMsg += "- seleziona un tema\n";
+			returnVar = false;
+		}
+
+
+		// dominio inserito
+		if (!$(".validatorInputDomain").val()) {
+			$(".validatorInputDomain").parent(".input-group").addClass("has-error");
+			// alert("Inserisci il dominio da utilizzare");
+			errorMsg += "- inserisci il dominio da utilizzare\n";
+			returnVar = false;
+		}
+
+		// nome inserito
+		if (!$(".validatorInputName").val()) {
+			$(".validatorInputName").parent(".input-group").addClass("has-error");
+			// alert("Inserisci il tuo nome");
+			errorMsg += "- inserisci il tuo nome\n";
+			returnVar = false;
+		}
+
+		// email inserita
+		if (!$(".validatorInputEmail").val()) {
+			$(".validatorInputEmail").parent(".input-group").addClass("has-error");
+			// alert("Inserisci la tua email");
+			errorMsg += "- Inserisci la tua email\n";
+			returnVar = false;
+		}
+
+		// accettazione dei termini d'uso
+
+		if (!returnVar) {
+			// sono stati rilevati degli errori
+			alert(errorMsg);
+		}
+
+		return returnVar;
+	}
 </script>
 {% endblock extra_js %}
