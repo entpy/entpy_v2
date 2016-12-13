@@ -6,9 +6,6 @@
 {# extra css #}
 {% block extra_css %}
 <link type="text/css" rel="stylesheet" href="{% static "website/css/order-form.css" %}">
-<style>
-    .nav-main, .toggle-btn { display: none; }
-</style>
 {% endblock %}
 
 {# section title #}
@@ -17,23 +14,28 @@
 {# section content #}
 {% block page_content %}
 	<style>
-	    .want-more-main { margin: 0px; }
-	    .want-more-main img { width: 100%; }
-	    .want-more-main-right { background-color: #F6843A; }
-	    .want-more-main-left { margin: 0px; background-color: #007B80; }
-	    .want-more-main-left * { color: #fff!important; }
-	    .want-more-main-left hr { background-color: #282828; }
-	    .want-more-main-left .features-icon i { background-color: #282828; color: #fff!important; }
-	    .calendar-text { margin-left: -14px; margin-top: -15px; color: #fff!important; }
-	    .features-icon { padding: 0 30px 0 0; }
-	    .features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
+		.want-more-main { margin: 0px; }
+		.want-more-main img { width: 100%; }
+		.want-more-main-right { background-color: #F6843A; }
+		.want-more-main-left { margin: 0px; background-color: #007B80; }
+		.want-more-main-left * { color: #fff!important; }
+		.want-more-main-left hr { background-color: #282828; }
+		.want-more-main-left .features-icon i { background-color: #282828; color: #fff!important; }
+		.calendar-text { margin-left: -14px; margin-top: -15px; color: #fff!important; }
+		.features-icon { padding: 0 30px 0 0; }
+		.features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
 
-	    .want-more-main-right-1-4, .want-more-main-right-3-4 { background-color: #D6D6D6; }
-	    .want-more-main-right-2-4, .want-more-main-right-4-4 { background-color: #C1C1C1; }
-	    .want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2, .want-more-main-right-4-4 h2 { color: #222!important; }
-	    .want-more-main-right-1-4 h6, .want-more-main-right-1-4 h3, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
-	    .want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr, .want-more-main-right-4-4 hr { background-color: #222; }
-	    .selected_theme_icon { color: green; margin-left: 5px; font-size: 22px; }
+		.want-more-main-right-1-4, .want-more-main-right-3-4 { background-color: #D6D6D6; }
+		.want-more-main-right-2-4, .want-more-main-right-4-4 { background-color: #C1C1C1; }
+		.want-more-main-right-1-4 h2, .want-more-main-right-2-4 h2, .want-more-main-right-3-4 h2, .want-more-main-right-4-4 h2 { color: #222!important; }
+		.want-more-main-right-1-4 h6, .want-more-main-right-1-4 h3, .want-more-main-right-2-4 h6, .want-more-main-right-3-4 h6, .want-more-main-right-4-4 h6 { color: #444!important; }
+		.want-more-main-right-1-4 hr, .want-more-main-right-2-4 hr, .want-more-main-right-3-4 hr, .want-more-main-right-4-4 hr { background-color: #222; }
+		.selected_theme_icon { color: green; margin-left: 5px; font-size: 22px; }
+
+		.nav-main, .toggle-btn { display: none; }
+		.input-group { margin-bottom: 5px; }
+		.input-group-addon { min-width: 60px; }
+		.textarea_big { min-height: 200px; resize: none; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -196,7 +198,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Seleziona tra i due temi proposti "Classico" o "Moderno". Scegli quello che preferisci cliccando sul pulsante "Seleziona"<br /><br />PS: puoi anche vedere un'anteprima del tema cliccando sul link "Anteprima".</h6>
+									<h6>Seleziona tra i due temi proposti "Classico" o "Moderno". Scegli quello che preferisci cliccando sul pulsante "Seleziona". <span title="" data-placement="top" data-toggle="tooltip" class="fa-stack fa-lg tooltip_question_point" data-original-title='PS: clicca sull&#39;immagine di un tema per ingrandire. Puoi anche vedere un&#39;anteprima del tema cliccando sul link "Anteprima".'><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-question fa-stack-1x fa-inverse"></i></span></h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -255,7 +257,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Seleziona un nome dominio di terzo livello (lo offriamo noi). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto. E' importante inserire un nome che sia riconducibile facilmente alla tua attività.</h6>
+									<h6>Seleziona un nome dominio di terzo livello (lo offriamo noi). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto (Es. http://nomedominio.entpy.com).&nbsp;<span title="" data-placement="top" data-toggle="tooltip" class="fa-stack fa-lg tooltip_question_point" data-original-title="E' importante inserire un nome che sia riconducibile facilmente alla tua attività."><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-question fa-stack-1x fa-inverse"></i></span></h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -314,7 +316,7 @@
 						<!-- informazioni aggiuntive -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea class="form-control" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
+							<textarea class="form-control textarea_big" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
@@ -350,7 +352,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="terms_of_use" value="1" required> Cliccando sul pulsante "Richiedi sito" accetti tutti i <a href="#terms_of_use">Termini di utilizzo</a>
+								<input type="checkbox" class="validatorInputTerms" name="terms_of_use" value="1" required> Per proseguire è necessario accettare i <a href="#terms_of_use">Termini di utilizzo</a>
 							</label>
 						</div>
 					</div>
@@ -394,6 +396,9 @@
 			// se il form è valido submitto il form
 			return validateForm();
 		});
+
+		// init delle tooltip
+		$('[data-toggle="tooltip"]').tooltip();
 	});
 
 	// Function to validate the form
@@ -439,6 +444,12 @@
 		}
 
 		// accettazione dei termini d'uso
+		if (!$(".validatorInputTerms").is(":checked")) {
+			$(".validatorInputTerms").parent(".input-group").addClass("has-error");
+			// alert("Inserisci la tua email");
+			errorMsg += "- per continuare accetta i Termini di Utilizzo\n";
+			returnVar = false;
+		}
 
 		if (!returnVar) {
 			// sono stati rilevati degli errori
