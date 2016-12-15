@@ -36,6 +36,12 @@
 		.input-group { margin-bottom: 5px; }
 		.input-group-addon { min-width: 60px; }
 		.textarea_big { min-height: 200px; resize: none; }
+		.terms_of_use { padding-bottom: 100px; }
+		.tersm_of_user_label { color: #444; }
+		.btn-xlg { font-size: 22px; padding: 16px 45px; }
+
+		/* stile della modal errori form */
+		.error_span i { margin-right: 5px; color: red; }
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -158,23 +164,10 @@
 								</span>
 							</div>
 							<div class="features-cont">
-								<h6>Compila il form sottostante con i dati richiesti</h6>
+								<h6>Inserisci le informazioni richieste nel form sottostante (nome, email, ...)</h6>
 							</div>
 						</div>
 						<!-- End: Features 03 -->
-						<!-- Start: Features 04 -->
-						<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="600">
-							<div class="features-icon">
-								<span class="fa-stack fa-3x">
-									<i class="fa fa-stack-2x"></i>
-									<strong class="fa-stack-1x calendar-text">4</strong>
-								</span>
-							</div>
-							<div class="features-cont">
-								<h6>Inviaci il materiale (testi e immagini)</h6>
-							</div>
-						</div>
-						<!-- End: Features 04 -->
 					</div>
 					<!-- Start: More Features -->
 				</div>
@@ -328,7 +321,7 @@
 				<div class="row clearfix">
 					<!-- Start: Left Container -->
 					<div class="col-md-5 want-more-left">
-						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">4) Richiedi il tuo nuovo sito web</h2>
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Richiedi il tuo nuovo sito web</h2>
 						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
 						<!-- Start: More Features -->
 						<div class="more-features">
@@ -351,8 +344,8 @@
 							</div>
 						</div>
 						<div class="checkbox">
-							<label>
-								<input type="checkbox" class="validatorInputTerms" name="terms_of_use" value="1" required> Per proseguire è necessario accettare i <a href="#terms_of_use">Termini di utilizzo</a>
+							<label class="tersm_of_user_label">
+								<input type="checkbox" class="validatorInputTerms" name="terms_of_use" value="1" required> Per proseguire è necessario accettare i <a href="#" class="termsOfUserModalAction">Termini di utilizzo*</a>
 							</label>
 						</div>
 					</div>
@@ -364,7 +357,7 @@
 	<!-- Want More Area End -->
 
 	<!-- Services Area Start -->
-	<section class="services-main" id="terms_of_use">
+	<section class="services-main terms_of_use" id="terms_of_use">
 		<div class="container">
 			<h4>*Termini e Condizioni dell'offerta</h4>
 			<ul class="text-left">
@@ -397,14 +390,39 @@
 			return validateForm();
 		});
 
+		$(document).on("click", ".termsOfUserModalAction", function(){
+			// mostro modal con i termini di utilizzo
+			show_terms_modal();
+
+			return false;
+		});
+
 		// init delle tooltip
 		$('[data-toggle="tooltip"]').tooltip();
 	});
 
+	function show_terms_modal() {
+		body = '<ul class="text-left">';
+		body += '<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>';
+		body += '<li>Saranno presenti dei banner e popup pubblicitari</li>';
+		body += '<li>I testi, le immagini e l\'eventuale logo, dovranno essere forniti da te</li>';
+		body += '<li>E\' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>';
+		body += '<li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>';
+		body += '</ul>';
+
+		$(".modal-title").html("Termini e Condizioni dell'offerta");
+		$(".modal-body").html(body);
+		$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a>');
+
+		$(".modal").modal('show');
+
+		return true;
+	}
+
 	// Function to validate the form
 	function validateForm() {
 		var returnVar = true;
-		var errorMsg = "Per proseguire è necessario controllare queste informazioni:\n\n";
+		var errorMsg = "<h6>Per proseguire è necessario controllare queste informazioni</h6>";
 
 		// tolgo eventuali classi di errore
 		$(".validatorInputName").parent(".input-group").removeClass("has-error");
@@ -414,7 +432,7 @@
 		// tema selezionato
 		if (!$(".selectedThemeModern").html() && !$(".selectedThemeClassic").html()) {
 			// alert("Seleziona un tema");
-			errorMsg += "- seleziona un tema\n";
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Seleziona il tema da utilizzare</span><br />';
 			returnVar = false;
 		}
 
@@ -423,7 +441,7 @@
 		if (!$(".validatorInputDomain").val()) {
 			$(".validatorInputDomain").parent(".input-group").addClass("has-error");
 			// alert("Inserisci il dominio da utilizzare");
-			errorMsg += "- inserisci il dominio da utilizzare\n";
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci il dominio da utilizzare</span><br />';
 			returnVar = false;
 		}
 
@@ -431,7 +449,7 @@
 		if (!$(".validatorInputName").val()) {
 			$(".validatorInputName").parent(".input-group").addClass("has-error");
 			// alert("Inserisci il tuo nome");
-			errorMsg += "- inserisci il tuo nome\n";
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci il tuo nome</span><br />';
 			returnVar = false;
 		}
 
@@ -439,21 +457,35 @@
 		if (!$(".validatorInputEmail").val()) {
 			$(".validatorInputEmail").parent(".input-group").addClass("has-error");
 			// alert("Inserisci la tua email");
-			errorMsg += "- Inserisci la tua email\n";
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci la tua email (valida)</span><br />';
 			returnVar = false;
+		} else {
+			// la mail è inserita, faccio un controllo per verificare che sia valida
+			if (!(/^[^@]+@[^.]+\.[^.]+$/.test($(".validatorInputEmail").val()))) {
+				// mail inserita non valida
+				errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci una email valida</span><br />';
+				returnVar = false;
+			}
 		}
 
 		// accettazione dei termini d'uso
 		if (!$(".validatorInputTerms").is(":checked")) {
 			$(".validatorInputTerms").parent(".input-group").addClass("has-error");
 			// alert("Inserisci la tua email");
-			errorMsg += "- per continuare accetta i Termini di Utilizzo\n";
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo (vai a fondo pagina per leggerli)</span><br />';
 			returnVar = false;
 		}
 
 		if (!returnVar) {
 			// sono stati rilevati degli errori
-			alert(errorMsg);
+			// alert(errorMsg);
+			// mostro la modal con gli errori
+			var body = "<p>" + errorMsg + "</p>";
+			$(".modal-title").html("Attenzione...");
+			$(".modal-body").html(body);
+			$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a>');
+
+			$(".modal").modal('show');
 		}
 
 		return returnVar;
