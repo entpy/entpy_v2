@@ -77,10 +77,48 @@ def send_info_email(request):
     # retrieve JSON response
     return HttpResponse(json.dumps(data), content_type="application/json")
 
+# TODO
 @ensure_csrf_cookie
 def l_www_landing1(request):
-    """Landing page1"""
-    return render(request, 'website/l/www_landing1.html', {})
+    """Landing page1: sito web gratis"""
+
+    data = {}
+
+    """
+    domain_name
+    user_name
+    user_email
+    business_name
+    business_info
+    """
+
+    if request.method == "POST":
+        # retrieve email data
+        domain_name = request.POST.get("domain_name")
+        user_name = request.POST.get("user_name")
+        user_email = request.POST.get("user_email")
+        business_name = request.POST.get("business_name")
+        business_info = request.POST.get("business_info")
+
+        # body della mail
+        txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
+        html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
+
+        # subject della mail
+        subject = "Richiesta informazioni"
+
+        # send email
+        send_status = send_mail(
+            subject=subject,
+            message=txt_message,
+            from_email="no-reply@entpy.com",
+            recipient_list=["info@entpy.com"],
+            html_message=html_message,
+        )
+
+        data = {'success' : True, "send_status" : send_status }
+
+    return render(request, 'website/l/www_landing1.html', data)
 
 @ensure_csrf_cookie
 def www_wizard(request):

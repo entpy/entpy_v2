@@ -261,7 +261,7 @@
 					<!-- Start: Right Container -->
 					<div class="col-md-offset-2 col-md-5">
 						<div class="input-group input-group-lg">
-							<input type="text" class="form-control validatorInputDomain" placeholder="nomedominio *" aria-describedby="sizing-addon1">
+							<input name="domain_name" type="text" class="form-control validatorInputDomain" placeholder="nomedominio *" aria-describedby="sizing-addon1" required>
 							<span class="input-group-addon">.entpy.com</span>
 						</div>
 					</div>
@@ -294,22 +294,22 @@
 						<!-- nome utente -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" class="form-control validatorInputName" placeholder="Il tuo nome *" aria-describedby="basic-addon1">
+							<input name="user_name" type="text" class="form-control validatorInputName" placeholder="Il tuo nome *" aria-describedby="basic-addon1" required>
 						</div>
 						<!-- email utente -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
-							<input type="email" class="form-control validatorInputEmail" placeholder="La tua email *" aria-describedby="basic-addon1">
+							<input name="user_email" type="email" class="form-control validatorInputEmail" placeholder="La tua email *" aria-describedby="basic-addon1" required>
 						</div>
 						<!-- nome attività -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input type="text" class="form-control" placeholder="Il nome della tua attività" aria-describedby="basic-addon1">
+							<input name="business_name" type="text" class="form-control" placeholder="Il nome della tua attività" aria-describedby="basic-addon1">
 						</div>
 						<!-- informazioni aggiuntive -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea class="form-control textarea_big" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
+							<textarea name="business_info" class="form-control textarea_big" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
