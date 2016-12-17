@@ -3,8 +3,9 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.core.mail import send_mail
-from django.http import HttpResponse, Http404
+from django.contrib import messages
+from django.core.mail import send_mail, EmailMessage, EmailMultiAlternatives
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from website.models import Promotion, Campaign
 from entpy_v2.consts import project_constants
 import logging, json
@@ -85,6 +86,7 @@ def l_www_landing1(request):
     data = {}
 
     """
+    theme_name
     domain_name
     user_name
     user_email
@@ -94,29 +96,47 @@ def l_www_landing1(request):
 
     if request.method == "POST":
         # retrieve email data
-        domain_name = request.POST.get("domain_name")
         user_name = request.POST.get("user_name")
         user_email = request.POST.get("user_email")
+        domain_name = request.POST.get("domain_name")
+        theme_name = request.POST.get("theme_name")
         business_name = request.POST.get("business_name")
         business_info = request.POST.get("business_info")
 
         # body della mail
-        txt_message = "Nome: " + name + "\nMittente: " + str(email) + "\nTelefono:" + str(phone) + "\nMessaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
-        html_message = "Nome: " + name + "<br />Mittente: " + str(email) + "<br />Telefono:" + str(phone) + "<br />Messaggio: " + request.POST.get("msg") + "\nCodice promozionale: " + str(promo_code)
+        txt_message = """
+            Nome: """ + user_name + """\n
+            Email: """ + user_email + """\n
+            Dominio scelto: """ + domain_name + """.entpy.com\n
+            Tema scelto: """ + theme_name + """\n
+            Nome attività: """ + business_name + """\n
+            Informazioni attività: """ + business_info
+        
+        html_message = """
+            Nome: """ + user_name + """<br />
+            Email: """ + user_email + """<br />
+            Dominio scelto: <b>""" + domain_name + """</b>.entpy.com<br />
+            Tema scelto: """ + theme_name + """<br />
+            Nome attività: """ + business_name + """<br />
+            Informazioni attività: """ + business_info
 
         # subject della mail
-        subject = "Richiesta informazioni"
+        subject = "Richiesta sito web gratis"
 
         # send email
-        send_status = send_mail(
+        msg = EmailMultiAlternatives(
             subject=subject,
-            message=txt_message,
+            body=txt_message,
             from_email="no-reply@entpy.com",
-            recipient_list=["info@entpy.com"],
-            html_message=html_message,
+            to=["info@entpy.com"],
+            reply_to=[user_email],
         )
+        msg.attach_alternative(html_message, "text/html")
+        send_status = msg.send()
 
-        data = {'success' : True, "send_status" : send_status }
+        # data = {'success' : True, "send_status" : send_status }
+        messages.add_message(request, messages.SUCCESS, 'Grazie per aver richiesto il sito, verrai ricontattato/a il prima possibile alla mail indicata!')
+	return HttpResponseRedirect("/sito-web-gratis")
 
     return render(request, 'website/l/www_landing1.html', data)
 

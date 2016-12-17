@@ -179,6 +179,8 @@
 
 	<!-- Want More Area Start -->
 	<form name="create_site_form" action="" method="POST">
+		{% csrf_token %}
+		<input type="hidden" class="themeNameAction" name="theme_name" value="">
 		<section class="want-more-main want-more-main-right-1-4">
 			<div class="container">
 				<div class="row clearfix">
@@ -378,8 +380,10 @@
 			var themeName = $(this).data("themeName");
 			if (themeName == "modern") {
 				$(".selectedThemeModern").html('<i class="selected_theme_icon fa fa-check" aria-hidden="true"></i>');
+				$(".themeNameAction").val(themeName);
 			} else if ((themeName == "classic")) {
 				$(".selectedThemeClassic").html('<i class="selected_theme_icon fa fa-check" aria-hidden="true"></i>');
+				$(".themeNameAction").val(themeName);
 			}
 
 			return false;
@@ -399,7 +403,24 @@
 
 		// init delle tooltip
 		$('[data-toggle="tooltip"]').tooltip();
+
+		// eventuale messaggio di successo all'invio della mail
+		{% if messages %}
+			show_send_mailmodal();
+		{% endif %}
 	});
+
+	function show_send_mailmodal() {
+		body = '<i class="fa fa-smile-o" aria-hidden="true"></i> Grazie per aver richiesto il sito, verrai ricontattato/a il prima possibile all\'indirizzo email fornito!';
+
+		$(".modal-title").html("Richiesta effettuata correttamente");
+		$(".modal-body").html(body);
+		$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a>');
+
+		$(".modal").modal('show');
+
+		return true;
+	}
 
 	function show_terms_modal() {
 		body = '<ul class="text-left">';
