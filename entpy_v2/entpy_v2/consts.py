@@ -4,6 +4,8 @@
 Constansts
 """
 class project_constants(object):
+    TO_EMAIL = "info@entpy.com"
+    NO_REPLY_EMAIL = "no-reply@entpy.com"
     SERVICE_BONUS_DISCOUNT = "35"
     WIZARD_BONUS_DISCOUNT = "25"
 

@@ -7,6 +7,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</title>
+		{# <meta name="description" content="" /> #}
+		{# <meta name="keywords" content="" /> #}
 		<!-- Favicon -->
 		<!-- <link rel="shortcut icon" type="image/png" href=""/> -->
 
@@ -20,8 +22,6 @@
 		<link href="{% static "simple/css/slick.css" %}" rel="stylesheet">
 		<!-- smooth animate css file -->
 		<link rel="stylesheet" href="{% static "simple/css/animate.css" %}">
-		<!-- Elastic grid css file -->
-		<link rel="stylesheet" href="{% static "simple/css/elastic_grid.css" %}">
 		<!-- Default Theme css file -->
 		<link id="orginal" href="{% static "simple/css/themes/yellow-theme.css" %}" rel="stylesheet">
 		<!-- Main structure css file -->
@@ -66,16 +66,16 @@
 						</button>
 						<!-- LOGO -->
 						<!-- TEXT BASED LOGO {{{ -->
-						<a class="navbar-brand froala-editor-inline blockToSaveAction" href="/{% if edit %}edit/{% endif %}" data-block-code="simple_site_title">{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</a>
+						<a class="navbar-brand froala-editor-inline blockToSaveAction" href="#index" data-block-code="simple_site_title">{% get_theme_val website_key_val_dict default_key_val_dict "simple_site_title" edit %}</a>
 						<!-- IMG BASED LOGO }}} -->
 						<!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> -->
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-							<li class="active"><a href="/{% if edit %}edit/{% endif %}">Home</a></li>
-							<li><a href="#about">Chi Siamo</a></li>
-							<li><a href="#service">I Nostri Servizi</a></li>
-							<li><a href="#contact">Contattaci</a></li>
+							<li class="active"><a class="page-scroll" href="#index">Home</a></li>
+							<li><a class="page-scroll" href="#about">Chi Siamo</a></li>
+							<li><a class="page-scroll" href="#service">I Nostri Servizi</a></li>
+							<li><a class="page-scroll" href="#contact">Contattaci</a></li>
 						</ul>
 					</div>
 				</div>
@@ -147,9 +147,31 @@
 					// Effetti a dissolvenza (solo in modalità NON di editing)
 					wow = new WOW({ animateClass: 'animated', offset: 100 });
 					wow.init();
+
 					// Menu scrolling fluido tra le varie sezioni, about, serivizi, contatti (solo in modalità NON di editing)
 					// non funzia più
-					// var lastId,topMenu=$("#top-menu"),topMenuHeight=topMenu.outerHeight()+13,menuItems=topMenu.find("a"),scrollItems=menuItems.map(function(){var a=$($(this).attr("href"));if(a.length)return a});menuItems.click(function(a){var b=$(this).attr("href"),c="#"===b?0:$(b).offset().top-topMenuHeight+1;$("html, body").stop().animate({scrollTop:c},900),a.preventDefault()}),$(window).scroll(function(){var a=$(this).scrollTop()+topMenuHeight,b=scrollItems.map(function(){if($(this).offset().top<a)return this});b=b[b.length-1];var c=b&&b.length?b[0].id:"";lastId!==c&&(lastId=c,menuItems.parent().removeClass("active").end().filter("[href=#"+c+"]").parent().addClass("active"))});
+					//jQuery to collapse the navbar on scroll
+					$(window).scroll(function() {
+						if ($(".navbar").offset().top > 50) {
+							$(".navbar-fixed-top").addClass("top-nav-collapse");
+						} else {
+							$(".navbar-fixed-top").removeClass("top-nav-collapse");
+						}
+					});
+
+					//jQuery for page scrolling feature - requires jQuery Easing plugin
+					$(function() {
+						$('a.page-scroll').bind('click', function(event) {
+							var $anchor = $(this);
+							$('html, body').stop().animate({
+								scrollTop: ($($anchor.attr('href')).offset().top) - 15
+							}, 1500);
+							event.preventDefault();
+
+							$(".page-scroll").parent().removeClass("active");
+							$(this).parent().addClass("active");
+						});
+					});
 				});
 			</script>
 		{% endif %}

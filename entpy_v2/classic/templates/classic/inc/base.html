@@ -9,25 +9,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Template "Classico"</title>
+	<title>{% get_theme_val website_key_val_dict default_key_val_dict "classic_site_title" edit %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
+	{# <meta name="description" content="" /> #}
+	{# <meta name="keywords" content="" /> #}
 
-        <!--
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE
-	DESIGNED & DEVELOPED by FREEHTML5.CO
-
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	-->
-
+	{% comment %}
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -38,6 +25,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	{% endcomment %}
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
