@@ -54,3 +54,5 @@
 .fr-popup.fr-active { display: block; position: fixed; top: 200px !important; z-index: 99999 !important; }
 
 body { margin-bottom: 100px!important; }
+
+.froala-editor-html > div:last-child { display: none; }
