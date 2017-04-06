@@ -55,4 +55,4 @@
 
 body { margin-bottom: 100px!important; }
 
-.froala-editor-html > div:last-child { display: none; }
+.froala-editor-html > div:last-child { display: none!important; }
