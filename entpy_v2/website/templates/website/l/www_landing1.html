@@ -42,6 +42,20 @@
 
 		/* stile della modal errori form */
 		.error_span i { margin-right: 5px; color: red; }
+		.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"], .radio input[type="radio"], .radio-inline input[type="radio"] { float: none;  margin-left: 0px; margin-right: 5px; }
+		.term_of_use_container { padding: 10px; }
+		.input_error_class { background-color: #FF9B9B; }
+		.input_success_class { background-color: #C3FF87; }
+		.has-error .input-group-addon { background-color: #FF9B9B; }
+		.text-muted { color: #555753; }
+
+		@media (max-width: 991px) {
+			/*.more-features > div, .more-features > div > div { display: inline-block; width: 100%; }*/
+			.more-features > div { display: table; width: 100%; }
+			.more-features > div > div { display: table-cell; width: 50%; }
+			.thumbnail a.btn { margin-top: 10px; }
+			.features-single > .features-cont { width: 100%; }
+		}
 	</style>
 	<!-- About Area Start -->
 	<section class="about-main">
@@ -82,7 +96,7 @@
 						<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="400">
 							<div class="features-icon"><i class="fa fa-link"></i></div>
 							<div class="features-cont">
-								<h6>Un nome dominio di terzo livello (Es: tuosito.entpy.com)</h6>
+								<h6>Un nome dominio di terzo livello<br />(Es: mionome.entpy.com)</h6>
 							</div>
 						</div>
 						<!-- End: Features 02 -->
@@ -204,7 +218,7 @@
 					<!-- Start: Right Container -->
 					<div class="col-md-offset-1 col-md-6">
 						<div class="col-md-6">
-							<div class="thumbnail">
+							<div class="thumbnail temeSelectContainerAction">
 								<img class="zoomImgAction" src="{% static "website/img/classic_example.png" %}" alt="Classico">
 								<div class="caption">
 									<h3>Classico</h3>
@@ -220,7 +234,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="thumbnail">
+							<div class="thumbnail temeSelectContainerAction">
 								<img class="zoomImgAction" src="{% static "website/img/modern_example.png" %}" alt="Moderno">
 								<div class="caption">
 									<h3>Moderno</h3>
@@ -252,7 +266,7 @@
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Seleziona un nome dominio di terzo livello (lo offriamo noi). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto (Es. http://nomedominio.entpy.com).&nbsp;<span title="" data-placement="top" data-toggle="tooltip" class="fa-stack fa-lg tooltip_question_point" data-original-title="E' importante inserire un nome che sia riconducibile facilmente alla tua attività."><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-question fa-stack-1x fa-inverse"></i></span></h6>
+									<h6>Seleziona un nome dominio di terzo livello (lo offriamo noi). Appena realizzato, il tuo sito sarà disponibile nel nome del dominio scelto (Es. http://mionome.entpy.com).&nbsp;<span title="" data-placement="top" data-toggle="tooltip" class="fa-stack fa-lg tooltip_question_point" data-original-title="E' importante inserire un nome che sia riconducibile facilmente alla tua attività."><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-question fa-stack-1x fa-inverse"></i></span></h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -263,9 +277,10 @@
 					<!-- Start: Right Container -->
 					<div class="col-md-offset-2 col-md-5">
 						<div class="input-group input-group-lg">
-							<input name="domain_name" type="text" class="form-control validatorInputDomain" placeholder="nomedominio *" aria-describedby="sizing-addon1" required>
+							<input name="domain_name" type="text" class="form-control validatorInputDomain" placeholder="mionome *" aria-describedby="sizing-addon1" required>
 							<span class="input-group-addon">.entpy.com</span>
 						</div>
+						<p class="text-muted">Almeno 3 lettere in minuscolo {<b>a-z</b>} e/o trattini '<b>-</b>'</p>
 					</div>
 					<!-- End: Right Container -->
 				</div>
@@ -306,12 +321,12 @@
 						<!-- nome attività -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input name="business_name" type="text" class="form-control" placeholder="Il nome della tua attività" aria-describedby="basic-addon1">
+							<input name="business_name" type="text" class="form-control validatorInputBusinessName" placeholder="Il nome della tua attività" aria-describedby="basic-addon1" required>
 						</div>
 						<!-- informazioni aggiuntive -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea name="business_info" class="form-control textarea_big" placeholder="Informazioni aggiuntive, tipo di attività svolta, eventuali domande, ecc..." aria-describedby="basic-addon1"></textarea>
+							<textarea name="business_info" class="form-control textarea_big validatorInputBusionessInfo" placeholder="Qualche informazione aggiuntiva sulla tua attività, tipo di attività svolta, ecc..." aria-describedby="basic-addon1" required></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
@@ -345,9 +360,9 @@
 								<button type="submit" class="btn btn-primary btn-lg btnFormSubmitAction">Richiedi sito</button>
 							</div>
 						</div>
-						<div class="checkbox">
+						<div class="checkbox term_of_use_container termOfUseContainerAction">
 							<label class="tersm_of_user_label">
-								<input type="checkbox" class="validatorInputTerms" name="terms_of_use" value="1" required> Per proseguire è necessario accettare i <a href="#" class="termsOfUserModalAction">Termini di utilizzo*</a>
+								<input type="checkbox" class="validatorInputTerms" name="terms_of_use" value="1"> Per proseguire è necessario accettare i <a href="#" class="termsOfUserModalAction">Termini di utilizzo*</a>
 							</label>
 						</div>
 					</div>
@@ -386,6 +401,16 @@
 				$(".themeNameAction").val(themeName);
 			}
 
+			// TODO
+			// rimuovo la classe di errore se presente
+			$(".temeSelectContainerAction").removeClass("input_error_class");
+
+			// TODO
+			// rimuovo la classe al tema selezionato
+			$(".temeSelectContainerAction").removeClass("input_success_class");
+			// aggiungo la classe al tema selezionato
+			$(this).parents(".temeSelectContainerAction").addClass("input_success_class");
+
 			return false;
 		});
 
@@ -397,6 +422,50 @@
 		$(document).on("click", ".termsOfUserModalAction", function(){
 			// mostro modal con i termini di utilizzo
 			show_terms_modal();
+
+			return false;
+		});
+
+		// check terms of use checkbox
+		$(document).on("change", ".validatorInputTerms", function(){
+			if ($(".validatorInputTerms").is(":checked")) {
+				// rimuovo eventuale classe di errore
+				$(".validatorInputTerms").parent(".input-group").removeClass("has-error");
+				$(".termOfUseContainerAction").removeClass("input_error_class");
+			}
+
+			return false;
+		});
+
+		// validazione del nome dominio
+		$(document).on("change keyup", ".validatorInputDomain", function(){
+			if (check_valid_domain_name($(this).val())) {
+				// rimuovo eventuale classe di errore
+				$(this).parent(".input-group").removeClass("has-error");
+			} else {
+				// aggiungo classe di errore
+				$(this).parent(".input-group").addClass("has-error");
+			}
+
+			return false;
+		});
+
+		// tolgo le classi di errore se compilo le input richieste
+		$(document).on("change keyup", ".validatorInputName, .validatorInputBusinessName, .validatorInputBusionessInfo", function(){
+			if ($(this).val()) {
+				// rimuovo eventuale classe di errore
+				$(this).parent(".input-group").removeClass("has-error");
+			}
+
+			return false;
+		});
+
+		// validazione della mail
+		$(document).on("change keyup", ".validatorInputEmail", function(){
+			if (check_valid_email($(this).val())) {
+				// rimuovo eventuale classe di errore
+				$(this).parent(".input-group").removeClass("has-error");
+			}
 
 			return false;
 		});
@@ -451,10 +520,14 @@
 		$(".validatorInputName").parent(".input-group").removeClass("has-error");
 		$(".validatorInputEmail").parent(".input-group").removeClass("has-error");
 		$(".validatorInputDomain").parent(".input-group").removeClass("has-error");
+		$(".termOfUseContainerAction").removeClass("input_error_class");
 
 		// tema selezionato
 		if (!$(".selectedThemeModern").html() && !$(".selectedThemeClassic").html()) {
-			// alert("Seleziona un tema");
+			// TODO
+			// evidenzio in rossi i blocchi della selezione dei due temi
+			$(".temeSelectContainerAction").addClass("input_error_class");
+
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Seleziona il tema da utilizzare</span><br />';
 			returnVar = false;
 		}
@@ -463,15 +536,21 @@
 		// dominio inserito
 		if (!$(".validatorInputDomain").val()) {
 			$(".validatorInputDomain").parent(".input-group").addClass("has-error");
-			// alert("Inserisci il dominio da utilizzare");
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci il dominio da utilizzare</span><br />';
 			returnVar = false;
+		} else {
+			// il dominio è stato inserito, controllo che sia valido
+			if (!check_valid_domain_name($(".validatorInputDomain").val())) {
+				// nome dominio non valido
+				$(".validatorInputDomain").parent(".input-group").addClass("has-error");
+				errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci un nome dominio valido: almeno 3 lettere in minuscolo {a-z} e/o trattini '-'</span><br />';
+				returnVar = false;
+			}
 		}
 
 		// nome inserito
 		if (!$(".validatorInputName").val()) {
 			$(".validatorInputName").parent(".input-group").addClass("has-error");
-			// alert("Inserisci il tuo nome");
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci il tuo nome</span><br />';
 			returnVar = false;
 		}
@@ -479,23 +558,40 @@
 		// email inserita
 		if (!$(".validatorInputEmail").val()) {
 			$(".validatorInputEmail").parent(".input-group").addClass("has-error");
-			// alert("Inserisci la tua email");
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci la tua email (valida)</span><br />';
 			returnVar = false;
 		} else {
 			// la mail è inserita, faccio un controllo per verificare che sia valida
-			if (!(/^[^@]+@[^.]+\.[^.]+$/.test($(".validatorInputEmail").val()))) {
+			if (!check_valid_email($(".validatorInputEmail").val())) {
 				// mail inserita non valida
+				$(".validatorInputEmail").parent(".input-group").addClass("has-error");
 				errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci una email valida</span><br />';
 				returnVar = false;
 			}
 		}
 
+		// business name inserito
+		if (!$(".validatorInputBusinessName").val()) {
+			$(".validatorInputBusinessName").parent(".input-group").addClass("has-error");
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci il nome della tua attività</span><br />';
+			returnVar = false;
+		}
+
+
+		// informazioni extra dell'attività inserite
+		// business info inserite
+		if (!$(".validatorInputBusionessInfo").val()) {
+			$(".validatorInputBusionessInfo").parent(".input-group").addClass("has-error");
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Inserisci qualche informazione sulla tua attività</span><br />';
+			returnVar = false;
+		}
+
 		// accettazione dei termini d'uso
 		if (!$(".validatorInputTerms").is(":checked")) {
 			$(".validatorInputTerms").parent(".input-group").addClass("has-error");
-			// alert("Inserisci la tua email");
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo (vai a fondo pagina per leggerli)</span><br />';
+			// aggiunta classe di errore
+			$(".termOfUseContainerAction").addClass("input_error_class");
 			returnVar = false;
 		}
 
@@ -509,6 +605,28 @@
 			$(".modal-footer").html('<a href="#" class="btn" data-dismiss="modal">Chiudi</a>');
 
 			$(".modal").modal('show');
+		}
+
+		return returnVar;
+	}
+
+	// funzione per controllare che la mail inserita sia valida
+	function check_valid_email(inputEmail) {
+		var returnVar = false;
+
+		if (inputEmail && (/^[^@]+@[^.]+\.[^.]+$/.test(inputEmail))) {
+			returnVar = true;
+		}
+
+		return returnVar;
+	}
+
+	// funzione per controllare che il dominio sia valido
+	function check_valid_domain_name(inputDomain) {
+		var returnVar = false;
+
+		if (inputDomain && (/^[a-z\-]{3,}$/.test(inputDomain))) {
+			returnVar = true;
 		}
 
 		return returnVar;
