@@ -9,12 +9,12 @@
 {% endblock %}
 
 {# section title #}
-{% block section_title %}Il tuo sito web GRATIS*{% endblock %}
+{% block section_title %}Il tuo sito web GRATIS{% endblock %}
 
 {# section content #}
 {% block page_content %}
 	<style>
-		.want-more-main { margin: 0px; }
+		.want-more-main { margin: 0px; padding-top: 30px; }
 		.want-more-main img { width: 100%; }
 		.want-more-main-right { background-color: #F6843A; }
 		.want-more-main-left { margin: 0px; background-color: #007B80; }
@@ -24,6 +24,8 @@
 		.calendar-text { margin-left: -14px; margin-top: -15px; color: #fff!important; }
 		.features-icon { padding: 0 30px 0 0; }
 		.features-cont { display: table-cell; float: none; font-size: 14px; height: 80px; vertical-align: middle; width: 78%; }
+		.want-more-left { padding-bottom: 30px; }
+		.want-more-right { height: auto; }
 
 		.want-more-main-right-1-4, .want-more-main-right-3-4 { background-color: #D6D6D6; }
 		.want-more-main-right-2-4, .want-more-main-right-4-4 { background-color: #C1C1C1; }
@@ -61,7 +63,7 @@
 	<section class="about-main">
 		<div class="container">
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
-				<p>Un sito web, professionale, ottimizzato per tutti i dispositivi<br />GRATIS*, per la tua attività.</p>
+				<p>Un sito web professionale, ottimizzato per tutti i dispositivi,<br />GRATIS, per la tua attività.</p>
 			</div>
 			<div class="row col-content clearfix">
 				<!-- text block -->
@@ -112,7 +114,7 @@
 						<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="600">
 							<div class="features-icon"><i class="fa fa-desktop"></i></div>
 							<div class="features-cont">
-								<h6>Un template a scelta tra quelli proposti</h6>
+								<h6>Un tema a scelta tra quelli proposti</h6>
 							</div>
 						</div>
 						<!-- End: Features 03 -->
@@ -139,7 +141,7 @@
 				<!-- End: Left Container -->
 				<!-- Start: Right Container -->
 				<div class="col-md-5 want-more-left">
-					<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Come fare per averlo?</h2>
+					<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Ecco come fare</h2>
 					<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
 					<!-- Start: More Features -->
 					<div class="more-features">
@@ -165,7 +167,7 @@
 								</span>
 							</div>
 							<div class="features-cont">
-								<h6>Pensa al tuo nome dominio*</h6>
+								<h6>Pensa al tuo nome dominio</h6>
 							</div>
 						</div>
 						<!-- End: Features 02 -->
@@ -182,6 +184,19 @@
 							</div>
 						</div>
 						<!-- End: Features 03 -->
+						<!-- Start: Features 04 -->
+						<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="600">
+							<div class="features-icon">
+								<span class="fa-stack fa-3x">
+									<i class="fa fa-stack-2x"></i>
+									<strong class="fa-stack-1x calendar-text">4</strong>
+								</span>
+							</div>
+							<div class="features-cont">
+								<h6>Richiedi il tuo nuovo sito web</h6>
+							</div>
+						</div>
+						<!-- End: Features 04 -->
 					</div>
 					<!-- Start: More Features -->
 				</div>
@@ -216,16 +231,16 @@
 					</div>
 					<!-- End: Left Container -->
 					<!-- Start: Right Container -->
-					<div class="col-md-offset-1 col-md-6">
+					<div class="col-md-offset-1 col-md-6 no-gutter">
 						<div class="col-md-6">
 							<div class="thumbnail temeSelectContainerAction">
 								<img class="zoomImgAction" src="{% static "website/img/classic_example.png" %}" alt="Classico">
 								<div class="caption">
 									<h3>Classico</h3>
-									<p>Un tema semplice con un layout ben strutturato basato su 4 pagine</p>
+									<p>Un tema semplice con un layout ben strutturato basato su 4 pagine.</p>
 									<p>
 										<div class="text-center">
-											<a href="/classic/#" target="_blank" role="button">Anteprima</a>
+											<a href="http://anteprima-classico.entpy.com" target="_blank" role="button">Anteprima</a>
 										</div>
 										<div class="text-center">
 											<a href="#" class="btn btn-default selectThemeClickAction" data-theme-name="classic" role="button">Seleziona</a><span class="selectedTheme selectedThemeClassic"></span></p>
@@ -238,10 +253,10 @@
 								<img class="zoomImgAction" src="{% static "website/img/modern_example.png" %}" alt="Moderno">
 								<div class="caption">
 									<h3>Moderno</h3>
-									<p>Un tema moderno basato su una singola pagina a scorrimento verticale</p>
+									<p>Un tema moderno basato su una singola pagina a scorrimento verticale divisa in 4 sezioni.</p>
 									<p>
 										<div class="text-center">
-											<a href="/simple/" target="_blank" role="button">Anteprima</a>
+											<a href="http://anteprima-moderno.entpy.com" target="_blank" role="button">Anteprima</a>
 										</div>
 										<div class="text-center">
 											<a href="#" class="btn btn-default selectThemeClickAction" data-theme-name="modern" role="button">Seleziona</a><span class="selectedTheme selectedThemeModern"></span></p>
@@ -280,7 +295,7 @@
 							<input name="domain_name" type="text" class="form-control validatorInputDomain" placeholder="mionome *" aria-describedby="sizing-addon1" required>
 							<span class="input-group-addon">.entpy.com</span>
 						</div>
-						<p class="text-muted">Almeno 3 lettere in minuscolo {<b>a-z</b>} e/o trattini '<b>-</b>'</p>
+						<p class="text-muted">Almeno 3 lettere minuscole {<b>a-z</b>} e/o trattini '<b>-</b>'</p>
 					</div>
 					<!-- End: Right Container -->
 				</div>
@@ -321,12 +336,12 @@
 						<!-- nome attività -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input name="business_name" type="text" class="form-control validatorInputBusinessName" placeholder="Il nome della tua attività" aria-describedby="basic-addon1" required>
+							<input name="business_name" type="text" class="form-control validatorInputBusinessName" placeholder="Il nome della tua attività *" aria-describedby="basic-addon1" required>
 						</div>
 						<!-- informazioni aggiuntive -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea name="business_info" class="form-control textarea_big validatorInputBusionessInfo" placeholder="Qualche informazione aggiuntiva sulla tua attività, tipo di attività svolta, ecc..." aria-describedby="basic-addon1" required></textarea>
+							<textarea name="business_info" class="form-control textarea_big validatorInputBusionessInfo" placeholder="Qualche informazione aggiuntiva sulla tua attività, tipo di attività svolta, ecc... *" aria-describedby="basic-addon1" required></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
@@ -338,14 +353,14 @@
 				<div class="row clearfix">
 					<!-- Start: Left Container -->
 					<div class="col-md-5 want-more-left">
-						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">Richiedi il tuo nuovo sito web</h2>
+						<h2 class="animated" data-animation="fadeInUp" data-animation-delay="200">4) Richiedi il tuo nuovo sito web</h2>
 						<hr class=" animated" data-animation="fadeInUp" data-animation-delay="400">
 						<!-- Start: More Features -->
 						<div class="more-features">
 							<!-- Start: Features 01 -->
 							<div class="features-single clearfix animated" data-animation="fadeInUp" data-animation-delay="200">
 								<div class="features-cont">
-									<h6>Clicca sul pulsante "Richiedi sito" per richiedere il tuo sito GRATIS*. Verrai ricontattato/a per la fase successiva: l'invio del materiale (testi e immagini).</h6>
+									<h6>Clicca sul pulsante "Richiedi sito" per richiedere il tuo sito GRATIS. Verrai ricontattato/a per la fase successiva: l'invio del materiale (testi e immagini).</h6>
 								</div>
 							</div>
 							<!-- End: Features 01 -->
@@ -372,20 +387,6 @@
 		</section>
 	</form>
 	<!-- Want More Area End -->
-
-	<!-- Services Area Start -->
-	<section class="services-main terms_of_use" id="terms_of_use">
-		<div class="container">
-			<h4>*Termini e Condizioni dell'offerta</h4>
-			<ul class="text-left">
-				<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
-				<li>Saranno presenti dei banner e popup pubblicitari</li>
-				<li>I testi, le immagini e l'eventuale logo, dovranno essere forniti da te</li>
-				<li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
-				<li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>
-			</ul>
-		</div>
-	</section>
 {% endblock %}
 {% block extra_js %}
 <script>
@@ -401,11 +402,9 @@
 				$(".themeNameAction").val(themeName);
 			}
 
-			// TODO
 			// rimuovo la classe di errore se presente
 			$(".temeSelectContainerAction").removeClass("input_error_class");
 
-			// TODO
 			// rimuovo la classe al tema selezionato
 			$(".temeSelectContainerAction").removeClass("input_success_class");
 			// aggiungo la classe al tema selezionato
@@ -495,9 +494,9 @@
 
 	function show_terms_modal() {
 		body = '<ul class="text-left">';
+		body += '<li>Il sito web avrà dei banner e/o popup pubblicitari</li>';
 		body += '<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>';
-		body += '<li>Saranno presenti dei banner e popup pubblicitari</li>';
-		body += '<li>I testi, le immagini e l\'eventuale logo, dovranno essere forniti da te</li>';
+		body += '<li>I testi, le immagini e l\'eventuale logo, dovranno essere forniti dal richiedente del servizio</li>';
 		body += '<li>E\' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>';
 		body += '<li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>';
 		body += '</ul>';
@@ -524,14 +523,12 @@
 
 		// tema selezionato
 		if (!$(".selectedThemeModern").html() && !$(".selectedThemeClassic").html()) {
-			// TODO
 			// evidenzio in rossi i blocchi della selezione dei due temi
 			$(".temeSelectContainerAction").addClass("input_error_class");
 
 			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Seleziona il tema da utilizzare</span><br />';
 			returnVar = false;
 		}
-
 
 		// dominio inserito
 		if (!$(".validatorInputDomain").val()) {
@@ -589,7 +586,7 @@
 		// accettazione dei termini d'uso
 		if (!$(".validatorInputTerms").is(":checked")) {
 			$(".validatorInputTerms").parent(".input-group").addClass("has-error");
-			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo (vai a fondo pagina per leggerli)</span><br />';
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo (clicca sul link "Termini di utilizzo" per leggerli)</span><br />';
 			// aggiunta classe di errore
 			$(".termOfUseContainerAction").addClass("input_error_class");
 			returnVar = false;

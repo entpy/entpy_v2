@@ -219,7 +219,8 @@ class WebsitePreferences(models.Model):
     id_website_preference = models.AutoField(primary_key=True)
     key = models.ForeignKey(WebsitePreferenceKeys)
     val = models.CharField(max_length=200)
-    site = models.OneToOneField(Site, related_name='site_preferences')
+    # site = models.OneToOneField(Site, related_name='site_preferences')
+    site = models.ForeignKey(Site, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Preferenza sito"
@@ -232,3 +233,19 @@ class WebsitePreferences(models.Model):
     def get_preferences_about_site(self, site_domain):
         """Function to retrieve all preferences about a site"""
         return dict(WebsitePreferences.objects.filter(site__domain=site_domain).values_list('key__name','val'))
+
+# classe per estendere il Framweork Site di Django
+class CustomSite(models.Model):
+    creation_date = models.DateTimeField(auto_now_add=True)
+    expiring_date = models.DateTimeField()
+    site_status =  models.IntegerField(default=0) # 0 in prova (DEFAULT), 1 a pagamento
+    site = models.OneToOneField(Site, related_name='customsite', on_delete=models.CASCADE)
+
+    # On Python 3: def __str__(self):
+    def __unicode__(self):
+        return 'Customsite of ' + str(self.site.name)
+
+    # TODO
+    # all'inserimento in questa tabella:
+    # - se site_status non settato o nullo => mettere 'expiring_date' adesso + 1 anno (sito gratis che scade tra 1 anno)
+    # - se site_status = 1 => mettere 'expiring_date' a NULL (sito a pagamento senza scadenza)
