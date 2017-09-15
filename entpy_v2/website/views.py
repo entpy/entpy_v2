@@ -127,13 +127,13 @@ def l_www_landing1(request):
             subject=subject,
             body=txt_message,
             from_email=project_constants.TO_EMAIL,
-            to=[project_constants.NO_REPLY_EMAIL],
+            to=[project_constants.TO_EMAIL],
             reply_to=[user_email],
         )
         msg.attach_alternative(html_message, "text/html")
         send_status = msg.send()
 
-        messages.add_message(request, messages.SUCCESS, '<i class="fa fa-smile-o" aria-hidden="true"></i> Grazie per aver richiesto il sito, verrai ricontattato/a il prima possibile all\'indirizzo email fornito!')
+        messages.add_message(request, messages.SUCCESS, '<i class=\'fa fa-smile-o\' aria-hidden=\'true\'></i> Grazie per aver richiesto il sito web, verrai ricontattato/a il prima possibile all\'indirizzo email fornito!')
 	return HttpResponseRedirect("/sito-web-gratis")
 
     return render(request, 'website/l/www_landing1.html')

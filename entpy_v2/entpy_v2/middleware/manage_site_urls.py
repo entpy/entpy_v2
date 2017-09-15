@@ -5,7 +5,9 @@ from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import set_urlconf
+from django.utils import timezone
 from website_data.models import WebsitePreferences
+from django.contrib.sites.models import Site
 import logging
 
 # Get an instance of a logger
@@ -20,7 +22,9 @@ class ManageSiteUrls(object):
             # non ho settato un SITE_ID nelle preferenze, mi baso esclusivamente
             # sul nome dominio, infatti nella tabella site DEVE essere settata una riga per questo dominio
             current_site = get_current_site(request)
-            logger.info("site found with domain: " + str(current_site))
+            Site.objects.clear_cache()
+            logger.info("site found with domain: " + str(current_site.id))
+            logger.info("site expiring date: " + str(current_site.customsite.expiring_date))
 
             # prelevo tutte le chiavi del dominio trovato
             WebsitePreferences_obj = WebsitePreferences()
@@ -37,8 +41,14 @@ class ManageSiteUrls(object):
             # scritto in settings.py
 
             if (website_preferences_dict.get("root_urlconf") == "classic" or website_preferences_dict.get("root_urlconf") == "simple") and current_url_path != "/ajax/":
-                # il sito è attivo ed utilizza le app 'classic' o 'simple'
-                request.urlconf = str(website_preferences_dict.get("root_urlconf")) + ".urls"
+                # il sito ha un tema settato 'classic' o 'simple'
+                # TODO: controllo se il sito è attivo e non scaduto oppure se è a pagamento
+                # settare le preferenze in CustomSite (expiring_date e site_status)
+                if not current_site.customsite.site_status and timezone.now().date() > current_site.customsite.expiring_date:
+                    # sito scaduto e non a pagamento
+                    pass
+                else:
+                    request.urlconf = str(website_preferences_dict.get("root_urlconf")) + ".urls"
             else:
                 # ROOT_URLCONF di default, (sto visitando entpy.com oppure un
                 # sito è scaduto e redirigo qui, oppure chiamata /ajax/)

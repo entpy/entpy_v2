@@ -77,9 +77,28 @@ class WebsiteDataAdmin(admin.ModelAdmin):
 
         return render(request, 'admin/custom_view/create_defaults.html', context)
 
+#class SiteInline(admin.StackedInline):
+#    model = Site
+class WebsitePreferencesInstanceInline(admin.StackedInline):
+    model = WebsitePreferences
+
+# Define a new Site admin
+class SiteAdmin(admin.ModelAdmin):
+    # list_display = ('domain',)
+    list_filter = ('domain', 'name')
+    # fields = ['domain',]
+    inlines = [WebsitePreferencesInstanceInline]
+
+class CustomSiteAdmin(admin.ModelAdmin):
+    pass
+
 # Register your models here.
 admin.site.register(Themes)
 admin.site.register(ThemeKeys)
 admin.site.register(WebsitePreferences)
 admin.site.register(WebsitePreferenceKeys)
 admin.site.register(WebsiteData, WebsiteDataAdmin)
+admin.site.register(CustomSite, CustomSiteAdmin)
+
+admin.site.unregister(Site)
+admin.site.register(Site, SiteAdmin)
