@@ -85,10 +85,18 @@ def send_info_email(request):
 def l_www_landing1(request):
     """Landing page1: sito web gratis"""
 
+    # TODO
+    """
+        salvare i dati in db
+        mandare una mail di conferma al merchant
+        inserire il merchant in una serie di email (con mailchimp per esempio)
+    """
+
     if request.method == "POST" and request.POST.get("user_email"):
         # retrieve email data
         user_name = request.POST.get("user_name", "-")
         user_email = request.POST.get("user_email", "-")
+        user_phone = request.POST.get("user_phone", "-")
         domain_name = request.POST.get("domain_name", "-")
         theme_name = request.POST.get("theme_name", "-")
         business_name = request.POST.get("business_name", "-")

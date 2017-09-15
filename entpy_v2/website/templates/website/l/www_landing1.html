@@ -9,7 +9,8 @@
 {% endblock %}
 
 {# section title #}
-{% block section_title %}Il tuo sito web GRATIS*{% endblock %}
+{# {% block section_title %}Il tuo sito web GRATIS*{% endblock %} #}
+{% block base3_title %}{% endblock %}
 
 {# section content #}
 {% block page_content %}
@@ -37,13 +38,13 @@
 		.input-group-addon { min-width: 60px; }
 		.textarea_big { min-height: 200px; resize: none; }
 		.terms_of_use { padding-bottom: 100px; }
-		.tersm_of_user_label { color: #444; }
+		.tersm_of_user_label { color: #444; font-weight: bold!important; }
 		.btn-xlg { font-size: 22px; padding: 16px 45px; }
 
 		/* stile della modal errori form */
 		.error_span i { margin-right: 5px; color: red; }
 		.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"], .radio input[type="radio"], .radio-inline input[type="radio"] { float: none;  margin-left: 0px; margin-right: 5px; }
-		.term_of_use_container { padding: 10px; }
+		.term_of_use_container { padding: 10px; text-align: center; }
 		.input_error_class { background-color: #FF9B9B; }
 		.input_success_class { background-color: #C3FF87; }
 		.has-error .input-group-addon { background-color: #FF9B9B; }
@@ -60,6 +61,9 @@
 	<!-- About Area Start -->
 	<section class="about-main">
 		<div class="container">
+			<div class="text-center">
+				<h1>Il tuo sito web GRATIS*</h1>
+			</div>
 			<div class="medium-txt animated" data-animation="fadeInUp" data-animation-delay="200">
 				<p>Un sito web, professionale, ottimizzato per tutti i dispositivi<br />GRATIS*, per la tua attività.</p>
 			</div>
@@ -318,15 +322,20 @@
 							<span class="input-group-addon"><i class="fa fa-at" aria-hidden="true"></i></span>
 							<input name="user_email" type="email" class="form-control validatorInputEmail" placeholder="La tua email *" aria-describedby="basic-addon1" required>
 						</div>
+						<!-- numero di telefono -->
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+							<input name="user_phone" type="tel" class="form-control" placeholder="Il tuo numero di telefono" aria-describedby="basic-addon1">
+						</div>
 						<!-- nome attività -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-							<input name="business_name" type="text" class="form-control validatorInputBusinessName" placeholder="Il nome della tua attività" aria-describedby="basic-addon1" required>
+							<input name="business_name" type="text" class="form-control validatorInputBusinessName" placeholder="Il nome della tua attività *" aria-describedby="basic-addon1" required>
 						</div>
 						<!-- informazioni aggiuntive -->
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon"><i class="fa fa-edit" aria-hidden="true"></i></span>
-							<textarea name="business_info" class="form-control textarea_big validatorInputBusionessInfo" placeholder="Qualche informazione aggiuntiva sulla tua attività, tipo di attività svolta, ecc..." aria-describedby="basic-addon1" required></textarea>
+							<textarea name="business_info" class="form-control textarea_big validatorInputBusionessInfo" placeholder="Qualche informazione aggiuntiva sulla tua attività, tipo di attività svolta, ecc... *" aria-describedby="basic-addon1" required></textarea>
 						</div>
 					</div>
 					<!-- End: Right Container -->
@@ -354,7 +363,7 @@
 					</div>
 					<!-- End: Left Container -->
 					<!-- Start: Right Container -->
-					<div class="col-md-offset-2 col-md-5">
+					<div class="col-md-offset-1 col-md-6">
 						<div class="form-group">
 							<div class="col-ms-12 text-center">
 								<button type="submit" class="btn btn-primary btn-lg btnFormSubmitAction">Richiedi sito</button>
@@ -372,20 +381,6 @@
 		</section>
 	</form>
 	<!-- Want More Area End -->
-
-	<!-- Services Area Start -->
-	<section class="services-main terms_of_use" id="terms_of_use">
-		<div class="container">
-			<h4>*Termini e Condizioni dell'offerta</h4>
-			<ul class="text-left">
-				<li>Il sito web ha la durata di 1 anno, oltre la quale occorrerà pagare una tantum per mantenerlo online e per rimuvere i banner pubblicitari</li>
-				<li>Saranno presenti dei banner e popup pubblicitari</li>
-				<li>I testi, le immagini e l'eventuale logo, dovranno essere forniti da te</li>
-				<li>E' possibile sospendere e interrompere il servizio in qualsiasi momento, senza clausole o costi da pagare, è completamente gratuito e libero da vincoli</li>
-				<li>Ci riserviamo il diritto di sospendere e/o interrompere il servizio senza preavviso qualora la condizione lo richiedesse</li>
-			</ul>
-		</div>
-	</section>
 {% endblock %}
 {% block extra_js %}
 <script>
@@ -401,11 +396,9 @@
 				$(".themeNameAction").val(themeName);
 			}
 
-			// TODO
 			// rimuovo la classe di errore se presente
 			$(".temeSelectContainerAction").removeClass("input_error_class");
 
-			// TODO
 			// rimuovo la classe al tema selezionato
 			$(".temeSelectContainerAction").removeClass("input_success_class");
 			// aggiungo la classe al tema selezionato
@@ -524,7 +517,6 @@
 
 		// tema selezionato
 		if (!$(".selectedThemeModern").html() && !$(".selectedThemeClassic").html()) {
-			// TODO
 			// evidenzio in rossi i blocchi della selezione dei due temi
 			$(".temeSelectContainerAction").addClass("input_error_class");
 
@@ -589,7 +581,7 @@
 		// accettazione dei termini d'uso
 		if (!$(".validatorInputTerms").is(":checked")) {
 			$(".validatorInputTerms").parent(".input-group").addClass("has-error");
-			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo (vai a fondo pagina per leggerli)</span><br />';
+			errorMsg += '<span class="error_span"><i class="fa fa-hand-o-right" aria-hidden="true"></i>Accetta i Termini di Utilizzo</span><br />';
 			// aggiunta classe di errore
 			$(".termOfUseContainerAction").addClass("input_error_class");
 			returnVar = false;
