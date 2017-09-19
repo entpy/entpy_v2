@@ -8093,10 +8093,10 @@ a.nav-order-btn, a.nav-order-btn:hover {
     display: inline-table;
 }
 .social-footer li a {
-    color: rgba(251, 251, 251, .2);
+    color: white;
 }
 .social-footer li a:hover {
-    color: rgba(251, 251, 251, .5);
+    color: white;
 }
 .big-txt-cont, .pg-sin-logo, .small-txt-cont {
     color: #fff;

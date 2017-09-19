@@ -16,15 +16,16 @@ class WebsiteDataAdmin(admin.ModelAdmin):
     def get_urls(self):
         urls = super(WebsiteDataAdmin, self).get_urls()
         my_urls = [
-            url(r'^edit-site/(?:(?P<site_id>\d+)/)$', self.admin_site.admin_view(self.edit_site)),
+            # url(r'^edit-site/(?:(?P<site_id>\d+)/)$', self.admin_site.admin_view(self.edit_site)),
             url(r'^create-defaults/$', self.admin_site.admin_view(self.create_defaults)),
         ]
 
         # return custom URLs with default URLs
         return my_urls + urls
 
+    """
     def edit_site(self, request, site_id):
-        """Function to select a site to edit"""
+        ""Function to select a site to edit""
 
         WebsiteData_obj = WebsiteData()
         Site_obj = Site.objects.get(pk=site_id)
@@ -56,6 +57,7 @@ class WebsiteDataAdmin(admin.ModelAdmin):
         }
 
         return render(request, 'admin/custom_view/edit_site.html', context)
+    """
 
     def create_defaults(self, request):
         """Function to create default keys and themes"""
@@ -77,28 +79,37 @@ class WebsiteDataAdmin(admin.ModelAdmin):
 
         return render(request, 'admin/custom_view/create_defaults.html', context)
 
-#class SiteInline(admin.StackedInline):
-#    model = Site
-class WebsitePreferencesInstanceInline(admin.StackedInline):
+    def get_model_perms(self, request):
+        """
+        https://stackoverflow.com/questions/2431727/django-admin-hide-a-model
+
+        Return empty perms dict thus hiding the model from admin index.
+        Per far funzionare le custom view dell'app website_data ma nascondendo
+        tutti i modelli, in questo modo gli url funzionano ma nell'admin non si
+        vede nessun modello da modificare/aggiungere.
+        """
+        return {}
+
+class CustomSiteInstanceInline(admin.StackedInline):
+    model = CustomSites
+
+class WebsitePreferencesInstanceInline(admin.TabularInline):
     model = WebsitePreferences
 
 # Define a new Site admin
 class SiteAdmin(admin.ModelAdmin):
-    # list_display = ('domain',)
     list_filter = ('domain', 'name')
-    # fields = ['domain',]
-    inlines = [WebsitePreferencesInstanceInline]
+    inlines = [CustomSiteInstanceInline, WebsitePreferencesInstanceInline]
 
-class CustomSiteAdmin(admin.ModelAdmin):
-    pass
-
-# Register your models here.
+# TODO: pagine aggiuntive per l'admin (da usare solo per debug o manutenzione)
+"""
 admin.site.register(Themes)
 admin.site.register(ThemeKeys)
 admin.site.register(WebsitePreferences)
 admin.site.register(WebsitePreferenceKeys)
-admin.site.register(WebsiteData, WebsiteDataAdmin)
-admin.site.register(CustomSite, CustomSiteAdmin)
+admin.site.register(CustomSites)
+"""
 
 admin.site.unregister(Site)
 admin.site.register(Site, SiteAdmin)
+admin.site.register(WebsiteData, WebsiteDataAdmin)

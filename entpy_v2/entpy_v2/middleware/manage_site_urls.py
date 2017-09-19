@@ -43,8 +43,8 @@ class ManageSiteUrls(object):
             if (website_preferences_dict.get("root_urlconf") == "classic" or website_preferences_dict.get("root_urlconf") == "simple") and current_url_path != "/ajax/":
                 # il sito ha un tema settato 'classic' o 'simple'
                 # TODO: controllo se il sito è attivo e non scaduto oppure se è a pagamento
-                # settare le preferenze in CustomSite (expiring_date e site_status)
-                if not current_site.customsite.site_status and timezone.now().date() > current_site.customsite.expiring_date:
+                # settare le preferenze in CustomSites (expiring_date e site_status)
+                if not current_site.customsite.site_status and (not current_site.customsite.expiring_date or timezone.now().date() > current_site.customsite.expiring_date):
                     # sito scaduto e non a pagamento
                     pass
                 else:
